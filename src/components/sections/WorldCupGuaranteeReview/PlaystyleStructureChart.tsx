@@ -117,7 +117,7 @@ export const PlaystyleStructureChart = () => {
                         width={85}
                         tick={{
                           fill: "#0f172a",
-                          fontSize: 12,
+                          fontSize: 13,
                           fontWeight: "900",
                         }}
                       />
@@ -187,7 +187,7 @@ export const PlaystyleStructureChart = () => {
                         width={85}
                         tick={{
                           fill: "#0f172a",
-                          fontSize: 12,
+                          fontSize: 13,
                           fontWeight: "900",
                         }}
                       />

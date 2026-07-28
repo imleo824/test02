@@ -46,7 +46,7 @@ const systemMetricsData = [
 
 export const SystemAuditMetricsChart: React.FC = () => {
   return (
-    <div className="bg-white border border-slate-300 rounded-xl p-6 space-y-5 shadow-sm">
+    <div className="report-card p-6 space-y-5">
       {/* 头部标题与单位 */}
       <div className="flex items-center justify-between border-b border-slate-300 pb-3">
         <div className="flex items-center gap-2">
@@ -108,20 +108,20 @@ export const SystemAuditMetricsChart: React.FC = () => {
             />
             <YAxis
               stroke="#0f172a"
-              tick={{ fill: "#0f172a", fontWeight: 800 }}
+              tick={{ fill: "#0f172a", fontWeight: 800, fontSize: 13 }}
               tickFormatter={(val) => `${val}%`}
               domain={[0, 70]}
               ticks={[0, 10, 20, 30, 40, 50, 60, 70]}
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: "#0f172a",
-                color: "#ffffff",
-                borderRadius: "8px",
-                border: "none",
+                backgroundColor: "#ffffff",
+                color: "#0f172a",
+                borderRadius: "4px",
+                border: "1px solid #d7dee8",
                 fontWeight: "bold",
               }}
-              itemStyle={{ color: "#ffffff" }}
+              itemStyle={{ color: "#0f172a" }}
               formatter={(value: any, name: any) => [`${value}%`, name]}
             />
             <Legend
@@ -142,13 +142,13 @@ export const SystemAuditMetricsChart: React.FC = () => {
               <LabelList
                 dataKey="召回率标签"
                 position="top"
-                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 12 }}
+                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 13 }}
               />
             </Bar>
             {/* 准确率 柱子 */}
             <Bar
               dataKey="准确率"
-              fill="#3b82f6"
+              fill="#1d4e89"
               name="系统准确率"
               isAnimationActive={false}
               radius={[4, 4, 0, 0]}
@@ -156,7 +156,7 @@ export const SystemAuditMetricsChart: React.FC = () => {
               <LabelList
                 dataKey="准确率标签"
                 position="top"
-                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 12 }}
+                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 13 }}
               />
             </Bar>
           </BarChart>

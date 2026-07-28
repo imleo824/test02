@@ -852,9 +852,9 @@ export const MatchVolumeRateChart = ({
                           <Tooltip 
                             cursor={{ fill: '#f8fafc' }}
                             contentStyle={{ 
-                              borderRadius: '8px', 
-                              border: '1px solid #e2e8f0',
-                              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                              borderRadius: '4px', 
+                              border: '1px solid #d7dee8',
+                              boxShadow: 'none',
                               fontSize: '14px',
                               fontWeight: 'bold'
                             }}
@@ -865,16 +865,16 @@ export const MatchVolumeRateChart = ({
                           />
                           <Bar 
                             dataKey="count" 
-                            fill="#3b82f6" 
+                            fill="#1d4e89" 
                             radius={[6, 6, 0, 0]} 
                             barSize={42}
                             isAnimationActive={false}
                           >
-                            <Cell fill="#3b82f6" />
-                            <Cell fill="#2563eb" />
-                            <Cell fill="#3b82f6" />
-                            <Cell fill="#3b82f6" />
-                            <Cell fill="#1d4ed8" />
+                            <Cell fill="#1d4e89" />
+                            <Cell fill="#1d4e89" />
+                            <Cell fill="#1d4e89" />
+                            <Cell fill="#1d4e89" />
+                            <Cell fill="#1d4e89" />
                             <Cell fill="#1e293b" />
                             <Cell fill="#1e293b" />
                             <LabelList 

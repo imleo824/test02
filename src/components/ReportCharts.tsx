@@ -24,7 +24,7 @@ const interceptData = [
 const colors = [
   "#0f172a",
   "#1e293b",
-  "#1e40af",
+  "#1d4e89",
   "#334155",
   "#475569",
   "#64748b",
@@ -33,7 +33,7 @@ const colors = [
 
 export const InterceptTypeBarChart: React.FC = () => {
   return (
-    <div className="h-full w-full bg-white rounded-2xl border border-slate-200 p-4">
+    <div className="h-full w-full report-card p-4">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={interceptData}
@@ -56,7 +56,7 @@ export const InterceptTypeBarChart: React.FC = () => {
             axisLine={false}
             tickLine={false}
             tick={{
-              fontSize: 12,
+              fontSize: 13,
               fill: "#0f172a",
               fontWeight: 800,
               fontFamily: "monospace",
@@ -65,11 +65,11 @@ export const InterceptTypeBarChart: React.FC = () => {
           />
           <Tooltip
             contentStyle={{
-              borderRadius: "10px",
-              border: "1.5px solid #0f172a",
+              borderRadius: "4px",
+              border: "1px solid #d7dee8",
               backgroundColor: "#ffffff",
               padding: "12px",
-              boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+              boxShadow: "none",
               color: "#0f172a",
             }}
             itemStyle={{ fontWeight: 800, fontSize: "13px", color: "#0f172a" }}
@@ -116,4 +116,3 @@ export const InterceptTypeBarChart: React.FC = () => {
     </div>
   );
 };
-

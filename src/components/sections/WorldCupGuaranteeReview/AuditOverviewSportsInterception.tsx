@@ -219,11 +219,11 @@ export const AuditOverviewSportsInterception: React.FC = () => {
           <div className="h-64 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={siteSlData} margin={{ top: 25, right: 30, left: 0, bottom: 0 }}>
-                <XAxis dataKey="quarter" tick={{ fill: "#0f172a", fontSize: 12, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
+                <XAxis dataKey="quarter" tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
                 <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={{ fill: "#0f172a", fontSize: 11 }} axisLine={false} tickLine={false} />
                 <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={{ fill: "#0f172a", fontSize: 11 }} axisLine={false} tickLine={false} />
-                <Bar yAxisId="left" dataKey="b_sys" fill="#2563eb" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#1e3a8a", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="y_sys" fill="#60a5fa" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#1d4ed8", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="b_sys" fill="#1d4e89" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#1e3a8a", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="y_sys" fill="#8aa6c8" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#1d4e89", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="bw_sys" fill="#1e293b" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#0f172a", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
                 <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="#0f172a" strokeWidth={3} isAnimationActive={false} dot={{ r: 5, fill: "#0f172a" }} label={({ x, y, index }) => (
                   <g>
@@ -255,11 +255,11 @@ export const AuditOverviewSportsInterception: React.FC = () => {
           <div className="h-64 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={venueSlData} margin={{ top: 25, right: 30, left: 0, bottom: 0 }}>
-                <XAxis dataKey="quarter" tick={{ fill: "#0f172a", fontSize: 12, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
+                <XAxis dataKey="quarter" tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
                 <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={{ fill: "#0f172a", fontSize: 11 }} axisLine={false} tickLine={false} />
                 <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={{ fill: "#0f172a", fontSize: 11 }} axisLine={false} tickLine={false} />
-                <Bar yAxisId="left" dataKey="im_venue" fill="#2563eb" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#1e3a8a", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="title_venue" fill="#60a5fa" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#1d4ed8", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="im_venue" fill="#1d4e89" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#1e3a8a", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="title_venue" fill="#8aa6c8" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#1d4e89", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="panda_venue" fill="#1e293b" barSize={24} radius={[2, 2, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#0f172a", fontSize: 10, fontWeight: "bold", formatter: (v: any) => `${v}%` }} />
                 <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="#0f172a" strokeWidth={3} isAnimationActive={false} dot={{ r: 5, fill: "#0f172a" }} label={({ x, y, index }) => (
                   <g>

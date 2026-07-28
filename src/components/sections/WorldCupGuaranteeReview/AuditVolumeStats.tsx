@@ -199,7 +199,7 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
               dataKey="date" 
               axisLine={{ stroke: '#475569', strokeWidth: 1.5 }}
               tickLine={false}
-              tick={{ fill: '#0f172a', fontSize: 12, fontWeight: 900 }}
+              tick={{ fill: '#0f172a', fontSize: 13, fontWeight: 900 }}
               minTickGap={20}
               dy={10}
             />
@@ -207,7 +207,7 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
               yAxisId="left"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#0f172a', fontSize: 12, fontWeight: 900 }}
+              tick={{ fill: '#0f172a', fontSize: 13, fontWeight: 900 }}
               tickFormatter={(val) => val >= 1000 ? `${(val/1000).toFixed(0)}k` : val}
               dx={-5}
             />
@@ -216,7 +216,7 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
               orientation="right"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#b45309', fontSize: 12, fontWeight: 900 }}
+              tick={{ fill: '#b45309', fontSize: 13, fontWeight: 900 }}
               tickFormatter={(val) => `${val}%`}
               domain={[0, 40]}
               dx={5}
@@ -269,7 +269,7 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
               dataKey="system"
               name="系统单量"
               stackId="a"
-              fill="#1e40af"
+              fill="#1d4e89"
               radius={[0, 0, 0, 0]}
               barSize={24}
               isAnimationActive={false}

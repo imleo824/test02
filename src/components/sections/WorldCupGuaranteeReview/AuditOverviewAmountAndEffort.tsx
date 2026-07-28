@@ -57,9 +57,9 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
           <div className="h-64 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={amountData} margin={{ top: 25, right: 10, left: -20, bottom: 0 }}>
-                <XAxis dataKey="month" tick={{ fill: "#0f172a", fontSize: 12, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
+                <XAxis dataKey="month" tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
                 <YAxis hide domain={[0, 1.4]} />
-                <Bar dataKey="amount" fill="#2563eb" radius={[4, 4, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#0f172a", fontSize: 12, fontWeight: "900" }} />
+                <Bar dataKey="amount" fill="#1d4e89" radius={[4, 4, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#0f172a", fontSize: 13, fontWeight: "900" }} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -76,13 +76,13 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
           <div className="h-64 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={effortData} margin={{ top: 25, right: 10, left: -20, bottom: 0 }}>
-                <XAxis dataKey="month" tick={{ fill: "#0f172a", fontSize: 12, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
+                <XAxis dataKey="month" tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
                 <YAxis yAxisId="volume" hide domain={[0, 900]} />
                 <YAxis yAxisId="duration" hide domain={[0, 11]} />
                 <Bar
                   yAxisId="volume"
                   dataKey="volume"
-                  fill="#3b82f6"
+                  fill="#1d4e89"
                   radius={[4, 4, 0, 0]}
                   isAnimationActive={false}
                   label={{ position: "insideTop", fill: "#0f172a", fontSize: 11, fontWeight: "800", dy: 10 }}

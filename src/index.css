@@ -275,8 +275,7 @@
   }
 
   .report-shell .bg-blue-600,
-  .report-shell .bg-blue-700,
-  .report-shell [class*="bg-blue-600"] {
+  .report-shell .bg-blue-700 {
     background-color: var(--report-blue) !important;
     color: #ffffff !important;
   }

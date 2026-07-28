@@ -135,8 +135,8 @@ export const SmartDispatchOrderStructure: React.FC = () => {
             />
 
             <Tooltip 
-              contentStyle={{ backgroundColor: "#0f172a", color: "#ffffff", borderRadius: "8px", border: "none", fontWeight: "bold" }}
-              itemStyle={{ color: "#ffffff" }}
+              contentStyle={{ backgroundColor: "#ffffff", color: "#0f172a", borderRadius: "4px", border: "1px solid #d7dee8", fontWeight: "bold" }}
+              itemStyle={{ color: "#0f172a" }}
               formatter={(value: any, name: any, item: any) => {
                 if (name.includes("质量")) {
                   return [`${value}%`, name];
@@ -172,7 +172,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 style={{ fill: "#0f172a", fontWeight: 800, fontSize: 11 }} 
               />
             </Bar>
-            <Bar yAxisId="left" dataKey="外包单量" fill="#3b82f6" name="外包审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+            <Bar yAxisId="left" dataKey="外包单量" fill="#1d4e89" name="外包审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
               <LabelList 
                 dataKey="外包标签" 
                 position="top" 
@@ -229,7 +229,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               strokeWidth={0} 
               legendType="circle"
               name="外包质量" 
-              dot={{ r: 5, fill: "#3b82f6", strokeWidth: 2, stroke: "#ffffff" }} 
+              dot={{ r: 5, fill: "#1d4e89", strokeWidth: 2, stroke: "#ffffff" }} 
               isAnimationActive={false}
               transform="translate(36, 0)"
             >

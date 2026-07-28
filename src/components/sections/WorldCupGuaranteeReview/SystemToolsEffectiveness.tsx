@@ -47,7 +47,7 @@ export const SystemToolsEffectiveness: React.FC = () => {
               tickLine={false}
               tick={{
                 fill: "#0f172a",
-                fontSize: 12,
+                fontSize: 13,
                 fontWeight: 800,
                 fontFamily: "monospace",
               }}
@@ -64,7 +64,7 @@ export const SystemToolsEffectiveness: React.FC = () => {
               {data.map((_, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={["#1d4ed8", "#3b82f6", "#0f172a", "#60a5fa"][index % 4]}
+                  fill={["#1d4e89", "#1d4e89", "#0f172a", "#8aa6c8"][index % 4]}
                 />
               ))}
               <LabelList

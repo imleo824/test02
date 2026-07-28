@@ -97,8 +97,8 @@ export const FrontRiskControlSection: React.FC = () => {
                 tickFormatter={(val) => `${val}%`}
               />
               <Tooltip 
-                contentStyle={{ backgroundColor: "#0f172a", color: "#ffffff", borderRadius: "8px", border: "none", fontWeight: "bold" }}
-                itemStyle={{ color: "#ffffff" }}
+                contentStyle={{ backgroundColor: "#ffffff", color: "#0f172a", borderRadius: "4px", border: "1px solid #d7dee8", fontWeight: "bold" }}
+                itemStyle={{ color: "#0f172a" }}
                 formatter={(value: any, name: any) => {
                   if (name === "提款有标率(%)") {
                     return [`${value}%`, name];
@@ -112,15 +112,15 @@ export const FrontRiskControlSection: React.FC = () => {
                   dataKey="总人工订单" 
                   position="top" 
                   formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}万`}
-                  style={{ fill: "#0f172a", fontWeight: 800, fontSize: 12 }} 
+                  style={{ fill: "#0f172a", fontWeight: 800, fontSize: 13 }} 
                 />
               </Bar>
-              <Bar yAxisId="left" dataKey="总有标订单" fill="#3b82f6" name="总有标订单" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+              <Bar yAxisId="left" dataKey="总有标订单" fill="#1d4e89" name="总有标订单" radius={[4, 4, 0, 0]} isAnimationActive={false}>
                 <LabelList 
                   dataKey="总有标订单" 
                   position="top" 
                   formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}万`}
-                  style={{ fill: "#334155", fontWeight: 800, fontSize: 12 }} 
+                  style={{ fill: "#334155", fontWeight: 800, fontSize: 13 }} 
                 />
               </Bar>
               <Line 

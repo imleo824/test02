@@ -130,13 +130,13 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
 
             <Tooltip
               contentStyle={{
-                backgroundColor: "#0f172a",
-                color: "#ffffff",
-                borderRadius: "8px",
-                border: "none",
+                backgroundColor: "#ffffff",
+                color: "#0f172a",
+                borderRadius: "4px",
+                border: "1px solid #d7dee8",
                 fontWeight: "bold",
               }}
-              itemStyle={{ color: "#ffffff" }}
+              itemStyle={{ color: "#0f172a" }}
               formatter={(value: any, name: any, item: any) => {
                 const payload = item?.payload;
                 let monthly = "";
@@ -173,7 +173,7 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
             {/* 柱状图：外包人员人均效率 */}
             <Bar
               dataKey="外包人员效率"
-              fill="#2563eb"
+              fill="#1d4e89"
               name="外包人均效率"
               radius={[4, 4, 0, 0]}
               isAnimationActive={false}
