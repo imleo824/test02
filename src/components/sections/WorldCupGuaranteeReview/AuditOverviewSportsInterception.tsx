@@ -12,6 +12,17 @@ import {
 } from "./chartStyles";
 
 export const AuditOverviewSportsInterception: React.FC = () => {
+  const renderComboLabel =
+    (data: { comboLabel: string }[]) =>
+    ({ x, y, index }: any) => (
+      <g>
+        <rect x={x - 28} y={y - 48} width="56" height="24" rx="3" fill={chartColors.ink} />
+        <text x={x} y={y - 32} fill="#ffffff" fontSize={14} fontWeight="black" textAnchor="middle">
+          {data[index].comboLabel}
+        </text>
+      </g>
+    );
+
   // Chart 1: 整体系别杀率对比
   const siteSlData = [
     {
@@ -234,14 +245,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 <Bar yAxisId="left" dataKey="b_sys" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="y_sys" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="bw_sys" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
-                  <g>
-                    <rect x={x - 22} y={y - 44} width="44" height="18" rx="3" fill={chartColors.ink} />
-                    <text x={x} y={y - 32} fill="#ffffff" fontSize={14} fontWeight="black" textAnchor="middle">
-                      {siteSlData[index].comboLabel}
-                    </text>
-                  </g>
-                )} />
+                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={false} activeDot={false} label={renderComboLabel(siteSlData)} />
               </ComposedChart>
             </ResponsiveContainer>
           </div>
@@ -270,14 +274,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 <Bar yAxisId="left" dataKey="im_venue" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="title_venue" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="panda_venue" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
-                  <g>
-                    <rect x={x - 22} y={y - 44} width="44" height="18" rx="3" fill={chartColors.ink} />
-                    <text x={x} y={y - 32} fill="#ffffff" fontSize={14} fontWeight="black" textAnchor="middle">
-                      {venueSlData[index].comboLabel}
-                    </text>
-                  </g>
-                )} />
+                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={false} activeDot={false} label={renderComboLabel(venueSlData)} />
               </ComposedChart>
             </ResponsiveContainer>
           </div>

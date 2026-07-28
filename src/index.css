@@ -110,7 +110,7 @@
 
   .report-note {
     background: #ffffff;
-    border-left: 4px solid var(--report-blue);
+    border-left: 4px solid #8fa9c8;
     border-top: 0;
     border-right: 0;
     border-bottom: 1px solid var(--report-line);
