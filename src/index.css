@@ -212,7 +212,7 @@
 
   .report-status-card {
     background: #ffffff;
-    border-top: 3px solid var(--report-ink);
+    border-top: 1px solid var(--report-ink);
     border-right: 1px solid var(--report-line);
     border-bottom: 1px solid var(--report-line);
     border-left: 1px solid var(--report-line);
@@ -221,12 +221,12 @@
   }
 
   .report-status-segment {
-    min-height: 190px;
-    padding: 22px 24px;
+    min-height: 170px;
+    padding: 18px 20px;
     border-right: 1px solid var(--report-line);
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
   }
 
   .report-status-segment:last-child {
@@ -245,8 +245,8 @@
 
   .report-status-heading::before {
     content: "";
-    width: 3px;
-    height: 20px;
+    width: 2px;
+    height: 18px;
     background: var(--report-blue);
     flex: 0 0 auto;
   }
@@ -269,27 +269,29 @@
 
   .report-status-value {
     color: var(--report-ink);
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 900;
-    line-height: 1.5;
+    line-height: 1.55;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 4px;
   }
 
   .report-status-metric-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
   }
 
   .report-status-metric-row {
-    min-height: 54px;
-    display: flex;
+    min-height: 50px;
+    display: grid;
+    grid-template-columns: minmax(84px, 0.8fr) minmax(0, 1.5fr);
     align-items: center;
     justify-content: space-between;
-    gap: 14px;
-    padding: 11px 14px;
+    gap: 12px;
+    padding: 10px 12px;
     background: var(--report-blue-soft);
     border: 1px solid #d8e3f1;
     border-radius: 6px;
@@ -299,13 +301,16 @@
     color: var(--report-ink);
     font-size: 16px;
     font-weight: 900;
-    white-space: nowrap;
+    white-space: normal;
+    line-height: 1.25;
   }
 
   .report-status-range {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
     align-items: baseline;
-    gap: 8px;
+    justify-content: end;
+    gap: 7px;
     color: var(--report-ink);
     font-size: 16px;
     font-weight: 900;
@@ -333,11 +338,12 @@
   }
 
   .report-status-single-metric {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
     align-items: baseline;
     justify-content: center;
-    gap: 12px;
-    padding: 18px;
+    gap: 10px;
+    padding: 16px;
     background: var(--report-blue-soft);
     border: 1px solid #d8e3f1;
     border-radius: 6px;
@@ -351,7 +357,7 @@
 
   .report-status-single-metric strong {
     font-family: var(--font-mono);
-    font-size: 34px;
+    font-size: 30px;
     line-height: 1;
     font-weight: 900;
     color: var(--report-ink);
@@ -367,9 +373,9 @@
   .report-status-progress-panel {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 18px;
-    padding: 18px;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 16px;
     background: var(--report-blue-soft);
     border: 1px solid #d8e3f1;
     border-radius: 6px;
@@ -378,7 +384,7 @@
   .report-status-progress-panel strong {
     color: var(--report-ink);
     font-family: var(--font-mono);
-    font-size: 46px;
+    font-size: 38px;
     line-height: 1;
     font-weight: 900;
   }

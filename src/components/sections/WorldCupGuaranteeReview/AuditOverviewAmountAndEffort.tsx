@@ -42,7 +42,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         <div className="space-y-3">
           <div className="text-base text-slate-900 font-bold leading-relaxed">
             {highlightNumbers(
-              "[[Q2总防范金]]：整体总计金额在 [[2.72]]，其中6月最高为 [[1.04]]，为世界杯期间拦截金额有所提升。整体对比1季度有所下降 [[3kw]]。原因主要为批量工作室团伙扣款力度增大，采用扣本金方式，成效明显。",
+              "[[Q2总防范金]]：整体总计金额在 [[2.72]]，其中6月最高为 [[1.04]]，为世界杯期间拦截金额有所提升。整体对比1季度有所下降 [[3000]]。原因主要为批量工作室团伙扣款力度增大，采用扣本金方式，成效明显。",
             )}
           </div>
           <div className="text-base text-slate-900 font-bold leading-relaxed">

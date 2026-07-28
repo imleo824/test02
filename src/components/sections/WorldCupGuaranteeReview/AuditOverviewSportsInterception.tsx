@@ -288,7 +288,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
             <span className="w-2.5 h-2.5 bg-blue-600 rounded-xs"></span>
             体育拦截细分类别与站点分布明细
           </h4>
-          <span className="text-sm font-bold text-slate-900 font-bold">单位：万元 / %</span>
+          <span className="text-sm font-bold text-slate-900 font-bold">金额 / 占比</span>
         </div>
 
         <div className="">

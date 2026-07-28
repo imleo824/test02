@@ -21,6 +21,7 @@ import {
   chartTooltipItemStyle,
   chartTooltipStyle,
 } from "./sections/WorldCupGuaranteeReview/chartStyles";
+import { stripDisplayUnits } from "./sections/WorldCupGuaranteeReview/utils";
 
 const interceptData = [
   { name: "TY打水", amount: 13868.02, pct: "81.24%" },
@@ -81,7 +82,7 @@ export const InterceptTypeBarChart: React.FC = () => {
             cursor={{ fill: "#f1f5f9" }}
             formatter={(value: any, name: any) => {
               if (name === "amount")
-                return [`${Number(value).toLocaleString()} 万元`, "拦截金额"];
+                return [stripDisplayUnits(Number(value).toLocaleString()), "拦截金额"];
               return [value, name];
             }}
           />

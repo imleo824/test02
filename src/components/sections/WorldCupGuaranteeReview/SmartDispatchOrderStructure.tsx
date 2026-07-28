@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
-import { SummaryBox, highlightNumbers } from "./utils";
+import { SummaryBox, highlightNumbers, stripDisplayUnits } from "./utils";
 import { ReportPanel, ReportPanelHeader } from "../../ReportSections";
 import {
   chartAxisTick,
@@ -33,13 +33,13 @@ const auditStructureData = [
     month: "4月",
     系统单量: 2299427,
     系统占比: 49.9,
-    系统标签: "229.9万 (49.9%)",
+    系统标签: "229.9 (49.9%)",
     总部单量: 1787020,
     总部占比: 38.8,
-    总部标签: "178.7万 (38.8%)",
+    总部标签: "178.7 (38.8%)",
     外包单量: 524514,
     外包占比: 11.4,
-    外包标签: "52.5万 (11.4%)",
+    外包标签: "52.5 (11.4%)",
     系统质量: 0.12,
     总部质量: 0.72,
     外包质量: 1.82,
@@ -48,13 +48,13 @@ const auditStructureData = [
     month: "5月",
     系统单量: 2545059,
     系统占比: 53.9,
-    系统标签: "254.5万 (53.9%)",
+    系统标签: "254.5 (53.9%)",
     总部单量: 1677872,
     总部占比: 35.5,
-    总部标签: "167.8万 (35.5%)",
+    总部标签: "167.8 (35.5%)",
     外包单量: 501346,
     外包占比: 10.6,
-    外包标签: "50.1万 (10.6%)",
+    外包标签: "50.1 (10.6%)",
     系统质量: 0.08,
     总部质量: 0.74,
     外包质量: 1.89,
@@ -63,13 +63,13 @@ const auditStructureData = [
     month: "6月",
     系统单量: 2803462,
     系统占比: 44.4,
-    系统标签: "280.3万 (44.4%)",
+    系统标签: "280.3 (44.4%)",
     总部单量: 3041486,
     总部占比: 48.1,
-    总部标签: "304.1万 (48.1%)",
+    总部标签: "304.1 (48.1%)",
     外包单量: 473317,
     外包占比: 7.5,
-    外包标签: "47.3万 (7.5%)",
+    外包标签: "47.3 (7.5%)",
     系统质量: 0.11,
     总部质量: 0.69,
     外包质量: 1.92,
@@ -128,19 +128,19 @@ export const SmartDispatchOrderStructure: React.FC = () => {
             <div className="bg-white border border-blue-200 rounded-lg p-3 space-y-1">
               <span className="font-black text-blue-900 block text-xs">一、系统自动审核</span>
               <p className="text-slate-900">
-                {highlightNumbers("单量从4月 [[229.9万]] 提升至6月 [[280.3万]]，差错率稳定在 [[0.08%]]~[[0.12%]] 的极低水平。")}
+                {highlightNumbers("单量从4月 [[229.9]] 提升至6月 [[280.3]]，差错率稳定在 [[0.08%]]~[[0.12%]] 的极低水平。")}
               </p>
             </div>
             <div className="bg-white border border-emerald-200 rounded-lg p-3 space-y-1">
               <span className="font-black text-emerald-900 block text-xs">二、外包规模压缩</span>
               <p className="text-slate-900">
-                {highlightNumbers("外包占比由 [[11.4%]] 逐月下调至 [[7.5%]]（[[47.3万]]单），有效压降高差错率（[[1.82%]]~[[1.92%]]）业务风险。")}
+                {highlightNumbers("外包占比由 [[11.4%]] 逐月下调至 [[7.5%]]（[[47.3]]单），有效压降高差错率（[[1.82%]]~[[1.92%]]）业务风险。")}
               </p>
             </div>
             <div className="bg-white border border-slate-200 rounded-lg p-3 space-y-1">
               <span className="font-black text-slate-900 block text-xs">三、总部承接复杂单</span>
               <p className="text-slate-900">
-                {highlightNumbers("6月承接 [[304.1万]] 单（占比 [[48.1%]]），差错率稳定在 [[0.69%]]，精准兜底高风险与复杂审核。")}
+                {highlightNumbers("6月承接 [[304.1]] 单（占比 [[48.1%]]），差错率稳定在 [[0.69%]]，精准兜底高风险与复杂审核。")}
               </p>
             </div>
           </div>
@@ -159,7 +159,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               yAxisId="left" 
               stroke={chartColors.ink}
               tick={chartAxisTick}
-              tickFormatter={(val) => `${(val / 10000).toFixed(0)}万`}
+              tickFormatter={(val) => `${(val / 10000).toFixed(0)}`}
               domain={[0, 6000000]}
               ticks={[0, 1000000, 2000000, 3000000]}
             />
@@ -184,13 +184,13 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 }
                 const payload = item?.payload;
                 if (name === "系统审核单量") {
-                  return [`${Number(value).toLocaleString()} 单 (${payload.系统占比}%)`, name];
+                  return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.系统占比}%)`), name];
                 }
                 if (name === "总部审核单量") {
-                  return [`${Number(value).toLocaleString()} 单 (${payload.总部占比}%)`, name];
+                  return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.总部占比}%)`), name];
                 }
                 if (name === "外包审核单量") {
-                  return [`${Number(value).toLocaleString()} 单 (${payload.外包占比}%)`, name];
+                  return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${payload.外包占比}%)`), name];
                 }
                 return [value, name];
               }}

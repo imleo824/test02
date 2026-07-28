@@ -124,7 +124,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
             <span className="w-2.5 h-2.5 bg-blue-600 rounded-xs"></span>
             工作室拦截分类与站点明细表 (4-6月)
           </h4>
-          <span className="text-sm font-bold text-slate-900 font-bold">单位：万元 / %</span>
+          <span className="text-sm font-bold text-slate-900 font-bold">金额 / 占比</span>
         </div>
 
         <div className="">
@@ -133,7 +133,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
               {/* 一级表头 */}
               <tr className="bg-slate-100 border-b border-slate-100 font-black text-slate-900">
                 <th rowSpan={2} className="p-0.5 md:p-1 lg:p-2.5 border-r border-slate-100 min-w-[70px]">站点</th>
-                <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">4-6月总计(万)</th>
+                <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">4-6月总计</th>
                 <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">体育批量</th>
                 <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">彩票批量</th>
                 <th colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100">真人批量</th>

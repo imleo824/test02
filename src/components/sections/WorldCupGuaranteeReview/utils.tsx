@@ -1,13 +1,18 @@
 import React from "react";
 import { ArrowDown, ArrowRight } from "lucide-react";
 
+export const stripDisplayUnits = (value: string | number) =>
+  String(value)
+    .replace(/3\s*[kK][wW]/g, "3000")
+    .replace(/([+\-]?\d+(?:[.,]\d+)*)\s*(?:万元|亿元|[kK][wW]|[wW]|[eE]|万|亿)/g, "$1");
+
 // 辅助函数：统一高亮数字样式（纯静态，不带任何动效，投屏无浮夸色彩）
 export function highlightNumbers(
   text: string,
   colorClass: string = "text-blue-900 font-bold",
 ) {
   const pattern =
-    /(\[\[(.*?)\]\])|([+\-]?\d+(?:[.,]\d+)*(?:\s*(?:%|人|场|项|倍|E|元|h|ms|min|k|个))?)/g;
+    /(\[\[(.*?)\]\])|([+\-]?\d+(?:[.,]\d+)*(?:\s*(?:%|人|场|项|倍|E|W|万|亿|万元|亿元|元|h|ms|min|k|个))?)/g;
   const result: React.ReactNode[] = [];
   let lastIndex = 0;
   let match;
@@ -19,7 +24,7 @@ export function highlightNumbers(
 
     if (match[1]) {
       // It's a [[core phrase]]
-      let phrase = match[2];
+      let phrase = stripDisplayUnits(match[2]);
 
       if (phrase.startsWith("green:")) {
         result.push(
@@ -55,7 +60,7 @@ export function highlightNumbers(
       // 提取纯数字部分进行判断
       const numericValue = phrase.replace(/[^\d.-]/g, "");
       const isNumber =
-        /^[+\-]?\d+(?:[.,]\d+)*(?:%|人|项|倍|E|元|h|ms|min|k)?$/.test(phrase);
+        /^[+\-]?\d+(?:[.,]\d+)*(?:%|人|项|倍|元|h|ms|min|k|个)?$/.test(phrase);
 
       if (
         isNumber &&
@@ -99,7 +104,7 @@ export function highlightNumbers(
       }
     } else if (match[3]) {
       // It's a number/unit
-      const part = match[3];
+      const part = stripDisplayUnits(match[3]);
       if (part.startsWith("+")) {
         result.push(
           <strong
@@ -212,7 +217,7 @@ export const UnitNumber = ({
   className?: string;
   unitClassName?: string;
 }) => {
-  const showUnit = unit && !["E", "万", "亿", "万元", "亿元"].includes(unit);
+  const showUnit = unit && !["E", "W", "w", "KW", "kw", "万", "亿", "万元", "亿元"].includes(unit);
   return (
     <div className="flex items-baseline gap-1.5 font-mono tabular-nums">
       <SignColoredValue value={value} className={`${className}`} />
@@ -240,7 +245,7 @@ export const MetricTile = ({
   valueClassName?: string;
   
 }) => {
-  const showUnit = unit && !["E", "万", "亿", "万元", "亿元"].includes(unit);
+  const showUnit = unit && !["E", "W", "w", "KW", "kw", "万", "亿", "万元", "亿元"].includes(unit);
   return (
     <div className="report-card p-5 md:p-6">
       <div className="mb-3 text-sm font-bold text-slate-900">

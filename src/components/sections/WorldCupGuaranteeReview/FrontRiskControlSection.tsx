@@ -1,5 +1,5 @@
 import React from "react";
-import { ModuleBlockHeader, ReportFlow, ReportInfoGrid, SummaryBox, highlightNumbers } from "./utils";
+import { ModuleBlockHeader, ReportFlow, ReportInfoGrid, SummaryBox, highlightNumbers, stripDisplayUnits } from "./utils";
 import { ShieldAlert, ArrowRight } from "lucide-react";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import { ChapterTitle, ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
@@ -93,7 +93,7 @@ export const FrontRiskControlSection: React.FC = () => {
                 yAxisId="left" 
                 stroke={chartColors.ink}
                 tick={chartAxisTick}
-                tickFormatter={(val) => `${(val / 10000).toFixed(0)}万`}
+                tickFormatter={(val) => `${(val / 10000).toFixed(0)}`}
                 domain={[0, 4500000]}
               />
               <YAxis 
@@ -111,7 +111,7 @@ export const FrontRiskControlSection: React.FC = () => {
                   if (name === "提款有标率(%)") {
                     return [`${value}%`, name];
                   }
-                  return [`${Number(value).toLocaleString()} 单 (${(Number(value) / 10000).toFixed(2)}万)`, name];
+                  return [stripDisplayUnits(`${Number(value).toLocaleString()} 单 (${(Number(value) / 10000).toFixed(2)})`), name];
                 }}
               />
               <Legend wrapperStyle={chartLegendStyle} />
@@ -119,7 +119,7 @@ export const FrontRiskControlSection: React.FC = () => {
                 <LabelList 
                   dataKey="总人工订单" 
                   position="top" 
-                  formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}万`}
+                  formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}`}
                   style={chartLabelStyle}
                 />
               </Bar>
@@ -127,7 +127,7 @@ export const FrontRiskControlSection: React.FC = () => {
                 <LabelList 
                   dataKey="总有标订单" 
                   position="top" 
-                  formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}万`}
+                  formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}`}
                   style={chartLabelStyle}
                 />
               </Bar>

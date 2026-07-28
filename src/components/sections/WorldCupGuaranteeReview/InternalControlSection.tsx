@@ -190,7 +190,7 @@ export const InternalControlSection: React.FC = () => {
             <div className="flex items-baseline gap-2 font-mono">
               <span className="text-2xl font-black text-slate-900">1143</span>
               <span className="text-sm text-slate-900 font-bold">人</span>
-              <span className="text-xl font-black text-rose-900 ml-auto">36.69 万</span>
+              <span className="text-xl font-black text-rose-900 ml-auto">36.69</span>
             </div>
             <div className="pt-2 border-t border-slate-100 text-sm font-bold text-slate-900">
               通过每日复核机制查获并退回
@@ -203,7 +203,7 @@ export const InternalControlSection: React.FC = () => {
             <div className="flex items-baseline gap-2 font-mono">
               <span className="text-2xl font-black text-slate-900">465</span>
               <span className="text-sm text-slate-900 font-bold">人</span>
-              <span className="text-xl font-black text-rose-900 ml-auto">6.79 万</span>
+              <span className="text-xl font-black text-rose-900 ml-auto">6.79</span>
             </div>
             <div className="pt-2 border-t border-slate-100 text-sm font-bold text-slate-900">
               通过每日复核机制查获并修正
