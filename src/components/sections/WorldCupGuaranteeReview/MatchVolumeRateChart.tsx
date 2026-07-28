@@ -632,7 +632,7 @@ export const MatchVolumeRateChart = ({
                 tickLine={false}
                 tick={{
                   fill: "#0f172a",
-                  fontSize: 11,
+                  fontSize: 14,
                   fontFamily: "monospace",
                   fontWeight: 700,
                 }}
@@ -647,7 +647,7 @@ export const MatchVolumeRateChart = ({
                 tickLine={false}
                 tick={{
                   fill: "#0f172a",
-                  fontSize: 11,
+                  fontSize: 14,
                   fontFamily: "monospace",
                   fontWeight: 700,
                 }}
@@ -728,7 +728,7 @@ export const MatchVolumeRateChart = ({
                           y={labelY}
                           fill={color}
                           textAnchor="middle"
-                          fontSize={11}
+                          fontSize={14}
                           fontWeight="black"
                         >
                           {teamName}
@@ -738,7 +738,7 @@ export const MatchVolumeRateChart = ({
                           y={labelY + 12}
                           fill={color}
                           textAnchor="middle"
-                          fontSize={10}
+                          fontSize={14}
                           fontWeight="bold"
                         >
                           {winLossStr}
@@ -845,13 +845,13 @@ export const MatchVolumeRateChart = ({
                             dataKey="stage" 
                             axisLine={false} 
                             tickLine={false} 
-                            tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 800 }}
+                            tick={{ fill: "#0f172a", fontSize: 14, fontWeight: 800 }}
                             interval={0}
                           />
                           <YAxis 
                             axisLine={false} 
                             tickLine={false} 
-                            tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 700 }}
+                            tick={{ fill: "#0f172a", fontSize: 14, fontWeight: 700 }}
                             domain={[0, 'dataMax + 1']}
                             allowDecimals={false}
                             tickFormatter={(val) => `${val}场`}
@@ -1095,7 +1095,7 @@ export const MatchVolumeRateChart = ({
                 tickLine={false}
                 tick={{
                   fill: "#0f172a",
-                  fontSize: 11,
+                  fontSize: 14,
                   fontWeight: 700,
                   fontFamily: "monospace",
                 }}
@@ -1109,7 +1109,7 @@ export const MatchVolumeRateChart = ({
                 tickLine={false}
                 tick={{
                   fill: "#0f172a",
-                  fontSize: 11,
+                  fontSize: 14,
                   fontWeight: 700,
                   fontFamily: "monospace",
                 }}
@@ -1148,7 +1148,7 @@ export const MatchVolumeRateChart = ({
                         y={y - 25}
                         fill={chartColors.ink}
                         textAnchor="middle"
-                        fontSize={11}
+                        fontSize={14}
                         fontWeight="black"
                       >
                         流:{value.toLocaleString()}
@@ -1168,7 +1168,7 @@ export const MatchVolumeRateChart = ({
                         y={y - 8}
                         fill={value >= 0 ? "#047857" : "#be123c"}
                         textAnchor="middle"
-                        fontSize={11}
+                        fontSize={14}
                         fontWeight="black"
                       >
                         盈:{value.toLocaleString()}
@@ -1232,7 +1232,7 @@ export const MatchVolumeRateChart = ({
                           y={y - 10}
                           fill={isTop3 ? chartSeriesColors.manual : chartColors.ink}
                           textAnchor="middle"
-                          fontSize={10}
+                          fontSize={14}
                           fontWeight={isTop3 ? "black" : "bold"}
                         >
                           {`${Number(value).toFixed(2)}%`}
@@ -1457,7 +1457,7 @@ export const MatchVolumeRateChart = ({
                 padding={{ left: 10, right: 10 }}
                 tick={{
                   fill: "#0f172a",
-                  fontSize: 13,
+                  fontSize: 14,
                   fontFamily: "monospace",
                   fontWeight: 700,
                 }}
@@ -1470,7 +1470,7 @@ export const MatchVolumeRateChart = ({
                 domain={waterYDomain}
                 tick={{
                   fill: "#0f172a",
-                  fontSize: 13,
+                  fontSize: 14,
                   fontFamily: "monospace",
                   fontWeight: 700,
                 }}

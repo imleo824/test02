@@ -22,13 +22,13 @@ export const chartSeriesColors = {
 export const chartAxisTick = {
   fill: chartColors.ink,
   fontWeight: 800,
-  fontSize: 13,
+  fontSize: 14,
 };
 
 export const chartLabelStyle = {
   fill: chartColors.ink,
   fontWeight: 900,
-  fontSize: 13,
+  fontSize: 14,
 };
 
 export const chartTooltipStyle = {

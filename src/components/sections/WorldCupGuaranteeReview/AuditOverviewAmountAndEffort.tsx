@@ -106,7 +106,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
                   isAnimationActive={false}
                   dot={{ r: 4, fill: chartSeriesColors.trend }}
                   label={({ x, y, index }) => (
-                    <text x={x} y={y - 12} fill={chartColors.ink} fontSize={13} fontWeight="900" textAnchor="middle">
+                    <text x={x} y={y - 12} fill={chartColors.ink} fontSize={14} fontWeight="900" textAnchor="middle">
                       {effortData[index].duration}
                     </text>
                   )}

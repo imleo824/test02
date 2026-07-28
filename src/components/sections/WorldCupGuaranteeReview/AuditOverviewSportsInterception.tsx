@@ -237,7 +237,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke={chartSeriesColors.trend} strokeWidth={3} isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
                   <g>
                     <rect x={x - 22} y={y - 24} width="44" height="18" rx="3" fill={chartColors.ink} />
-                    <text x={x} y={y - 12} fill="#ffffff" fontSize={13} fontWeight="black" textAnchor="middle">
+                    <text x={x} y={y - 12} fill="#ffffff" fontSize={14} fontWeight="black" textAnchor="middle">
                       {siteSlData[index].comboLabel}
                     </text>
                   </g>
@@ -273,7 +273,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke={chartSeriesColors.trend} strokeWidth={3} isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
                   <g>
                     <rect x={x - 22} y={y - 24} width="44" height="18" rx="3" fill={chartColors.ink} />
-                    <text x={x} y={y - 12} fill="#ffffff" fontSize={13} fontWeight="black" textAnchor="middle">
+                    <text x={x} y={y - 12} fill="#ffffff" fontSize={14} fontWeight="black" textAnchor="middle">
                       {venueSlData[index].comboLabel}
                     </text>
                   </g>

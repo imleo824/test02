@@ -147,7 +147,7 @@ export const PlaystyleStructureChart = () => {
                                 x={x + width + 8}
                                 y={y + 12}
                                 fill={chartColors.ink}
-                                fontSize={11}
+                                fontSize={14}
                                 fontWeight="bold"
                               >
                                 {`${Number(value).toFixed(2)}% (${item.volume.toLocaleString()})`}
@@ -213,7 +213,7 @@ export const PlaystyleStructureChart = () => {
                                 x={x + width + 8}
                                 y={y + 12}
                                 fill={chartColors.ink}
-                                fontSize={11}
+                                fontSize={14}
                                 fontWeight="bold"
                               >
                                 {`${Number(value).toFixed(2)}% (${Math.round(item.users / 104).toLocaleString()} 人/场均)`}
