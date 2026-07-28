@@ -23,7 +23,6 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
   metricLabel,
   metricsList,
   progress,
-  estimatedTime,
 }) => {
   const numericProgress = parseFloat(progress.replace(/[^0-9.]/g, "")) || 0;
 
@@ -101,9 +100,6 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
           <div className="report-status-label flex items-center gap-2.5 shrink-0">
             <span className="w-1 h-5 rounded-none bg-blue-700" />
             <span>整体进度：</span>
-            <span className="text-base md:text-lg font-black text-slate-900 ml-1">
-              {estimatedTime}
-            </span>
           </div>
           
           <div className="flex flex-col justify-center space-y-3 my-auto w-full bg-slate-50 p-4 rounded-lg">
