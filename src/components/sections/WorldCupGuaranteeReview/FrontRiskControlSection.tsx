@@ -2,7 +2,7 @@ import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
 import { ShieldAlert, ArrowRight } from "lucide-react";
 import { ModuleStatusCard } from "./ModuleStatusCard";
-import { ChapterTitle } from "../../ReportSections";
+import { ChapterTitle, ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
 import {
   ComposedChart,
   Bar,
@@ -39,13 +39,8 @@ export const FrontRiskControlSection: React.FC = () => {
       />
 
       {/* 各站点提款有标率及订单明细双轴图 */}
-      <div className="bg-white border border-slate-300 rounded-xl p-6 space-y-4 shadow-sm">
-        <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-3 gap-2">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-5 bg-slate-900 rounded-full"></span>
-            <h3 className="text-lg font-black text-slate-900">提款有标率</h3>
-          </div>
-        </div>
+      <ReportPanel className="space-y-4">
+        <ReportPanelHeader title="提款有标率" />
 
         <SummaryBox>
           <div className="space-y-3">
@@ -143,14 +138,14 @@ export const FrontRiskControlSection: React.FC = () => {
             </ComposedChart>
           </ResponsiveContainer>
         </div>
-      </div>
+      </ReportPanel>
 
       {/* 核心前置流程图与三大维度架构：1行3列直接铺开 */}
       <div className="grid grid-cols-1 gap-6">
           {/* 第一列：3.1.1 系统自动预警 */}
           <div
             id="section-3-1-1"
-            className="bg-[#f8fafc] border border-slate-100 rounded-xl p-5 space-y-4 flex flex-col justify-between "
+            className="report-card-soft p-5 space-y-4 flex flex-col justify-between"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -160,9 +155,7 @@ export const FrontRiskControlSection: React.FC = () => {
                     系统自动预警
                   </h4>
                 </div>
-                <span className="text-sm font-black text-blue-900 bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
-                  轻度风险
-                </span>
+                <ReportBadge>轻度风险</ReportBadge>
               </div>
 
               {/* 核心三要素 */}
@@ -230,7 +223,7 @@ export const FrontRiskControlSection: React.FC = () => {
           {/* 第二列：3.1.2 系统自动上标 */}
           <div
             id="section-3-1-2"
-            className="bg-[#f8fafc] border border-slate-100 rounded-xl p-5 space-y-4 flex flex-col justify-between "
+            className="report-card-soft p-5 space-y-4 flex flex-col justify-between"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -240,9 +233,7 @@ export const FrontRiskControlSection: React.FC = () => {
                     系统自动上标
                   </h4>
                 </div>
-                <span className="text-sm font-black text-blue-900 bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
-                  重度风险
-                </span>
+                <ReportBadge>重度风险</ReportBadge>
               </div>
 
               {/* 处置流向 */}
@@ -373,7 +364,7 @@ export const FrontRiskControlSection: React.FC = () => {
           {/* 第三列：3.1.3 人工主动扫描 */}
           <div
             id="section-3-1-3"
-            className="bg-[#f8fafc] border border-slate-100 rounded-xl p-5 space-y-4 flex flex-col justify-between "
+            className="report-card-soft p-5 space-y-4 flex flex-col justify-between"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -383,9 +374,7 @@ export const FrontRiskControlSection: React.FC = () => {
                     人工主动上标
                   </h4>
                 </div>
-                <span className="text-sm font-black text-blue-900 bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
-                  重度风险
-                </span>
+                <ReportBadge>重度风险</ReportBadge>
               </div>
 
               {/* 处置流向 */}
@@ -446,4 +435,3 @@ export const FrontRiskControlSection: React.FC = () => {
     </div>
   );
 };
-

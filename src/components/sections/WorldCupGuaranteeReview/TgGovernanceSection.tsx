@@ -1,5 +1,6 @@
 import React from "react";
 import { ExpectedRhythm, CoreActionHeader } from "./utils";
+import { ReportPanel } from "../../ReportSections";
 
 export const TgGovernanceSection: React.FC = () => {
   const flows = [
@@ -26,7 +27,7 @@ export const TgGovernanceSection: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#f8fafc] border border-slate-100 rounded-xl p-5 space-y-4 flex flex-col justify-between h-full">
+    <ReportPanel tone="soft" padding="sm" className="space-y-4 flex flex-col justify-between h-full">
       <div className="space-y-3">
         {/* 顶部标题与标签 */}
         <div className="space-y-2 border-b border-slate-100 pb-3">
@@ -61,7 +62,7 @@ export const TgGovernanceSection: React.FC = () => {
           {flows.map((flow) => (
             <div
               key={flow.id}
-              className="bg-white border border-slate-100 rounded-lg p-3 space-y-1.5 flex flex-col h-full shadow-sm"
+              className="report-card p-3 space-y-1.5 flex flex-col h-full"
             >
               <div className="flex items-center gap-1.5 border-b border-slate-100 pb-1.5">
                 <span className="w-1.5 h-3 bg-blue-600 rounded-full"></span>
@@ -86,6 +87,6 @@ export const TgGovernanceSection: React.FC = () => {
           { month: "12月", desc: "全量平稳运行" },
         ]}
       />
-    </div>
+    </ReportPanel>
   );
 };

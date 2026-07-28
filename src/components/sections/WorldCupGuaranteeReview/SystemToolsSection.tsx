@@ -1,6 +1,7 @@
 import React from "react";
 import { SystemToolsEffectiveness } from "./SystemToolsEffectiveness";
 import { CoreActionHeader } from "./utils";
+import { ReportPanel } from "../../ReportSections";
 
 export const SystemToolsSection: React.FC = () => {
   const tools = [
@@ -27,7 +28,7 @@ export const SystemToolsSection: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#f8fafc] border border-slate-100 rounded-xl p-5 space-y-4 flex flex-col justify-between  h-full">
+    <ReportPanel tone="soft" padding="sm" className="space-y-4 flex flex-col justify-between h-full">
       <div className="space-y-3">
         {/* 顶部标题 */}
         <div className="space-y-2 border-b border-slate-100 pb-3">
@@ -43,7 +44,7 @@ export const SystemToolsSection: React.FC = () => {
           {tools.map((tool) => (
             <div
               key={tool.id}
-              className="bg-white border border-slate-100 rounded-lg p-3 space-y-1.5 flex flex-col h-full shadow-sm"
+              className="report-card p-3 space-y-1.5 flex flex-col h-full"
             >
               <div className="font-black text-slate-900 text-sm flex items-center gap-1 border-b border-slate-100 pb-1.5">
                 <span className="w-1.5 h-3 bg-blue-600 rounded-full shrink-0"></span>
@@ -61,7 +62,6 @@ export const SystemToolsSection: React.FC = () => {
       <div className="pt-2">
         <SystemToolsEffectiveness />
       </div>
-    </div>
+    </ReportPanel>
   );
 };
-

@@ -1,20 +1,19 @@
 import React from "react";
 import { CoreActionHeader, SummaryBox, highlightNumbers, ExpectedRhythm } from "./utils";
 import { ArrowRight, ArrowDown } from "lucide-react";
+import { ReportBadge, ReportPanel } from "../../ReportSections";
 
 export const MemberRiskDirectPayout: React.FC = () => {
   return (
-    <div id="section-member-direct-payout" className="bg-[#f8fafc] border border-slate-100 rounded-xl p-5 space-y-4 flex flex-col justify-between ">
+    <ReportPanel id="section-member-direct-payout" tone="soft" padding="sm" className="space-y-4 flex flex-col justify-between">
       {/* 头部标题：3.3.1 提升系统直接出单比例 */}
       <div className="flex items-center justify-between border-b border-slate-100 pb-3">
         <CoreActionHeader title={<><span className="w-2.5 h-5 bg-blue-600 rounded-full shrink-0"></span>提升系统直接出单比例</>} />
-        <span className="text-sm font-black text-blue-900 bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
-          风险分数驱动
-        </span>
+        <ReportBadge>风险分数驱动</ReportBadge>
       </div>
 
       {/* 核心思路 / 升级前后对比 */}
-      <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 md:p-5 space-y-2.5">
+      <ReportPanel tone="soft" padding="sm" className="space-y-2.5">
         <div className="text-sm font-black text-slate-900 border-b border-slate-100 pb-2 flex items-center justify-between">
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
@@ -38,10 +37,10 @@ export const MemberRiskDirectPayout: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </ReportPanel>
 
       {/* 风险分数驱动流程 */}
-      <div className="border border-slate-100 rounded-xl p-5 md:p-6 bg-slate-50 space-y-4">
+      <ReportPanel tone="soft" className="space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 pb-2">
           <h4 className="text-base md:text-lg font-black tracking-tight text-slate-900 flex items-center gap-2">
             <span className="w-2 h-4 bg-slate-900 rounded-full"></span>
@@ -115,7 +114,7 @@ export const MemberRiskDirectPayout: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </ReportPanel>
 
             <ExpectedRhythm
         items={[
@@ -126,6 +125,6 @@ export const MemberRiskDirectPayout: React.FC = () => {
           { month: "12月", desc: "全量平稳运行" },
         ]}
       />
-    </div>
+    </ReportPanel>
   );
 };

@@ -1,19 +1,18 @@
 import React from "react";
 import { CoreActionHeader, SummaryBox, highlightNumbers, ExpectedRhythm } from "./utils";
+import { ReportBadge, ReportPanel } from "../../ReportSections";
 
 export const MemberRiskSmartDispatch: React.FC = () => {
   return (
-    <div id="section-member-smart-dispatch" className="bg-[#f8fafc] border border-slate-100 rounded-xl p-5 space-y-4 flex flex-col justify-between ">
+    <ReportPanel id="section-member-smart-dispatch" tone="soft" padding="sm" className="space-y-4 flex flex-col justify-between">
       {/* 头部标题：3.3.2 升级人工派单模式 */}
       <div className="flex items-center justify-between border-b border-slate-100 pb-3">
         <CoreActionHeader title={<><span className="w-2.5 h-5 bg-blue-600 rounded-full shrink-0"></span>升级人工派单模式</>} />
-        <span className="text-sm font-black text-blue-900 bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200">
-          人与单精准匹配
-        </span>
+        <ReportBadge>人与单精准匹配</ReportBadge>
       </div>
 
       {/* 核心思路 / 升级前后对比 */}
-      <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 md:p-5 space-y-2.5">
+      <ReportPanel tone="soft" padding="sm" className="space-y-2.5">
         <div className="text-sm font-black text-slate-900 border-b border-slate-100 pb-2 flex items-center justify-between">
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
@@ -37,10 +36,10 @@ export const MemberRiskSmartDispatch: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </ReportPanel>
 
       {/* 智能派单逻辑与分配机制（整合为一个模块） */}
-      <div className="border border-slate-200 rounded-xl p-5 md:p-6 bg-slate-50 space-y-6">
+      <ReportPanel tone="soft" className="space-y-6">
         <div className="border-b border-slate-200 pb-2">
           <h4 className="text-base md:text-lg font-black tracking-tight text-slate-900 flex items-center gap-2">
             <span className="w-2.5 h-5 bg-blue-600 rounded-full"></span>
@@ -207,7 +206,7 @@ export const MemberRiskSmartDispatch: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </ReportPanel>
 
             <ExpectedRhythm
         items={[
@@ -218,6 +217,6 @@ export const MemberRiskSmartDispatch: React.FC = () => {
           { month: "12月", desc: "全量平稳运行" },
         ]}
       />
-    </div>
+    </ReportPanel>
   );
 };

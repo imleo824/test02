@@ -11,6 +11,7 @@ import {
   LabelList,
 } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
+import { ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
 
 // 4, 5, 6月 及汇总 系统审核 召回率、准确率数据
 const systemMetricsData = [
@@ -46,19 +47,12 @@ const systemMetricsData = [
 
 export const SystemAuditMetricsChart: React.FC = () => {
   return (
-    <div className="report-card p-6 space-y-5">
+    <ReportPanel className="space-y-5">
       {/* 头部标题与单位 */}
-      <div className="flex items-center justify-between border-b border-slate-300 pb-3">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-5 bg-slate-900 rounded-full"></span>
-          <h3 className="text-lg font-black text-slate-900">
-            系统审核指标
-          </h3>
-        </div>
-        <span className="text-xs font-bold text-slate-900 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">
-          数据覆盖：2026年4月 - 6月
-        </span>
-      </div>
+      <ReportPanelHeader
+        title="系统审核指标"
+        rightContent={<ReportBadge tone="slate">数据覆盖：2026年4月 - 6月</ReportBadge>}
+      />
 
       {/* 总结说明 */}
       <SummaryBox className="mb-0 my-2" hideIcon={false}>
@@ -162,6 +156,6 @@ export const SystemAuditMetricsChart: React.FC = () => {
           </BarChart>
         </ResponsiveContainer>
       </div>
-    </div>
+    </ReportPanel>
   );
 };

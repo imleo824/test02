@@ -12,6 +12,7 @@ import {
   LabelList,
 } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
+import { ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
 
 // 4, 5, 6月 人工审核人均效率数据 (单/小时)
 // 4月/5月按 30天 * 9小时 = 270小时/月 换算；6月按 30天 * 11小时 = 330小时/月 换算
@@ -57,19 +58,16 @@ const efficiencyData = [
 
 export const ManualAuditEfficiencyChart: React.FC = () => {
   return (
-    <div className="bg-white border border-slate-300 rounded-xl p-6 space-y-4 shadow-sm">
+    <ReportPanel className="space-y-4">
       {/* 头部标题 */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-3 gap-2">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-5 bg-slate-900 rounded-full"></span>
-          <h3 className="text-lg font-black text-slate-900">
-            人均效能
-          </h3>
-        </div>
-        <span className="text-xs font-bold text-slate-900 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">
+      <ReportPanelHeader
+        title="人均效能"
+        rightContent={
+          <ReportBadge tone="slate">
           换算标准：30天/月（4-5月按 9小时/天，6月按 11小时/天）
-        </span>
-      </div>
+          </ReportBadge>
+        }
+      />
 
       {/* 核心结论与逻辑总结 */}
       <SummaryBox className="mb-0 my-2" hideIcon={false}>
@@ -202,6 +200,6 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-    </div>
+    </ReportPanel>
   );
 };

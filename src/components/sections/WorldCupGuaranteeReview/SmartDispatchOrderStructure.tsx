@@ -12,6 +12,7 @@ import {
   LabelList,
 } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
+import { ReportPanel, ReportPanelHeader } from "../../ReportSections";
 
 // 4, 5, 6月 角色订单结构与审核质量数据（根据最新数据更新）
 const auditStructureData = [
@@ -64,16 +65,9 @@ const auditStructureData = [
 
 export const SmartDispatchOrderStructure: React.FC = () => {
   return (
-    <div className="bg-white border border-slate-300 rounded-xl p-6 space-y-4 shadow-sm">
+    <ReportPanel className="space-y-4">
       {/* 头部标题 */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200 pb-3 gap-2">
-        <div className="flex items-center gap-2">
-          <span className="w-2.5 h-5 bg-slate-900 rounded-full"></span>
-          <h3 className="text-lg font-black text-slate-900">
-            订单结构
-          </h3>
-        </div>
-      </div>
+      <ReportPanelHeader title="订单结构" />
 
       {/* 优化总结 */}
       <SummaryBox className="mb-2">
@@ -244,9 +238,8 @@ export const SmartDispatchOrderStructure: React.FC = () => {
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-    </div>
+    </ReportPanel>
   );
 };
-
 
 
