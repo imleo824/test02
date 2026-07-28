@@ -9,10 +9,11 @@
 @layer base {
   :root {
     --report-ink: #111827;
+    --report-muted: #1f2937;
     --report-blue: #1d4e89;
-    --report-blue-soft: #eef5ff;
+    --report-blue-soft: #f5f8fc;
     --report-line: #d7dee8;
-    --report-soft: #f7f9fc;
+    --report-soft: #f8fafc;
     --report-danger: #9f1239;
     --report-danger-soft: #fff1f2;
     --report-ok: #166534;
@@ -27,7 +28,7 @@
   }
 
   body {
-    @apply text-base;
+    @apply text-base md:text-lg;
     background: #ffffff;
     color: var(--report-ink);
     line-height: 1.65;
@@ -66,13 +67,15 @@
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    padding-inline: clamp(20px, 3vw, 44px);
   }
 
   .report-chapter-title {
     border-top: 3px solid var(--report-ink);
     border-bottom: 1px solid var(--report-line);
     background: #ffffff;
-    padding: 14px 0 12px;
+    padding: 16px 0 14px;
+    margin-bottom: 24px;
   }
 
   .report-chapter-title h2 {
@@ -96,12 +99,12 @@
   }
 
   .report-note {
-    background: var(--report-blue-soft);
+    background: #ffffff;
     border-left: 4px solid var(--report-blue);
     border-top: 0;
     border-right: 0;
-    border-bottom: 0;
-    border-radius: 0 8px 8px 0;
+    border-bottom: 1px solid var(--report-line);
+    border-radius: 0;
   }
 
   .report-status-card {
@@ -122,15 +125,40 @@
 
   .report-status-value {
     color: var(--report-ink);
-    font-size: clamp(20px, 2.2vw, 32px);
+    font-size: clamp(20px, 1.8vw, 28px);
     font-weight: 900;
-    line-height: 1.35;
+    line-height: 1.45;
+  }
+
+  .report-dense-table {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .report-dense-table th,
+  .report-dense-table td {
+    padding: 10px 12px !important;
+    vertical-align: middle;
   }
 
   .report-shell .rounded-xl,
   .report-shell .rounded-2xl,
   .report-shell .rounded-3xl {
     border-radius: 8px !important;
+  }
+
+  .report-shell .text-\[9px\],
+  .report-shell .text-\[10px\],
+  .report-shell .text-xs {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+
+  .report-shell .text-sm {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
   }
 
   .report-shell .shadow,
@@ -150,6 +178,13 @@
     color: var(--report-ink) !important;
   }
 
+  .report-shell [class*="text-slate-500"],
+  .report-shell [class*="text-slate-600"],
+  .report-shell [class*="text-gray-500"],
+  .report-shell [class*="text-gray-600"] {
+    color: var(--report-muted) !important;
+  }
+
   .report-shell [class*="bg-slate-900"],
   .report-shell [class*="bg-[#1e293b]"] {
     background-color: var(--report-ink) !important;
@@ -165,7 +200,8 @@
 
   .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-50"][class*="border"],
   .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-100"][class*="border"],
-  .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-200"][class*="border"] {
+  .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-200"][class*="border"],
+  .report-shell div[class*="bg-slate-50"][class*="border"] div[class*="bg-white"][class*="border"] {
     border-color: transparent !important;
   }
 
@@ -278,12 +314,15 @@
   .report-shell table {
     border-collapse: collapse;
     color: var(--report-ink);
+    font-size: 13px;
+    line-height: 1.45;
   }
 
   .report-shell th {
     background: #eef2f7 !important;
     color: var(--report-ink) !important;
     font-weight: 900 !important;
+    font-size: 13px !important;
   }
 
   .report-shell td,
@@ -291,10 +330,15 @@
     border-color: var(--report-line) !important;
   }
 
+  .report-shell td {
+    font-size: 13px !important;
+  }
+
   .report-shell .recharts-text {
     fill: var(--report-ink) !important;
     font-family: var(--font-sans);
     font-weight: 800;
+    font-size: 12px;
   }
 
   .report-shell .recharts-cartesian-axis-tick-value,

@@ -50,7 +50,7 @@ export const SiteNewUserRiskControlStats = () => {
  {/* Risk Control Table Card */}
  <div className="bg-white border border-slate-100 rounded-xl overflow-hidden space-y-4">
  <div className="">
- <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full text-[10px] md:text-xs break-all">
+ <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full report-dense-table">
  <thead className="bg-slate-100 text-slate-900 ">
  <tr className="bg-slate-100 border-b border-slate-100 text-slate-900 font-bold text-sm uppercase tracking-wider">
  <th rowSpan={2} className="py-1 md:py-2 lg:py-3 px-4 text-left border-r border-slate-100 text-slate-900 font-bold">站点</th>

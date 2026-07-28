@@ -61,7 +61,7 @@ export default function App() {
       </div>
 
       {/* Workspace Container */}
-      <div className="flex-1 flex w-full px-5 md:px-8 lg:px-12 py-8 md:py-10">
+      <div className="flex-1 flex w-full py-8 md:py-10">
         {/* Main Content Area */}
         <main className="report-main flex-1 w-full space-y-14 print:space-y-20">
           {/* Cover & Directory */}

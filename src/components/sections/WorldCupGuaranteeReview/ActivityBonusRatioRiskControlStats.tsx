@@ -285,7 +285,7 @@ export const ActivityBonusRatioRiskControlStats = () => {
       </div>
 
       <div className=" border border-slate-100 rounded-xl">
-        <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full text-[10px] md:text-xs break-all">
+        <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full report-dense-table">
           <thead className="bg-slate-100 text-slate-900 ">
             <tr className="bg-slate-100 border-b border-slate-100 text-slate-900 font-black text-sm uppercase tracking-wider">
               <th

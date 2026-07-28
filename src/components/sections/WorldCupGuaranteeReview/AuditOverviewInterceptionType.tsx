@@ -205,7 +205,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
 
       {/* 表格数据展示 */}
       <div className=" border border-slate-100 rounded-xl bg-white ">
-        <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full text-[10px] md:text-xs break-all">
+        <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full report-dense-table">
           <thead className="bg-slate-100 text-slate-900 ">
             <tr className="bg-slate-100 border-b border-slate-100 font-bold text-slate-900">
               <th rowSpan={2} className="p-0.5 md:p-1 lg:p-2.5 border-r border-slate-100 min-w-[60px]">站点</th>

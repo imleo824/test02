@@ -109,7 +109,7 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
 
         {/* 评估指标表格 */}
         <div className=" border border-slate-100 rounded-xl bg-white ">
-          <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full text-[10px] md:text-xs break-all">
+          <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full report-dense-table">
             <thead className="bg-slate-100 text-slate-900 ">
               <tr className="bg-slate-900 text-white font-bold">
                 <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-left">评估指标</th>

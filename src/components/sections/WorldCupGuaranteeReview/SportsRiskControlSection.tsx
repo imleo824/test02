@@ -1,6 +1,6 @@
 import React from "react";
 import { CheckCircle2, Shield } from "lucide-react";
-import { SubsectionTitle, Card } from "../../ReportSections";
+import { SubsectionTitle, Card, ChapterTitle } from "../../ReportSections";
 import { InterceptTypeBarChart } from "../../ReportCharts";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import {
@@ -164,12 +164,7 @@ export const SportsRiskControlSection: React.FC = () => {
 
   return (
     <div id="section-sports-risk-control" className="space-y-10">
-      {/* 3.5.1 体育风控 模块主标题 */}
-      <div className="bg-slate-900 text-white rounded-xl py-3 px-5 ">
-        <h2 className="text-xl md:text-2xl font-black tracking-tight text-white">
-          3.5.1 体育风控
-        </h2>
-      </div>
+      <ChapterTitle>3.5.1 体育风控</ChapterTitle>
 
       {/* 核心价值、核心目标、整体进度模块 */}
       <ModuleStatusCard

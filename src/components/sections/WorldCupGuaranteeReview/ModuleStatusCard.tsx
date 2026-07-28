@@ -28,11 +28,11 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
   const numericProgress = parseFloat(progress.replace(/[^0-9.]/g, "")) || 0;
 
   return (
-    <div className="report-status-card p-5 md:p-7 text-slate-900">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+    <div className="report-status-card p-5 md:p-6 text-slate-900">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-0 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
         
         {/* 1. 核心价值 */}
-        <div className="flex flex-col justify-start space-y-3 pt-2 lg:pt-0 lg:pr-7 first:pt-0">
+        <div className="flex flex-col justify-start space-y-3 pt-2 lg:pt-0 lg:pr-6 first:pt-0">
           <div className="report-status-label flex items-center gap-2.5 shrink-0">
             <span className="w-1 h-5 rounded-none bg-blue-700" />
             <span>核心价值</span>
@@ -43,7 +43,7 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
         </div>
 
         {/* 2. 核心指标 */}
-        <div className="flex flex-col justify-start space-y-3 pt-6 lg:pt-0 lg:px-7">
+        <div className="flex flex-col justify-start space-y-3 pt-5 lg:pt-0 lg:px-6">
           <div className="report-status-label flex items-center gap-2.5 shrink-0">
             <span className="w-1 h-5 rounded-none bg-blue-700" />
             <span>核心指标：</span>
@@ -57,7 +57,7 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
           {metricsList && metricsList.length > 0 ? (
             <div className="space-y-2 my-auto w-full">
               {metricsList.map((m, idx) => (
-                <div key={idx} className="flex items-center justify-between bg-slate-50 px-4 py-3 rounded-lg">
+                <div key={idx} className="flex items-center justify-between bg-slate-50 px-4 py-3 rounded-lg gap-4">
                   <span className="text-base font-black text-slate-900">{m.label}</span>
                   {(m.current || m.target) && (
                     <div className="flex items-baseline gap-2 text-base font-black">
@@ -97,7 +97,7 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
         </div>
 
         {/* 3. 整体进度 */}
-        <div className="flex flex-col justify-start space-y-3 pt-6 lg:pt-0 lg:pl-7">
+        <div className="flex flex-col justify-start space-y-3 pt-5 lg:pt-0 lg:pl-6">
           <div className="report-status-label flex items-center gap-2.5 shrink-0">
             <span className="w-1 h-5 rounded-none bg-blue-700" />
             <span>整体进度：</span>

@@ -118,7 +118,7 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
           </div>
 
           <div className="">
-            <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full text-[10px] md:text-xs break-all">
+            <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full report-dense-table">
               <thead className="bg-slate-100 text-slate-900 ">
                 {/* 一级表头 */}
                 <tr className="bg-slate-100 border-b border-slate-200 font-black text-slate-900">

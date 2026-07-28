@@ -88,9 +88,9 @@ export const ReportCover: React.FC = () => {
   ];
 
   return (
-    <div className="report-card p-7 md:p-12 space-y-10 w-full mx-auto min-h-fit flex flex-col">
+    <div className="report-card p-7 md:p-10 space-y-8 w-full mx-auto min-h-fit flex flex-col">
       {/* 封面标题区 */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-7 border-b border-slate-200">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
         <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight max-w-4xl">
           {FA.reportTitle}
         </h1>
@@ -109,8 +109,8 @@ export const ReportCover: React.FC = () => {
       </div>
 
       {/* 极简目录罗列 - 从上到下 */}
-      <div className="space-y-7 max-w-5xl">
-        <div className="space-y-7">
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {sections.map((section) => (
             <div key={section.id} className="space-y-3">
               {/* 大章节 */}
@@ -124,14 +124,14 @@ export const ReportCover: React.FC = () => {
               </div>
 
               {/* 子目录从上到下罗列 */}
-              <div className="pl-2 md:pl-6 space-y-3">
+              <div className="pl-0 space-y-3">
                 {section.paths.map((path) => (
                   <div key={path.title} className="space-y-2">
                     <div className="text-base md:text-lg font-black text-slate-900">
                       {path.title}
                     </div>
                     {path.items && path.items.length > 0 && (
-                      <div className="pl-4 md:pl-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2">
+                      <div className="pl-4 grid grid-cols-1 gap-y-1.5">
                         {path.items.map((item) => (
                           <div key={item.title} className="space-y-1">
                             <div className="text-sm md:text-base font-bold text-slate-900">

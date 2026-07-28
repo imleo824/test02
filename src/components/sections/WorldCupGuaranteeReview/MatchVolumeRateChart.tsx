@@ -922,7 +922,7 @@ export const MatchVolumeRateChart = ({
                     TOP 10 亏损赛事明细
                   </h6>
                   <div className="flex-1 w-full min-h-0 overflow-hidden rounded-lg border border-slate-100 bg-white">
-                    <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full text-[10px] md:text-xs break-all">
+                    <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full report-dense-table">
                       <thead className="bg-slate-100 text-slate-900 ">
                         <tr className="text-white font-black text-sm uppercase tracking-wider">
                           <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-center">
@@ -1532,7 +1532,7 @@ export const MatchVolumeRateChart = ({
 
           {/* 数据表格 - 采用 Section 2 的高对比度、层级分明形式 */}
           <div className=" border border-slate-100 rounded-xl relative">
-            <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full text-[10px] md:text-xs break-all">
+            <table className="w-full font-bold border-collapse text-slate-900 table-fixed w-full report-dense-table">
               <thead className="bg-slate-100 text-slate-900 ">
                 <tr className="border-b border-slate-100 text-slate-900 font-black text-xs uppercase tracking-wider">
                   <th className="px-2 md:px-3 lg:px-4 py-3 border-b border-slate-200 font-black text-left">
