@@ -479,11 +479,11 @@
     background: #ffffff;
     border: 1px solid var(--report-line);
     border-radius: 8px;
-    padding: 14px;
-    min-height: 150px;
+    padding: 12px 14px;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
   .manual-flow-status-top {
@@ -491,7 +491,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    padding-bottom: 9px;
+    padding-bottom: 7px;
     border-bottom: 1px solid var(--report-line);
   }
 
@@ -521,7 +521,7 @@
   .manual-flow-status-card p {
     color: var(--report-ink);
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.45;
     font-weight: 800;
   }
 
