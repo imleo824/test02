@@ -25,6 +25,16 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
   progress,
 }) => {
   const numericProgress = parseFloat(progress.replace(/[^0-9.]/g, "")) || 0;
+  const normalizedMetrics =
+    metricsList && metricsList.length > 0
+      ? metricsList
+      : [
+          {
+            label: metricLabel || "攻坚指标",
+            current: currentStatus,
+            target: keyMetrics,
+          },
+        ];
 
   return (
     <div className="report-status-card overflow-hidden text-slate-900">
@@ -44,53 +54,34 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
         <div className="report-status-segment">
           <div className="report-status-heading">
             <span>核心指标</span>
-            {!metricsList && (
-              <span className="report-status-heading-extra">
-                {metricLabel || "攻坚指标"}
-              </span>
-            )}
           </div>
           
-          {metricsList && metricsList.length > 0 ? (
-            <div className="report-status-content report-status-metric-list">
-              {metricsList.map((m, idx) => (
-                <div key={idx} className="report-status-metric-row">
-                  <span>{m.label}</span>
-                  {(m.current || m.target) && (
-                    <div className="report-status-range">
-                      {m.current && (
-                        <>
-                          <span className="report-status-range-label">当前</span>
-                          <strong>{m.current}</strong>
-                        </>
-                      )}
-                      {m.current && m.target && (
-                        <span className="report-status-arrow">→</span>
-                      )}
-                      {m.target && (
-                        <>
-                          <span className="report-status-range-label">目标</span>
-                          <strong className="report-status-target">{m.target}</strong>
-                        </>
-                      )}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="report-status-content report-status-single-metric">
-              <span>当前</span>
-              <strong>
-                {currentStatus}
-              </strong>
-              <i>→</i>
-              <span>目标</span>
-              <strong className="report-status-target">
-                {keyMetrics}
-              </strong>
-            </div>
-          )}
+          <div className="report-status-content report-status-metric-list">
+            {normalizedMetrics.map((m, idx) => (
+              <div key={idx} className="report-status-metric-row">
+                <span>{m.label}</span>
+                {(m.current || m.target) && (
+                  <div className="report-status-range">
+                    {m.current && (
+                      <>
+                        <span className="report-status-range-label">当前</span>
+                        <strong>{m.current}</strong>
+                      </>
+                    )}
+                    {m.current && m.target && (
+                      <span className="report-status-arrow">→</span>
+                    )}
+                    {m.target && (
+                      <>
+                        <span className="report-status-range-label">目标</span>
+                        <strong className="report-status-target">{m.target}</strong>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* 3. 整体进度 */}

@@ -251,12 +251,6 @@
     flex: 0 0 auto;
   }
 
-  .report-status-heading-extra {
-    color: var(--report-ink);
-    font-size: 16px;
-    font-weight: 900;
-  }
-
   .report-status-content {
     flex: 1;
   }
@@ -335,39 +329,6 @@
 
   .report-status-target {
     color: var(--report-blue) !important;
-  }
-
-  .report-status-single-metric {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    align-items: baseline;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px;
-    background: var(--report-blue-soft);
-    border: 1px solid #d8e3f1;
-    border-radius: 6px;
-    font-weight: 900;
-  }
-
-  .report-status-single-metric span {
-    font-size: 16px;
-    color: var(--report-ink);
-  }
-
-  .report-status-single-metric strong {
-    font-family: var(--font-mono);
-    font-size: 30px;
-    line-height: 1;
-    font-weight: 900;
-    color: var(--report-ink);
-  }
-
-  .report-status-single-metric i {
-    color: var(--report-ink);
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 900;
   }
 
   .report-status-progress-panel {
