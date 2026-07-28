@@ -13,6 +13,15 @@ import {
 } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
 import { ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import {
+  chartAxisTick,
+  chartColors,
+  chartLabelStyle,
+  chartLegendStyle,
+  chartMargins,
+  chartTooltipItemStyle,
+  chartTooltipStyle,
+} from "./chartStyles";
 
 // 4, 5, 6月 人工审核人均效率数据 (单/小时)
 // 4月/5月按 30天 * 9小时 = 270小时/月 换算；6月按 30天 * 11小时 = 330小时/月 换算
@@ -108,33 +117,27 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
             data={efficiencyData}
             barSize={26}
             barGap={6}
-            margin={{ top: 30, right: 35, left: 15, bottom: 10 }}
+            margin={chartMargins.standard}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+            <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
             <XAxis
               dataKey="month"
-              stroke="#0f172a"
-              tick={{ fill: "#0f172a", fontWeight: 800, fontSize: 14 }}
+              stroke={chartColors.ink}
+              tick={chartAxisTick}
             />
 
             {/* 左Y轴：人均审核效率 (单/小时) */}
             <YAxis
-              stroke="#0f172a"
-              tick={{ fill: "#0f172a", fontWeight: 700 }}
+              stroke={chartColors.ink}
+              tick={chartAxisTick}
               tickFormatter={(val) => `${val}单`}
               domain={[0, 50]}
               ticks={[0, 10, 20, 30, 40, 50]}
             />
 
             <Tooltip
-              contentStyle={{
-                backgroundColor: "#ffffff",
-                color: "#0f172a",
-                borderRadius: "4px",
-                border: "1px solid #d7dee8",
-                fontWeight: "bold",
-              }}
-              itemStyle={{ color: "#0f172a" }}
+              contentStyle={chartTooltipStyle}
+              itemStyle={chartTooltipItemStyle}
               formatter={(value: any, name: any, item: any) => {
                 const payload = item?.payload;
                 let monthly = "";
@@ -146,17 +149,13 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
             />
 
             <Legend
-              wrapperStyle={{
-                fontWeight: "bold",
-                color: "#0f172a",
-                paddingTop: "10px",
-              }}
+              wrapperStyle={chartLegendStyle}
             />
 
             {/* 柱状图：总部人员人均效率 */}
             <Bar
               dataKey="总部人员效率"
-              fill="#0f172a"
+              fill={chartColors.ink}
               name="总部人均效率"
               radius={[4, 4, 0, 0]}
               isAnimationActive={false}
@@ -164,14 +163,14 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
               <LabelList
                 dataKey="总部标签"
                 position="top"
-                style={{ fill: "#0f172a", fontWeight: 800, fontSize: 11 }}
+                style={chartLabelStyle}
               />
             </Bar>
 
             {/* 柱状图：外包人员人均效率 */}
             <Bar
               dataKey="外包人员效率"
-              fill="#1d4e89"
+              fill={chartColors.blue}
               name="外包人均效率"
               radius={[4, 4, 0, 0]}
               isAnimationActive={false}
@@ -179,14 +178,14 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
               <LabelList
                 dataKey="外包标签"
                 position="top"
-                style={{ fill: "#0f172a", fontWeight: 800, fontSize: 11 }}
+                style={chartLabelStyle}
               />
             </Bar>
 
             {/* 柱状图：全归总部假设人均效率 */}
             <Bar
               dataKey="全归总部效率"
-              fill="#059669"
+              fill={chartColors.green}
               name="全归总部假设人均效率"
               radius={[4, 4, 0, 0]}
               isAnimationActive={false}
@@ -194,7 +193,7 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
               <LabelList
                 dataKey="全归总部标签"
                 position="top"
-                style={{ fill: "#0f172a", fontWeight: 800, fontSize: 11 }}
+                style={chartLabelStyle}
               />
             </Bar>
           </ComposedChart>

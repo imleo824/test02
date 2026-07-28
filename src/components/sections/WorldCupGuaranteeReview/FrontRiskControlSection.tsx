@@ -15,6 +15,15 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
+import {
+  chartAxisTick,
+  chartColors,
+  chartLabelStyle,
+  chartLegendStyle,
+  chartMargins,
+  chartTooltipItemStyle,
+  chartTooltipStyle,
+} from "./chartStyles";
 
 const monthlyTrendData = [
   { month: "4月", 总人工订单: 1900143, 总有标订单: 554418, 提款有标率: 29.2 },
@@ -73,27 +82,27 @@ export const FrontRiskControlSection: React.FC = () => {
 
         <div className="h-[380px] w-full pt-4">
           <ResponsiveContainer width="100%" height="100%">
-            <ComposedChart data={monthlyTrendData} margin={{ top: 25, right: 35, left: 15, bottom: 10 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-              <XAxis dataKey="month" stroke="#0f172a" tick={{ fill: "#0f172a", fontWeight: 800, fontSize: 14 }} />
+            <ComposedChart data={monthlyTrendData} margin={chartMargins.standard}>
+              <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
+              <XAxis dataKey="month" stroke={chartColors.ink} tick={chartAxisTick} />
               <YAxis 
                 yAxisId="left" 
-                stroke="#0f172a" 
-                tick={{ fill: "#0f172a", fontWeight: 700 }} 
+                stroke={chartColors.ink}
+                tick={chartAxisTick}
                 tickFormatter={(val) => `${(val / 10000).toFixed(0)}万`}
                 domain={[0, 4500000]}
               />
               <YAxis 
                 yAxisId="right" 
                 orientation="right" 
-                stroke="#0f172a" 
+                stroke={chartColors.ink}
                 domain={[0, 40]} 
-                tick={{ fill: "#0f172a", fontWeight: 700 }} 
+                tick={chartAxisTick}
                 tickFormatter={(val) => `${val}%`}
               />
               <Tooltip 
-                contentStyle={{ backgroundColor: "#ffffff", color: "#0f172a", borderRadius: "4px", border: "1px solid #d7dee8", fontWeight: "bold" }}
-                itemStyle={{ color: "#0f172a" }}
+                contentStyle={chartTooltipStyle}
+                itemStyle={chartTooltipItemStyle}
                 formatter={(value: any, name: any) => {
                   if (name === "提款有标率(%)") {
                     return [`${value}%`, name];
@@ -101,38 +110,38 @@ export const FrontRiskControlSection: React.FC = () => {
                   return [`${Number(value).toLocaleString()} 单 (${(Number(value) / 10000).toFixed(2)}万)`, name];
                 }}
               />
-              <Legend wrapperStyle={{ fontWeight: "bold", color: "#0f172a", paddingTop: "10px" }} />
-              <Bar yAxisId="left" dataKey="总人工订单" fill="#0f172a" name="总人工订单" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+              <Legend wrapperStyle={chartLegendStyle} />
+              <Bar yAxisId="left" dataKey="总人工订单" fill={chartColors.ink} name="总人工订单" radius={[4, 4, 0, 0]} isAnimationActive={false}>
                 <LabelList 
                   dataKey="总人工订单" 
                   position="top" 
                   formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}万`}
-                  style={{ fill: "#0f172a", fontWeight: 800, fontSize: 13 }} 
+                  style={chartLabelStyle}
                 />
               </Bar>
-              <Bar yAxisId="left" dataKey="总有标订单" fill="#1d4e89" name="总有标订单" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+              <Bar yAxisId="left" dataKey="总有标订单" fill={chartColors.blue} name="总有标订单" radius={[4, 4, 0, 0]} isAnimationActive={false}>
                 <LabelList 
                   dataKey="总有标订单" 
                   position="top" 
                   formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}万`}
-                  style={{ fill: "#334155", fontWeight: 800, fontSize: 13 }} 
+                  style={chartLabelStyle}
                 />
               </Bar>
               <Line 
                 yAxisId="right" 
                 type="monotone" 
                 dataKey="提款有标率" 
-                stroke="#0f172a" 
+                stroke={chartColors.ink}
                 strokeWidth={3} 
                 name="提款有标率(%)" 
                 isAnimationActive={false}
-                dot={{ r: 6, fill: "#0f172a", strokeWidth: 2, stroke: "#ffffff" }} 
+                dot={{ r: 6, fill: chartColors.ink, strokeWidth: 2, stroke: "#ffffff" }}
               >
                 <LabelList 
                   dataKey="提款有标率" 
                   position="top" 
                   formatter={(val: any) => `${val}%`}
-                  style={{ fill: "#0f172a", fontWeight: 900, fontSize: 13 }} 
+                  style={chartLabelStyle}
                 />
               </Line>
             </ComposedChart>

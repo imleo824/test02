@@ -145,16 +145,62 @@
     line-height: 1.45 !important;
     word-break: normal !important;
     overflow-wrap: anywhere !important;
+    table-layout: fixed;
+    width: 100%;
   }
 
   .report-dense-table th,
   .report-dense-table td {
-    padding: 10px 12px !important;
+    padding: 11px 12px !important;
     vertical-align: middle;
   }
 
   .report-dense-table tr {
     min-height: 42px;
+  }
+
+  .report-dense-table thead th {
+    background: #eef2f7 !important;
+    border-bottom: 1px solid var(--report-line) !important;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .report-dense-table tbody tr:nth-child(even) {
+    background: #f8fafc !important;
+  }
+
+  .report-dense-table tbody tr:last-child,
+  .report-dense-table tbody tr:has(td:first-child:last-child),
+  .report-dense-table tbody tr:has(td:first-child:nth-last-child(2)),
+  .report-dense-table tbody tr:has(td:first-child:nth-last-child(3)) {
+    border-top: 1px solid var(--report-line);
+  }
+
+  .report-dense-table td {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .report-dense-table td:first-child,
+  .report-dense-table th:first-child {
+    text-align: left;
+  }
+
+  .report-dense-table td[colspan],
+  .report-dense-table th[colspan],
+  .report-dense-table td[rowspan],
+  .report-dense-table th[rowspan] {
+    text-align: center;
+  }
+
+  .report-shell div:has(> .report-dense-table),
+  .report-shell div:has(> table.report-dense-table) {
+    overflow-x: auto;
+  }
+
+  .report-shell div:has(> .recharts-responsive-container) {
+    min-height: 260px;
   }
 
   .report-shell .rounded-xl,

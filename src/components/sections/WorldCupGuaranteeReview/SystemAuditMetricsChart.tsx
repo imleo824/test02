@@ -12,6 +12,15 @@ import {
 } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
 import { ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import {
+  chartAxisTick,
+  chartColors,
+  chartLabelStyle,
+  chartLegendStyle,
+  chartMargins,
+  chartTooltipItemStyle,
+  chartTooltipStyle,
+} from "./chartStyles";
 
 // 4, 5, 6月 及汇总 系统审核 召回率、准确率数据
 const systemMetricsData = [
@@ -89,46 +98,36 @@ export const SystemAuditMetricsChart: React.FC = () => {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={systemMetricsData}
-            margin={{ top: 25, right: 30, left: 10, bottom: 5 }}
+            margin={chartMargins.compact}
             barGap={8}
             barSize={28}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#cbd5e1" />
+            <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
             <XAxis
               dataKey="month"
-              stroke="#0f172a"
-              tick={{ fill: "#0f172a", fontWeight: 900, fontSize: 13 }}
+              stroke={chartColors.ink}
+              tick={chartAxisTick}
               padding={{ left: 20, right: 20 }}
             />
             <YAxis
-              stroke="#0f172a"
-              tick={{ fill: "#0f172a", fontWeight: 800, fontSize: 13 }}
+              stroke={chartColors.ink}
+              tick={chartAxisTick}
               tickFormatter={(val) => `${val}%`}
               domain={[0, 70]}
               ticks={[0, 10, 20, 30, 40, 50, 60, 70]}
             />
             <Tooltip
-              contentStyle={{
-                backgroundColor: "#ffffff",
-                color: "#0f172a",
-                borderRadius: "4px",
-                border: "1px solid #d7dee8",
-                fontWeight: "bold",
-              }}
-              itemStyle={{ color: "#0f172a" }}
+              contentStyle={chartTooltipStyle}
+              itemStyle={chartTooltipItemStyle}
               formatter={(value: any, name: any) => [`${value}%`, name]}
             />
             <Legend
-              wrapperStyle={{
-                fontWeight: "900",
-                color: "#0f172a",
-                paddingTop: "10px",
-              }}
+              wrapperStyle={chartLegendStyle}
             />
             {/* 召回率 柱子 */}
             <Bar
               dataKey="召回率"
-              fill="#0f172a"
+              fill={chartColors.ink}
               name="系统召回率"
               isAnimationActive={false}
               radius={[4, 4, 0, 0]}
@@ -136,13 +135,13 @@ export const SystemAuditMetricsChart: React.FC = () => {
               <LabelList
                 dataKey="召回率标签"
                 position="top"
-                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 13 }}
+                style={chartLabelStyle}
               />
             </Bar>
             {/* 准确率 柱子 */}
             <Bar
               dataKey="准确率"
-              fill="#1d4e89"
+              fill={chartColors.blue}
               name="系统准确率"
               isAnimationActive={false}
               radius={[4, 4, 0, 0]}
@@ -150,7 +149,7 @@ export const SystemAuditMetricsChart: React.FC = () => {
               <LabelList
                 dataKey="准确率标签"
                 position="top"
-                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 13 }}
+                style={chartLabelStyle}
               />
             </Bar>
           </BarChart>

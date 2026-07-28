@@ -13,6 +13,15 @@ import {
 } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
 import { ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import {
+  chartAxisTick,
+  chartColors,
+  chartLabelStyle,
+  chartLegendStyle,
+  chartMargins,
+  chartTooltipItemStyle,
+  chartTooltipStyle,
+} from "./chartStyles";
 
 // 4, 5, 6月 角色订单结构与审核质量数据（根据最新数据更新）
 const auditStructureData = [
@@ -103,15 +112,15 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       {/* 柱状图与折线图双轴组合图表 */}
       <div className="h-[420px] w-full pt-2">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart data={auditStructureData} barSize={32} barGap={4} margin={{ top: 30, right: 35, left: 15, bottom: 10 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-            <XAxis dataKey="month" stroke="#0f172a" tick={{ fill: "#0f172a", fontWeight: 800, fontSize: 14 }} />
+          <ComposedChart data={auditStructureData} barSize={32} barGap={4} margin={chartMargins.standard}>
+            <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
+            <XAxis dataKey="month" stroke={chartColors.ink} tick={chartAxisTick} />
             
             {/* 左Y轴：审核单量 */}
             <YAxis 
               yAxisId="left" 
-              stroke="#0f172a" 
-              tick={{ fill: "#0f172a", fontWeight: 700 }} 
+              stroke={chartColors.ink}
+              tick={chartAxisTick}
               tickFormatter={(val) => `${(val / 10000).toFixed(0)}万`}
               domain={[0, 6000000]}
               ticks={[0, 1000000, 2000000, 3000000]}
@@ -121,16 +130,16 @@ export const SmartDispatchOrderStructure: React.FC = () => {
             <YAxis 
               yAxisId="right" 
               orientation="right" 
-              stroke="#0f172a" 
+              stroke={chartColors.ink}
               domain={[-3.5, 2.2]} 
               ticks={[0, 0.5, 1.0, 1.5, 2.0]}
-              tick={{ fill: "#0f172a", fontWeight: 700 }} 
+              tick={chartAxisTick}
               tickFormatter={(val) => `${val}%`}
             />
 
             <Tooltip 
-              contentStyle={{ backgroundColor: "#ffffff", color: "#0f172a", borderRadius: "4px", border: "1px solid #d7dee8", fontWeight: "bold" }}
-              itemStyle={{ color: "#0f172a" }}
+              contentStyle={chartTooltipStyle}
+              itemStyle={chartTooltipItemStyle}
               formatter={(value: any, name: any, item: any) => {
                 if (name.includes("质量")) {
                   return [`${value}%`, name];
@@ -149,28 +158,28 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               }}
             />
 
-            <Legend wrapperStyle={{ fontWeight: "bold", color: "#0f172a", paddingTop: "10px" }} />
+            <Legend wrapperStyle={chartLegendStyle} />
 
             {/* 柱状图：各角色单量，柱顶标注【单量+占比】 */}
-            <Bar yAxisId="left" dataKey="系统单量" fill="#0f172a" name="系统审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+            <Bar yAxisId="left" dataKey="系统单量" fill={chartColors.ink} name="系统审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
               <LabelList 
                 dataKey="系统标签" 
                 position="top" 
-                style={{ fill: "#0f172a", fontWeight: 800, fontSize: 11 }} 
+                style={chartLabelStyle}
               />
             </Bar>
-            <Bar yAxisId="left" dataKey="总部单量" fill="#10b981" name="总部审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+            <Bar yAxisId="left" dataKey="总部单量" fill={chartColors.green} name="总部审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
               <LabelList 
                 dataKey="总部标签" 
                 position="top" 
-                style={{ fill: "#0f172a", fontWeight: 800, fontSize: 11 }} 
+                style={chartLabelStyle}
               />
             </Bar>
-            <Bar yAxisId="left" dataKey="外包单量" fill="#1d4e89" name="外包审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+            <Bar yAxisId="left" dataKey="外包单量" fill={chartColors.blue} name="外包审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
               <LabelList 
                 dataKey="外包标签" 
                 position="top" 
-                style={{ fill: "#0f172a", fontWeight: 800, fontSize: 11 }} 
+                style={chartLabelStyle}
               />
             </Bar>
 
@@ -183,7 +192,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               strokeWidth={0} 
               legendType="circle"
               name="系统质量" 
-              dot={{ r: 5, fill: "#0f172a", strokeWidth: 2, stroke: "#ffffff" }} 
+              dot={{ r: 5, fill: chartColors.ink, strokeWidth: 2, stroke: "#ffffff" }}
               isAnimationActive={false}
               transform="translate(-36, 0)"
             >
@@ -192,7 +201,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 position="top" 
                 dx={-36}
                 formatter={(val: any) => `${val}%`}
-                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 11 }} 
+                style={chartLabelStyle}
               />
             </Line>
             <Line 
@@ -203,7 +212,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               strokeWidth={0} 
               legendType="circle"
               name="总部质量" 
-              dot={{ r: 5, fill: "#10b981", strokeWidth: 2, stroke: "#ffffff" }} 
+              dot={{ r: 5, fill: chartColors.green, strokeWidth: 2, stroke: "#ffffff" }}
               isAnimationActive={false}
               transform="translate(0, 0)"
             >
@@ -212,7 +221,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 position="top" 
                 dx={0}
                 formatter={(val: any) => `${val}%`}
-                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 11 }} 
+                style={chartLabelStyle}
               />
             </Line>
             <Line 
@@ -223,7 +232,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               strokeWidth={0} 
               legendType="circle"
               name="外包质量" 
-              dot={{ r: 5, fill: "#1d4e89", strokeWidth: 2, stroke: "#ffffff" }} 
+              dot={{ r: 5, fill: chartColors.blue, strokeWidth: 2, stroke: "#ffffff" }}
               isAnimationActive={false}
               transform="translate(36, 0)"
             >
@@ -232,7 +241,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 position="top" 
                 dx={36}
                 formatter={(val: any) => `${val}%`}
-                style={{ fill: "#0f172a", fontWeight: 900, fontSize: 11 }} 
+                style={chartLabelStyle}
               />
             </Line>
           </ComposedChart>
@@ -241,5 +250,4 @@ export const SmartDispatchOrderStructure: React.FC = () => {
     </ReportPanel>
   );
 };
-
 
