@@ -6,85 +6,109 @@ import { SystemAuditMetricsChart } from "./SystemAuditMetricsChart";
 import { ChapterTitle, ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
 
 export const SystemAuditSection: React.FC = () => {
-  const metricDerivationRows = [
+  const metricDerivationGroups = [
     {
       stage: "基础输入",
-      metric: "总订单量",
-      meaning: "每月提款订单总规模",
-      calculation: "已知：2,200,000单/月",
-      conclusion: "测算基数",
-    },
-    {
-      stage: "基础输入",
-      metric: "实际问题订单",
-      meaning: "每月实际存在问题的订单",
-      calculation: "已知：42,000单/月",
-      conclusion: "召回基数",
-    },
-    {
-      stage: "基础输入",
-      metric: "系统错误率基准",
-      meaning: "系统放行的问题订单占系统审核量的比例",
-      calculation: "沿用当前人工审核错误率：7‰",
-      conclusion: "系统错误率不高于7‰",
-      tone: "risk",
-    },
-    {
-      stage: "目标分流",
-      metric: "系统审核率",
-      meaning: "系统处理的订单占比，代表效率目标",
-      calculation: "目标设定：80%",
-      conclusion: "系统审核率80%",
+      className: "report-metric-group-input",
+      stageClassName: "report-metric-stage-input",
+      rows: [
+        {
+          metric: "总订单量",
+          meaning: "每月提款订单总规模",
+          calculation: "已知：2,200,000单/月",
+          conclusion: "测算基数",
+        },
+        {
+          metric: "实际问题订单",
+          meaning: "每月实际存在问题的订单",
+          calculation: "已知：42,000单/月",
+          conclusion: "召回基数",
+        },
+        {
+          metric: "系统错误率基准",
+          meaning: "系统放行的问题订单占系统审核量的比例",
+          calculation: "沿用当前人工审核错误率：7‰",
+          conclusion: "系统错误率不高于7‰",
+          tone: "risk",
+        },
+      ],
     },
     {
       stage: "目标分流",
-      metric: "人工审核率",
-      meaning: "人工处理的订单占比，代表人工容量约束",
-      calculation: "目标设定：20%",
-      conclusion: "人工审核率20%",
-    },
-    {
-      stage: "目标分流",
-      metric: "系统审核量",
-      meaning: "系统每月处理规模",
-      calculation: "2,200,000 × 80% = 1,760,000",
-      conclusion: "1,760,000单/月",
-    },
-    {
-      stage: "目标分流",
-      metric: "人工审核量",
-      meaning: "人工每月处理规模",
-      calculation: "2,200,000 × 20% = 440,000",
-      conclusion: "440,000单/月",
+      className: "report-metric-group-split",
+      stageClassName: "report-metric-stage-split",
+      rows: [
+        {
+          metric: "系统审核率",
+          meaning: "系统处理的订单占比，代表效率目标",
+          calculation: "目标设定：80%",
+          conclusion: "系统审核率80%",
+        },
+        {
+          metric: "人工审核率",
+          meaning: "人工处理的订单占比，代表人工容量约束",
+          calculation: "目标设定：20%",
+          conclusion: "人工审核率20%",
+        },
+        {
+          metric: "系统审核量",
+          meaning: "系统每月处理规模",
+          calculation: "2,200,000 × 80% = 1,760,000",
+          conclusion: "1,760,000单/月",
+        },
+        {
+          metric: "人工审核量",
+          meaning: "人工每月处理规模",
+          calculation: "2,200,000 × 20% = 440,000",
+          conclusion: "440,000单/月",
+        },
+      ],
     },
     {
       stage: "质量底线",
-      metric: "系统最大错误单量",
-      meaning: "系统最多可漏出的问题订单",
-      calculation: "1,760,000 × 7‰ = 12,320",
-      conclusion: "不超过12,320单/月",
-      tone: "risk",
+      className: "report-metric-group-quality",
+      stageClassName: "report-metric-stage-quality",
+      rows: [
+        {
+          metric: "系统最大错误单量",
+          meaning: "系统最多可漏出的问题订单",
+          calculation: "1,760,000 × 7‰ = 12,320",
+          conclusion: "不超过12,320单/月",
+          tone: "risk",
+        },
+      ],
     },
     {
       stage: "召回要求",
-      metric: "至少识别问题订单",
-      meaning: "必须识别并转人工的问题订单",
-      calculation: "42,000 - 12,320 = 29,680",
-      conclusion: "不少于29,680单/月",
-    },
-    {
-      stage: "召回要求",
-      metric: "问题订单召回率",
-      meaning: "识别并转人工的问题订单占全部问题订单的比例",
-      calculation: "29,680 ÷ 42,000 = 70.67%",
-      conclusion: "不低于70.67%",
+      className: "report-metric-group-recall",
+      stageClassName: "report-metric-stage-recall",
+      rows: [
+        {
+          metric: "至少识别问题订单",
+          meaning: "必须识别并转人工的问题订单",
+          calculation: "42,000 - 12,320 = 29,680",
+          conclusion: "不少于29,680单/月",
+        },
+        {
+          metric: "问题订单召回率",
+          meaning: "识别并转人工的问题订单占全部问题订单的比例",
+          calculation: "29,680 ÷ 42,000 = 70.67%",
+          conclusion: "不低于70.67%",
+        },
+      ],
     },
     {
       stage: "人工池结果",
-      metric: "人工审核命中率",
-      meaning: "人工审核池中实际问题订单占比",
-      calculation: "29,680 ÷ 440,000 = 6.75%",
-      conclusion: "不低于6.75%",
+      className: "report-metric-group-result",
+      stageClassName: "report-metric-stage-result",
+      rows: [
+        {
+          metric: "人工审核命中率",
+          meaning: "人工审核池中实际问题订单占比",
+          calculation: "29,680 ÷ 440,000 = 6.75%",
+          conclusion: "不低于6.75%",
+        },
+      ],
     },
   ];
 
@@ -99,12 +123,13 @@ export const SystemAuditSection: React.FC = () => {
         metricsList={[
           { label: "系统审核率", current: "45%", target: "80%" },
           { label: "人工审核率", current: "55%", target: "20%" },
-          { label: "问题订单召回率", current: "51.25%", target: "不低于70.67%" },
-          { label: "人工审核命中率", current: "11.40%", target: "不低于6.75%" },
         ]}
         progress="45%"
         estimatedTime="持续进行"
       />
+
+      {/* 系统指标柱状图 */}
+      <SystemAuditMetricsChart />
 
       <ReportPanel className="space-y-5">
         <ReportPanelHeader
@@ -114,14 +139,21 @@ export const SystemAuditSection: React.FC = () => {
 
         <SummaryBox className="mb-0">
           {highlightNumbers(
-            "基于[[220万单/月]]、[[42,000单问题订单]]、[[人工错误率7‰]]，系统审核率提升至[[80%]]时，最低要求是：系统错误率[[不高于7‰]]，问题订单召回率[[不低于70.67%]]，人工审核命中率[[不低于6.75%]]。"
+            "召回率是质量底线，决定系统不能漏掉太多问题订单。人工审核命中率是结果指标，反映人工审核池是否更集中。只有召回率[[不低于70.67%]]，人工审核命中率提升才有意义。"
           )}
         </SummaryBox>
 
         <div className="space-y-3">
           <div className="report-small-title">指标推导总表</div>
           <div className="overflow-x-auto">
-            <table className="report-dense-table min-w-[1040px]">
+            <table className="report-dense-table report-metric-derivation-table min-w-[1100px]">
+              <colgroup>
+                <col className="w-[12%]" />
+                <col className="w-[16%]" />
+                <col className="w-[29%]" />
+                <col className="w-[24%]" />
+                <col className="w-[19%]" />
+              </colgroup>
               <thead>
                 <tr>
                   <th>阶段</th>
@@ -132,34 +164,28 @@ export const SystemAuditSection: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {metricDerivationRows.map((row) => (
-                  <tr key={`${row.stage}-${row.metric}`}>
-                    <td className="font-black text-slate-900">{row.stage}</td>
-                    <td className="font-black text-slate-900">{row.metric}</td>
-                    <td className="font-bold text-slate-900">{row.meaning}</td>
-                    <td className="font-black text-slate-900">{row.calculation}</td>
-                    <td className={`font-black ${row.tone === "risk" ? "text-rose-700" : "text-blue-900"}`}>
-                      {row.conclusion}
-                    </td>
-                  </tr>
-                ))}
+                {metricDerivationGroups.map((group) =>
+                  group.rows.map((row, index) => (
+                    <tr key={`${group.stage}-${row.metric}`} className={group.className}>
+                      {index === 0 && (
+                        <td rowSpan={group.rows.length} className={`font-black text-slate-900 text-center ${group.stageClassName}`}>
+                          {group.stage}
+                        </td>
+                      )}
+                      <td className="font-black text-slate-900 report-metric-name">{row.metric}</td>
+                      <td className="font-bold text-slate-900 report-metric-meaning">{row.meaning}</td>
+                      <td className="font-black text-slate-900 font-mono report-metric-calculation">{row.calculation}</td>
+                      <td className={`font-black ${row.tone === "risk" ? "text-rose-700" : "text-blue-900"}`}>
+                        {row.conclusion}
+                      </td>
+                    </tr>
+                  )),
+                )}
               </tbody>
             </table>
           </div>
         </div>
-
-        <div className="report-card-soft p-4 border-l-4 border-l-blue-700 space-y-2">
-          <div className="font-black text-slate-900">指标关系</div>
-          <p className="font-bold text-slate-900 leading-relaxed">
-            {highlightNumbers(
-              "召回率是质量底线，决定系统不能漏掉太多问题订单。人工审核命中率是结果指标，反映人工审核池是否更集中。只有召回率[[不低于70.67%]]，人工审核命中率提升才有意义。"
-            )}
-          </p>
-        </div>
       </ReportPanel>
-
-      {/* 系统指标柱状图 */}
-      <SystemAuditMetricsChart />
 
       {/* 系统风控策略核心流程 */}
       <div className="bg-white border border-slate-100 rounded-xl p-5 md:p-6 space-y-6 ">

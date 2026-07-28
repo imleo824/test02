@@ -290,6 +290,97 @@
     text-align: center;
   }
 
+  .report-metric-derivation-table {
+    border-collapse: separate !important;
+    border-spacing: 0;
+    table-layout: fixed;
+    border: 1px solid var(--report-line);
+  }
+
+  .report-metric-derivation-table thead th {
+    background: #e9eff7 !important;
+    color: var(--report-ink);
+    text-align: left !important;
+    font-weight: 900 !important;
+    border-right: 1px solid #d2dbe8;
+  }
+
+  .report-metric-derivation-table thead th:first-child {
+    text-align: center !important;
+  }
+
+  .report-metric-derivation-table thead th:last-child,
+  .report-metric-derivation-table tbody td:last-child {
+    border-right: 0;
+  }
+
+  .report-metric-derivation-table tbody tr:nth-child(even) {
+    background: transparent !important;
+  }
+
+  .report-metric-derivation-table tbody td {
+    color: var(--report-ink);
+    text-align: left !important;
+    vertical-align: middle;
+    border-right: 1px solid #dbe3ee;
+    border-bottom: 1px solid #dbe3ee;
+  }
+
+  .report-metric-derivation-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .report-metric-derivation-table td[rowspan] {
+    text-align: center !important;
+    vertical-align: middle;
+    border-right: 1px solid #cbd6e4;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .report-metric-derivation-table .report-metric-name {
+    font-size: 15px;
+  }
+
+  .report-metric-derivation-table .report-metric-meaning {
+    line-height: 1.55;
+  }
+
+  .report-metric-derivation-table .report-metric-calculation {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .report-metric-derivation-table .report-metric-group-input td {
+    background: #f8fafc !important;
+  }
+
+  .report-metric-derivation-table .report-metric-group-split td,
+  .report-metric-derivation-table .report-metric-group-recall td {
+    background: #f5f8fc !important;
+  }
+
+  .report-metric-derivation-table .report-metric-group-quality td {
+    background: #fff5f6 !important;
+  }
+
+  .report-metric-derivation-table .report-metric-group-result td {
+    background: #f4faf6 !important;
+  }
+
+  .report-metric-derivation-table .report-metric-stage-input,
+  .report-metric-derivation-table .report-metric-stage-split,
+  .report-metric-derivation-table .report-metric-stage-recall,
+  .report-metric-derivation-table .report-metric-stage-result {
+    background: #e9eff7 !important;
+    border-left: 4px solid var(--report-blue);
+  }
+
+  .report-metric-derivation-table .report-metric-stage-quality {
+    background: #ffe8ec !important;
+    border-left: 4px solid var(--report-danger);
+  }
+
   .report-shell div:has(> .report-dense-table),
   .report-shell div:has(> table.report-dense-table) {
     overflow-x: auto;
