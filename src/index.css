@@ -149,6 +149,21 @@
     border-radius: 8px !important;
   }
 
+  .report-shell .rounded-full {
+    border-radius: 4px !important;
+  }
+
+  .report-shell .w-1.rounded-full,
+  .report-shell .w-1\.5.rounded-full,
+  .report-shell .w-2.rounded-full,
+  .report-shell .w-2\.5.rounded-full,
+  .report-shell .h-1.rounded-full,
+  .report-shell .h-1\.5.rounded-full,
+  .report-shell .h-2.rounded-full,
+  .report-shell .h-2\.5.rounded-full {
+    border-radius: 0 !important;
+  }
+
   .report-shell .text-\[9px\],
   .report-shell .text-\[10px\],
   .report-shell .text-xs {
@@ -169,6 +184,14 @@
   .report-shell .shadow-2xl,
   .report-shell .shadow-xs {
     box-shadow: none !important;
+  }
+
+  .report-shell [class*="uppercase"] {
+    text-transform: none !important;
+  }
+
+  .report-shell [class*="tracking-"] {
+    letter-spacing: 0 !important;
   }
 
   .report-shell [class*="text-slate-"],
@@ -201,7 +224,10 @@
   .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-50"][class*="border"],
   .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-100"][class*="border"],
   .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-200"][class*="border"],
-  .report-shell div[class*="bg-slate-50"][class*="border"] div[class*="bg-white"][class*="border"] {
+  .report-shell div[class*="bg-slate-50"][class*="border"] div[class*="bg-white"][class*="border"],
+  .report-shell div[class*="bg-slate-100"][class*="border"] div[class*="bg-white"][class*="border"],
+  .report-shell div[class*="bg-blue-50"][class*="border"] div[class*="bg-white"][class*="border"],
+  .report-shell div[class*="bg-white"][class*="border"] span[class*="border"] {
     border-color: transparent !important;
   }
 
@@ -235,7 +261,15 @@
   }
 
   .report-shell .bg-blue-600,
-  .report-shell .bg-blue-700 {
+  .report-shell .bg-blue-700,
+  .report-shell [class*="bg-blue-600"] {
+    background-color: var(--report-blue) !important;
+    color: #ffffff !important;
+  }
+
+  .report-shell .bg-sky-600,
+  .report-shell .bg-indigo-600,
+  .report-shell .bg-purple-600 {
     background-color: var(--report-blue) !important;
     color: #ffffff !important;
   }

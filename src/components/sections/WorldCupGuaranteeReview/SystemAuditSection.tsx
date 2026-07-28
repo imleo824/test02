@@ -48,7 +48,7 @@ export const SystemAuditSection: React.FC = () => {
               </p>
             </div>
             <div className="bg-white/90 p-2.5 rounded text-sm font-bold text-slate-900">
-              <span className="text-blue-900 font-black">示例：</span>实际有 <span className="font-black text-blue-900">100</span> 单风险，系统拦截到 <span className="font-black text-blue-900">90</span> 单 ➔ 召回率 <span className="font-black text-blue-900">90%</span>
+              <span className="text-blue-900 font-black">示例：</span>实际有 <span className="font-black text-blue-900">100</span> 单风险，系统拦截到 <span className="font-black text-blue-900">90</span> 单 → 召回率 <span className="font-black text-blue-900">90%</span>
             </div>
           </div>
 
@@ -59,11 +59,11 @@ export const SystemAuditSection: React.FC = () => {
             </div>
             <div className="space-y-2 text-sm font-black text-slate-900">
               <div className="bg-white/90 p-2 rounded">
-                <div>召回率高 ➔ 准确率低</div>
+                <div>召回率高 → 准确率低</div>
                 <div className="text-sm font-black text-slate-900 mt-1 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">（防得严，易误伤）</div>
               </div>
               <div className="bg-white/90 p-2 rounded">
-                <div>准确率高 ➔ 召回率低</div>
+                <div>准确率高 → 召回率低</div>
                 <div className="text-sm font-black text-slate-900 mt-1 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">（判得准，易漏报）</div>
               </div>
             </div>
@@ -80,7 +80,7 @@ export const SystemAuditSection: React.FC = () => {
               </p>
             </div>
             <div className="bg-white/90 p-2.5 rounded text-sm font-bold text-slate-900">
-              <span className="text-blue-900 font-black">示例：</span>系统拦截 <span className="font-black text-blue-900">100</span> 单，其中 <span className="font-black text-blue-900">95</span> 单真风险 ➔ 准确率 <span className="font-black text-blue-900">95%</span>
+              <span className="text-blue-900 font-black">示例：</span>系统拦截 <span className="font-black text-blue-900">100</span> 单，其中 <span className="font-black text-blue-900">95</span> 单真风险 → 准确率 <span className="font-black text-blue-900">95%</span>
             </div>
           </div>
         </div>

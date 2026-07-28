@@ -31,7 +31,7 @@ export const TgGovernanceSection: React.FC = () => {
         {/* 顶部标题与标签 */}
         <div className="space-y-2 border-b border-slate-100 pb-3">
           <CoreActionHeader
-            title={<>流程线上化 <span className="text-emerald-600 font-black">✓</span></>}
+            title={<>流程线上化</>}
             desc="全面推动标准业务流从 TG 向管理后台迁移，实现过程可控、数据结构化与风险闭环，彻底剥离 TG 的业务操作属性。"
             summaryStyle={true}
           />
@@ -66,7 +66,7 @@ export const TgGovernanceSection: React.FC = () => {
               <div className="flex items-center gap-1.5 border-b border-slate-100 pb-1.5">
                 <span className="w-1.5 h-3 bg-blue-600 rounded-full"></span>
                 <span className="font-black text-slate-900 text-sm flex items-center gap-1">
-                  {flow.title} <span className="text-emerald-600 font-black">✓</span>
+                  {flow.title}
                 </span>
               </div>
               <p className="text-sm text-slate-900 font-bold leading-relaxed pt-0.5">

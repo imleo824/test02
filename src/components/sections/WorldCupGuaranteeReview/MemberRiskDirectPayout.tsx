@@ -29,7 +29,7 @@ export const MemberRiskDirectPayout: React.FC = () => {
             </div>
           </div>
           <div className="md:col-span-1 text-center font-black text-blue-900 text-lg">
-            ➔
+            →
           </div>
           <div className="md:col-span-5 bg-emerald-50 p-3 rounded-lg border border-emerald-200 space-y-1">
             <div className="text-sm font-bold text-emerald-900">升级模式：</div>
@@ -45,7 +45,7 @@ export const MemberRiskDirectPayout: React.FC = () => {
         <div className="flex items-center justify-between border-b border-slate-100 pb-2">
           <h4 className="text-base md:text-lg font-black tracking-tight text-slate-900 flex items-center gap-2">
             <span className="w-2 h-4 bg-slate-900 rounded-full"></span>
-            风险分数模式 <span className="text-emerald-600 font-black text-base md:text-lg">✓</span>
+            风险分数模式
           </h4>
         </div>
 

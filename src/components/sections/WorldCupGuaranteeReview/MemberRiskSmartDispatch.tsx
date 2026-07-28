@@ -28,7 +28,7 @@ export const MemberRiskSmartDispatch: React.FC = () => {
             </div>
           </div>
           <div className="md:col-span-1 text-center font-black text-blue-900 text-lg">
-            ➔
+            →
           </div>
           <div className="md:col-span-5 bg-emerald-50 p-3 rounded-lg border border-emerald-200 space-y-1">
             <div className="text-sm font-bold text-emerald-900">升级模式：</div>
@@ -155,7 +155,7 @@ export const MemberRiskSmartDispatch: React.FC = () => {
                 <div className="pt-1 border-t border-slate-200">
                   <span className="font-bold">分配决策：</span>
                   <span className="font-black text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded">指派 A 审核</span>
-                  <div className="text-xs font-black text-slate-900 mt-1">※ 专业对口，提升审核效率。</div>
+                  <div className="text-xs font-black text-slate-900 mt-1">专业对口，提升审核效率。</div>
                 </div>
               </div>
             </div>
@@ -178,7 +178,7 @@ export const MemberRiskSmartDispatch: React.FC = () => {
                 <div className="pt-1 border-t border-slate-200">
                   <span className="font-bold">分配决策：</span>
                   <span className="font-black text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded">指派 A 审核</span>
-                  <div className="text-xs font-black text-slate-900 mt-1">※ 优先保障高绩效人员处理，提高质量。</div>
+                  <div className="text-xs font-black text-slate-900 mt-1">优先保障高绩效人员处理，提高质量。</div>
                 </div>
               </div>
             </div>
@@ -201,7 +201,7 @@ export const MemberRiskSmartDispatch: React.FC = () => {
                 <div className="pt-1 border-t border-slate-200">
                   <span className="font-bold">分配决策：</span>
                   <span className="font-black text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded">指派 A 审核</span>
-                  <div className="text-xs font-black text-slate-900 mt-1">※ 严格拦截权限不足人员，保障资金安全。</div>
+                  <div className="text-xs font-black text-slate-900 mt-1">严格拦截权限不足人员，保障资金安全。</div>
                 </div>
               </div>
             </div>

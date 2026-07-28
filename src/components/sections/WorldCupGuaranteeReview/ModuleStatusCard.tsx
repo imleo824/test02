@@ -68,7 +68,7 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
                         </>
                       )}
                       {m.current && m.target && (
-                        <span className="text-slate-900 font-black px-1">➔</span>
+                        <span className="text-slate-900 font-black px-1">→</span>
                       )}
                       {m.target && (
                         <>

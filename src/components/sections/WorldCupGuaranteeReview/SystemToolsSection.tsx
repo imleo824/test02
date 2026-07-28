@@ -32,7 +32,7 @@ export const SystemToolsSection: React.FC = () => {
         {/* 顶部标题 */}
         <div className="space-y-2 border-b border-slate-100 pb-3">
           <CoreActionHeader
-            title={<>系统工具支持 <span className="text-emerald-600 font-black">✓</span></>}
+            title={<>系统工具支持</>}
             desc="系统工具对[[重点风险特征]]识别效果显著，其中[[体育对压(跨AB系)]]召回率达 [[90%]]，[[卡进球点]]达 [[75%]]，[[体育打水]]达 [[68%]]，[[优势赔率]]达 [[58%]]。"
             summaryStyle={true}
           />
@@ -48,7 +48,6 @@ export const SystemToolsSection: React.FC = () => {
               <div className="font-black text-slate-900 text-sm flex items-center gap-1 border-b border-slate-100 pb-1.5">
                 <span className="w-1.5 h-3 bg-blue-600 rounded-full shrink-0"></span>
                 <span>{tool.id}：{tool.name}</span>
-                <span className="text-emerald-600 font-black">✓</span>
               </div>
               <p className="text-sm text-slate-900 font-bold leading-relaxed pt-0.5">
                 {tool.desc}
