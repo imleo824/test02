@@ -7,7 +7,6 @@ import {
   FileText,
   ShieldCheck,
   Target,
-  Trophy,
   UserRound,
   UsersRound,
 } from "lucide-react";
@@ -97,30 +96,13 @@ const metricItems = [
 
 export const ZZOverview: React.FC = () => {
   return (
-    <div className="report-card business-flywheel-shell p-7 overflow-hidden">
-      <div className="business-flywheel min-w-[1120px]">
+    <div className="report-card business-flywheel-shell p-6 overflow-hidden">
+      <div className="business-flywheel">
         <div className="business-flywheel-head">
           <h3>审核业务增长飞轮</h3>
-          <div className="business-flywheel-subtitle">
-            以系统审核比例为破局点，驱动质量与时效双提升
-          </div>
-          <p>
-            <span>核心思路：</span>
-            先提升系统审核比例，减少人工负担，再提升人工审核效率与审核质量，最终形成数据反哺系统的正向循环。
-          </p>
         </div>
 
         <div className="business-flywheel-stage">
-          <div className="business-flywheel-ring business-flywheel-ring-one" />
-          <div className="business-flywheel-ring business-flywheel-ring-two" />
-          <div className="business-flywheel-ring business-flywheel-ring-three" />
-
-          <div className="business-flywheel-arrow business-flywheel-arrow-red" />
-          <div className="business-flywheel-arrow business-flywheel-arrow-teal" />
-          <div className="business-flywheel-arrow business-flywheel-arrow-green" />
-          <div className="business-flywheel-arrow business-flywheel-arrow-orange" />
-          <div className="business-flywheel-arrow business-flywheel-arrow-purple" />
-
           <div className="business-flywheel-center">
             <div>核心目标</div>
             <strong>质量更高</strong>
@@ -128,28 +110,34 @@ export const ZZOverview: React.FC = () => {
             <strong>成本更低</strong>
           </div>
 
-          {flywheelSteps.map((step) => {
-            const Icon = step.icon;
+          <div className="business-flywheel-grid">
+            {flywheelSteps.map((step) => {
+              const Icon = step.icon;
 
-            return (
-              <div
-                key={step.number}
-                className={`business-flywheel-card business-flywheel-card-${step.tone} ${step.className}`}
-              >
-                {step.tag && <div className="business-flywheel-tag">{step.tag}</div>}
-                <div className={`business-flywheel-number business-flywheel-number-${step.tone}`}>
-                  {step.number}
+              return (
+                <div
+                  key={step.number}
+                  className={`business-flywheel-card business-flywheel-card-${step.tone}`}
+                >
+                  <div className="business-flywheel-card-top">
+                    <div className={`business-flywheel-number business-flywheel-number-${step.tone}`}>
+                      {step.number}
+                    </div>
+                    {step.tag && <div className="business-flywheel-tag">{step.tag}</div>}
+                  </div>
+                  <div className="business-flywheel-card-body">
+                    <Icon className={`business-flywheel-icon business-flywheel-icon-${step.tone}`} />
+                    <div className="business-flywheel-card-copy">
+                      <h4>{step.title}</h4>
+                      {step.desc.map((line) => (
+                        <p key={line}>{line}</p>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <Icon className={`business-flywheel-icon business-flywheel-icon-${step.tone}`} />
-                <div className="business-flywheel-card-copy">
-                  <h4>{step.title}</h4>
-                  {step.desc.map((line) => (
-                    <p key={line}>{line}</p>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         <div className="business-metrics-strip">
@@ -172,13 +160,6 @@ export const ZZOverview: React.FC = () => {
           })}
         </div>
 
-        <div className="business-flywheel-conclusion">
-          <Trophy className="business-flywheel-trophy" />
-          <p>
-            <span>飞轮本质：</span>
-            以系统能力为引擎，减少人工负担，提升风险识别效率，形成审核业务的持续优化闭环。
-          </p>
-        </div>
       </div>
     </div>
   );

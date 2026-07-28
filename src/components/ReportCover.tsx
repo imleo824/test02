@@ -18,7 +18,11 @@ export const ReportCover: React.FC = () => {
     {
       id: "1.0",
       title: "组织概览",
-      paths: [],
+      paths: [
+        {
+          title: "组织人员结构",
+        },
+      ],
     },
     {
       id: "2.0",
@@ -108,57 +112,33 @@ export const ReportCover: React.FC = () => {
         </div>
       </div>
 
-      {/* 极简目录罗列 - 从上到下 */}
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          {sections.map((section) => (
-            <div key={section.id} className="space-y-3">
-              {/* 大章节 */}
-              <div className="flex items-baseline gap-3 border-b border-slate-200 pb-2">
-                <span className="text-xl md:text-2xl font-black text-slate-900 font-mono">
-                  {section.id}
-                </span>
-                <span className="text-xl md:text-2xl font-black text-slate-900">
-                  {section.title}
-                </span>
-              </div>
-
-              {/* 子目录从上到下罗列 */}
-              <div className="pl-0 space-y-3">
-                {section.paths.map((path) => (
-                  <div key={path.title} className="space-y-2">
-                    <div className="text-base md:text-lg font-black text-slate-900">
-                      {path.title}
-                    </div>
-                    {path.items && path.items.length > 0 && (
-                      <div className="pl-4 grid grid-cols-1 gap-y-1.5">
-                        {path.items.map((item) => (
-                          <div key={item.title} className="space-y-1">
-                            <div className="text-sm md:text-base font-bold text-slate-900">
-                              {item.title}
-                            </div>
-                            {item.items && item.items.length > 0 && (
-                              <div className="pl-4 flex flex-col space-y-1 border-l border-slate-200">
-                                {item.items.map((subItem) => (
-                                  <div
-                                    key={subItem.title}
-                                    className="text-sm font-semibold text-slate-900"
-                                  >
-                                    {subItem.title}
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+      {/* 目录 */}
+      <div className="report-cover-directory">
+        {sections.map((section) => (
+          <div key={section.id} className="report-cover-section">
+            <div className="report-cover-section-title">
+              <span>{section.id}</span>
+              <strong>{section.title}</strong>
             </div>
-          ))}
-        </div>
+
+            <div className="report-cover-paths">
+              {section.paths.map((path) => (
+                <div key={path.title} className="report-cover-path">
+                  <div className="report-cover-path-title">{path.title}</div>
+                  {path.items && path.items.length > 0 && (
+                    <div className="report-cover-items">
+                      {path.items.map((item) => (
+                        <div key={item.title} className="report-cover-item">
+                          {item.title}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
