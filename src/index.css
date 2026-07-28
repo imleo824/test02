@@ -130,10 +130,70 @@
     box-shadow: none;
   }
 
+  .report-cover-page {
+    min-height: 860px;
+    background: #ffffff;
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    padding: 64px 40px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+  }
+
+  .report-cover-title-block {
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .report-cover-rule {
+    width: 88px;
+    height: 2px;
+    background: var(--report-ink);
+  }
+
+  .report-cover-title-block h1 {
+    max-width: 900px;
+    color: var(--report-ink);
+    font-size: 52px;
+    line-height: 1.18;
+    font-weight: 900;
+  }
+
+  .report-cover-meta {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 42px;
+    color: var(--report-ink);
+  }
+
+  .report-cover-meta div {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .report-cover-meta span {
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  .report-cover-meta strong {
+    font-size: 17px;
+    font-weight: 900;
+  }
+
   .report-cover-directory {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    border-top: 2px solid var(--report-ink);
+    padding-top: 24px;
   }
 
   .report-cover-section {
@@ -198,6 +258,52 @@
     color: var(--report-ink);
     font-size: 15px;
     line-height: 1.35;
+    font-weight: 800;
+  }
+
+  .report-end-page {
+    min-height: 900px;
+    background: #ffffff;
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 64px 40px;
+  }
+
+  .report-end-content {
+    width: 100%;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 26px;
+    border-top: 2px solid var(--report-ink);
+    border-bottom: 1px solid var(--report-line);
+  }
+
+  .report-end-rule {
+    width: 72px;
+    height: 2px;
+    background: var(--report-blue);
+  }
+
+  .report-end-content h2 {
+    color: var(--report-ink);
+    font-size: 46px;
+    line-height: 1.2;
+    font-weight: 900;
+  }
+
+  .report-end-meta {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    color: var(--report-ink);
+    font-size: 16px;
     font-weight: 800;
   }
 

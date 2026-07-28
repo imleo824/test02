@@ -92,22 +92,18 @@ export const ReportCover: React.FC = () => {
   ];
 
   return (
-    <div className="report-card p-7 md:p-10 space-y-8 w-full mx-auto min-h-fit flex flex-col">
-      {/* 封面标题区 */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
-        <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight max-w-4xl">
-          {FA.reportTitle}
-        </h1>
-        <div className="flex flex-wrap gap-x-8 gap-y-2 text-base text-slate-900 font-bold mb-1">
-          <div className="flex items-center gap-2">
-            <span>数据周期:</span>
-            <span className="font-bold text-slate-900">{FA.navTitle}</span>
+    <div className="report-cover-page">
+      <div className="report-cover-title-block">
+        <div className="report-cover-rule" />
+        <h1>{FA.reportTitle}</h1>
+        <div className="report-cover-meta">
+          <div>
+            <span>数据周期</span>
+            <strong>{FA.navTitle}</strong>
           </div>
-          <div className="flex items-center gap-2">
-            <span>报告日期:</span>
-            <span className="font-bold text-slate-900">
-              {FA.reportDate}
-            </span>
+          <div>
+            <span>报告日期</span>
+            <strong>{FA.reportDate}</strong>
           </div>
         </div>
       </div>

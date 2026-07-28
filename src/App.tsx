@@ -75,13 +75,13 @@ export default function App() {
           </div>
 
           {/* Report End Page */}
-          <footer className="pt-24 pb-32 text-center print:hidden">
-            <div className="flex flex-col items-center justify-center space-y-8">
-              <div className="flex flex-col items-center gap-4">
-                <div className="h-1 w-16 bg-slate-900" />
-                <div className="text-slate-900 font-black text-base">
-                  汇报结束
-                </div>
+          <footer className="report-end-page print:hidden">
+            <div className="report-end-content">
+              <div className="report-end-rule" />
+              <h2>汇报结束</h2>
+              <div className="report-end-meta">
+                <span>{FA.reportTitle}</span>
+                <span>{FA.reportDate}</span>
               </div>
             </div>
           </footer>
