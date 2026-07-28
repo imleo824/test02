@@ -310,6 +310,15 @@ export const ExpectedRhythm = ({
 }: {
   items: { month: string; title?: string; desc?: string; status?: string; submitTime?: string; tagColor?: "blue" | "amber" | "emerald" | "slate" }[];
 }) => {
+  const gridClass =
+    items.length === 1
+      ? "grid-cols-1"
+      : items.length === 2
+        ? "grid-cols-1 md:grid-cols-2"
+        : items.length === 3
+          ? "grid-cols-1 md:grid-cols-3"
+          : "grid-cols-2 md:grid-cols-5";
+
   return (
     <div className="report-card-soft p-4 space-y-3 mt-auto">
       <div className="flex items-center justify-between border-b border-slate-200 pb-2">
@@ -318,7 +327,7 @@ export const ExpectedRhythm = ({
           预期节奏
         </span>
       </div>
-      <div className={`grid grid-cols-2 ${items.length > 3 ? 'md:grid-cols-5' : 'md:grid-cols-3'} gap-3 text-sm`}>
+      <div className={`grid ${gridClass} gap-3 text-sm`}>
         {items.map((step, idx) => {
           let colorClass = "text-blue-900 bg-blue-50 border-blue-200";
           if (step.tagColor === "amber" || (!step.tagColor && idx === 1 && items.length <= 3)) colorClass = "text-amber-900 bg-amber-50 border-amber-200";
@@ -340,8 +349,8 @@ export const ExpectedRhythm = ({
               )}
               {step.submitTime && (
                  <div className="text-xs text-slate-900 font-bold pt-2 border-t border-slate-100 mt-2">
-                   <div className="flex justify-between items-center mb-1"><span className="font-black text-slate-900">提交:</span> <span className="font-mono text-blue-900">{step.submitTime}</span></div>
-                   <div className="flex justify-between items-center"><span className="font-black text-slate-900">状态:</span> <span className="text-amber-900">{step.status}</span></div>
+                   <div className="flex justify-between items-center mb-1"><span className="font-black text-slate-900">提交时间</span> <span className="font-mono text-blue-900">{step.submitTime}</span></div>
+                   <div className="flex justify-between items-center"><span className="font-black text-slate-900">状态</span> <span className="text-amber-900">{step.status}</span></div>
                  </div>
               )}
             </div>

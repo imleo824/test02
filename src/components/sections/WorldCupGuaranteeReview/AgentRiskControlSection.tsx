@@ -1,5 +1,5 @@
 import React from "react";
-import { BeforeAfter, ExpectedRhythm, ModuleBlockHeader, ReportFlow, SummaryBox, highlightNumbers } from "./utils";
+import { ExpectedRhythm, ModuleBlockHeader, SummaryBox, highlightNumbers } from "./utils";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import { ChapterTitle } from "../../ReportSections";
 
@@ -29,6 +29,25 @@ export const AgentRiskControlSection: React.FC = () => {
       sysFix: "1,800",
       manualCalc: "2,100",
     },
+  ];
+
+  const dispatchBefore = [
+    "组长与代理长期绑定",
+    "手工核算，缺少机制隔离",
+    "固定关系容易形成利益空间",
+  ];
+
+  const dispatchAfter = [
+    "系统按规则随机派单",
+    "按月轮换，减少固定接触",
+    "异常关系更容易被发现",
+  ];
+
+  const warningSteps = [
+    { label: "人工录入", value: "45%", tone: "normal" },
+    { label: "系统标准", value: "35%", tone: "normal" },
+    { label: "对比偏差", value: "+10%", tone: "risk" },
+    { label: "触发预警", value: "超过5%阈值", tone: "risk" },
   ];
 
   return (
@@ -62,16 +81,43 @@ export const AgentRiskControlSection: React.FC = () => {
                 改变线下指定分配模式，通过系统将审核任务随机派发给不同组长，且按月进行差异派单。隔绝长期固定审核关系，杜绝利益勾结空间，提高作弊违规成本。
               </p>
 
-              <BeforeAfter
-                before={<><span className="font-black">组长与代理长期绑定，手工核算、缺乏机制隔离，极易产生内外勾结泄露。</span><br />固定关联：组长 A → 代理 A</>}
-                after={<><span className="font-black">系统多维度交叉评估、随机分配，并逐月进行差异化轮换派单。</span><br />上月：组长 A → 代理 A；随机轮换：组长 B → 代理 A</>}
-                beforeTitle="原来模式：线下指定分配"
-                afterTitle="升级模式：系统自动随机派单"
-              />
+              <div className="agent-dispatch-model">
+                <div className="agent-dispatch-panel">
+                  <div className="agent-dispatch-panel-head">
+                    <span>原来模式</span>
+                    <strong>线下指定分配</strong>
+                  </div>
+                  <div className="agent-dispatch-list">
+                    {dispatchBefore.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                  <div className="agent-dispatch-relation">固定关系：组长甲 → 代理甲</div>
+                </div>
+
+                <div className="agent-dispatch-core">
+                  <span>系统隔离</span>
+                  <strong>随机派单</strong>
+                  <i>月度轮换</i>
+                </div>
+
+                <div className="agent-dispatch-panel agent-dispatch-panel-strong">
+                  <div className="agent-dispatch-panel-head">
+                    <span>升级模式</span>
+                    <strong>系统自动随机派单</strong>
+                  </div>
+                  <div className="agent-dispatch-list">
+                    {dispatchAfter.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                  <div className="agent-dispatch-relation">轮换关系：组长乙 → 代理甲</div>
+                </div>
+              </div>
             </div>
           </div>
 
-                    <ExpectedRhythm items={[{ month: "待排期", tagColor: "amber", title: "【佣金审核】-随机派单", submitTime: "2026-05-19", status: "待排期（世界杯后启动）" }]} />
+          <ExpectedRhythm items={[{ month: "待排期", tagColor: "amber", title: "【佣金审核】-随机派单", submitTime: "2026-05-19", status: "待排期（世界杯后启动）" }]} />
         </div>
 
         {/* 第二列：3.5.2.2 系统自动计算佣金 */}
@@ -116,19 +162,31 @@ export const AgentRiskControlSection: React.FC = () => {
                 </table>
               </div>
 
-              <ReportFlow
-                title="佣金审核预警演示"
-                steps={[
-                  { title: "人工录入", desc: "45%" },
-                  { title: "系统标准", desc: "35%" },
-                  { title: "对比偏差", desc: "+10%" },
-                  { title: "触发异常预警", desc: "偏差值超过5%设定阈值", strong: true },
-                ]}
-              />
+              <div className="agent-warning-demo">
+                <div className="report-small-title">佣金审核预警演示</div>
+                <div className="agent-warning-rule">
+                  <span>预警规则</span>
+                  <strong>人工值与系统值偏差超过5%时触发</strong>
+                </div>
+                <div className="agent-warning-grid">
+                  {warningSteps.map((step, index) => (
+                    <div
+                      key={step.label}
+                      className={step.tone === "risk" ? "agent-warning-step agent-warning-step-risk" : "agent-warning-step"}
+                    >
+                      <span>{index + 1}</span>
+                      <div>
+                        <p>{step.label}</p>
+                        <strong>{step.value}</strong>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-                    <ExpectedRhythm items={[{ month: "第一阶段已上线", tagColor: "emerald", title: "【代理风控】代理云盾分数", submitTime: "2025-10-22", status: "已上线（参数调优中）" }, { month: "第一阶段已上线", tagColor: "emerald", title: "【代理风控】代理云盾审核", submitTime: "2025-12-28", status: "已上线（比对预警中）" }]} />
+          <ExpectedRhythm items={[{ month: "第一阶段已上线", tagColor: "emerald", title: "【代理风控】代理云盾分数", submitTime: "2025-10-22", status: "已上线（参数调优中）" }, { month: "第一阶段已上线", tagColor: "emerald", title: "【代理风控】代理云盾审核", submitTime: "2025-12-28", status: "已上线（比对预警中）" }]} />
         </div>
 
       </div>
