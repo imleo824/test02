@@ -102,6 +102,26 @@ export const ZZOverview: React.FC = () => {
           <h3>审核业务增长飞轮</h3>
         </div>
 
+        <div className="business-metrics-strip">
+          <div className="business-metrics-title">
+            <span>关键指标底线</span>
+            <i />
+          </div>
+          {metricItems.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div key={item.label} className="business-metric-item">
+                <Icon className={`business-metric-icon business-metric-icon-${item.tone}`} />
+                <div>
+                  <div className="business-metric-label">{item.label}</div>
+                  <div className="business-metric-value">{item.value}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         <div className="business-flywheel-stage">
           <div className="business-flywheel-ring business-flywheel-ring-one" />
           <div className="business-flywheel-ring business-flywheel-ring-two" />
@@ -142,26 +162,6 @@ export const ZZOverview: React.FC = () => {
               );
             })}
           </div>
-        </div>
-
-        <div className="business-metrics-strip">
-          <div className="business-metrics-title">
-            <span>关键指标底线</span>
-            <i />
-          </div>
-          {metricItems.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <div key={item.label} className="business-metric-item">
-                <Icon className={`business-metric-icon business-metric-icon-${item.tone}`} />
-                <div>
-                  <div className="business-metric-label">{item.label}</div>
-                  <div className="business-metric-value">{item.value}</div>
-                </div>
-              </div>
-            );
-          })}
         </div>
 
       </div>
