@@ -555,6 +555,34 @@
     font-size: 14px !important;
   }
 
+  .report-shell .recharts-label-list text,
+  .report-shell .recharts-bar-label,
+  .report-shell .recharts-line text {
+    paint-order: stroke;
+    stroke: #ffffff;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+  }
+
+  .report-shell .recharts-label-list text[fill="#ffffff"],
+  .report-shell .recharts-line text[fill="#ffffff"] {
+    fill: #ffffff !important;
+    paint-order: normal;
+    stroke: transparent;
+    stroke-width: 0;
+  }
+
+  @media (max-width: 640px) {
+    .report-shell div:has(> .recharts-responsive-container) {
+      overflow-x: auto !important;
+      overflow-y: hidden;
+    }
+
+    .report-shell .recharts-responsive-container {
+      min-width: 720px !important;
+    }
+  }
+
   .report-shell .recharts-cartesian-grid line {
     stroke: var(--report-line) !important;
   }

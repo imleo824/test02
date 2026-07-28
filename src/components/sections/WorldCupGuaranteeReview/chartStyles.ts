@@ -29,6 +29,10 @@ export const chartLabelStyle = {
   fill: chartColors.ink,
   fontWeight: 900,
   fontSize: 14,
+  paintOrder: "stroke",
+  stroke: "#ffffff",
+  strokeWidth: 3,
+  strokeLinejoin: "round",
 };
 
 export const chartTooltipStyle = {
@@ -51,22 +55,22 @@ export const chartLegendStyle = {
 };
 
 export const chartMargins = {
-  standard: { top: 30, right: 35, left: 15, bottom: 10 },
-  compact: { top: 25, right: 30, left: 10, bottom: 8 },
-  mini: { top: 25, right: 20, left: 0, bottom: 20 },
-  hiddenAxis: { top: 25, right: 10, left: -20, bottom: 0 },
+  standard: { top: 42, right: 38, left: 16, bottom: 12 },
+  compact: { top: 36, right: 32, left: 12, bottom: 10 },
+  mini: { top: 36, right: 24, left: 0, bottom: 22 },
+  hiddenAxis: { top: 36, right: 12, left: -16, bottom: 0 },
 };
 
 export const chartBarSize = {
-  single: 32,
-  grouped: 24,
-  stacked: 22,
-  horizontal: 18,
-  delta: 12,
+  single: 40,
+  grouped: 30,
+  stacked: 28,
+  horizontal: 24,
+  delta: 16,
 };
 
 export const chartBarGap = {
-  grouped: 6,
+  grouped: 8,
   stacked: 0,
 };
 

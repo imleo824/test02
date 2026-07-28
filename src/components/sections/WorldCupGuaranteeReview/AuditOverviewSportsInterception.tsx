@@ -227,13 +227,13 @@ export const AuditOverviewSportsInterception: React.FC = () => {
           </div>
           <div className="h-64 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={siteSlData} margin={chartMargins.compact} barSize={chartBarSize.grouped}>
+              <ComposedChart data={siteSlData} margin={chartMargins.compact} barSize={chartBarSize.grouped} barGap={14}>
                 <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                 <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
                 <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
-                <Bar yAxisId="left" dataKey="b_sys" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="y_sys" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="bw_sys" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="b_sys" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "insideTop", fill: "#ffffff", fontSize: 14, fontWeight: 900, formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="y_sys" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "insideTop", fill: chartColors.ink, fontSize: 14, fontWeight: 900, formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="bw_sys" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "insideTop", fill: "#ffffff", fontSize: 14, fontWeight: 900, formatter: (v: any) => `${v}%` }} />
                 <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke={chartSeriesColors.trend} strokeWidth={3} isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
                   <g>
                     <rect x={x - 22} y={y - 24} width="44" height="18" rx="3" fill={chartColors.ink} />
@@ -263,13 +263,13 @@ export const AuditOverviewSportsInterception: React.FC = () => {
           </div>
           <div className="h-64 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={venueSlData} margin={chartMargins.compact} barSize={chartBarSize.grouped}>
+              <ComposedChart data={venueSlData} margin={chartMargins.compact} barSize={chartBarSize.grouped} barGap={14}>
                 <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                 <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
                 <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
-                <Bar yAxisId="left" dataKey="im_venue" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="title_venue" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="panda_venue" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="im_venue" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "insideTop", fill: "#ffffff", fontSize: 14, fontWeight: 900, formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="title_venue" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "insideTop", fill: chartColors.ink, fontSize: 14, fontWeight: 900, formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="panda_venue" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "insideTop", fill: "#ffffff", fontSize: 14, fontWeight: 900, formatter: (v: any) => `${v}%` }} />
                 <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke={chartSeriesColors.trend} strokeWidth={3} isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
                   <g>
                     <rect x={x - 22} y={y - 24} width="44" height="18" rx="3" fill={chartColors.ink} />
