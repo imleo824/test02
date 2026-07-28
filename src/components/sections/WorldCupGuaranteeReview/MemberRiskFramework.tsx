@@ -1,0 +1,78 @@
+import React from "react";
+import { SummaryBox, highlightNumbers } from "./utils";
+
+export const MemberRiskFramework: React.FC = () => {
+  const steps = [
+    {
+      num: "01",
+      title: "XT自动上FK标",
+      desc: "系统全场景监控，触发异常与关联识别并进行前置预处理；",
+      note: "备注：不需要实时计算，可以有一定延迟",
+    },
+    {
+      num: "02",
+      title: "提升XT直接出单比例",
+      desc: "转到人工审核的订单，只有大约2.5%被FK。提升拦截策略效果，大部分订单XT自动化处理，大幅降低对人工审核的依赖。",
+    },
+    {
+      num: "03",
+      title: "升级人工派单模式",
+      desc: "建立提款订单-审核人员的匹配模型，将高风险的、专业领域的订单精准派发给高绩效、领域的专家，实现人力最优配置。",
+    },
+    {
+      num: "04",
+      title: "简化人工审单过程",
+      desc: "由人工整个后台各种菜单点来点去，升级为“XT直接给出FK报告”，人工只需要聚焦异常点，提升执行效率。",
+    },
+    {
+      num: "05",
+      title: "结果评估与反向优化",
+      desc: "针对“XT未命中：人工已实锤”与“XT已命中：人工未实锤”的案例转化为建议。调整XT参数、增加特征维度等，实现策略的迭代。",
+    },
+  ];
+
+  return (
+    <div className="space-y-6">
+      {/* 顶部3级漏斗/递进推演框 */}
+      <SummaryBox>
+        <div className="space-y-4 text-center py-2">
+          <p className="text-xl md:text-2xl font-black text-slate-900">
+            实现 <span className="underline underline-offset-4 decoration-2 decoration-blue-600 font-mono">XT替代人工</span> 的最核心要攻克问题
+          </p>
+          <div className="text-slate-900 font-extrabold text-xl">↓</div>
+          <p className="text-xl md:text-2xl font-black text-slate-900">
+            如何让 <span className="underline underline-offset-4 decoration-2 decoration-blue-600 font-mono">XT 精准识别套利作弊行为</span>？
+          </p>
+          <div className="text-slate-900 font-extrabold text-xl">↓</div>
+          <p className="text-base md:text-lg font-bold text-slate-900 leading-relaxed max-w-3xl mx-auto">
+            拆解为 {highlightNumbers("[[5个核心环节]]")} 来实现XT精准识别套利作弊行为，且是一具备 {highlightNumbers("[[持续迭代进化]]")} 的闭环流程：
+          </p>
+        </div>
+      </SummaryBox>
+
+      {/* 5个卡片横向/平铺分布 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-2">
+        {steps.map((item, idx) => (
+          <div
+            key={idx}
+            className="bg-white border border-slate-100 rounded-xl p-4 flex flex-col justify-between  space-y-3"
+          >
+            <div className="space-y-2">
+              <div className="text-base font-black text-slate-900 font-mono">
+                {item.num}. {item.title}
+              </div>
+              <p className="text-sm text-slate-900 font-semibold leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+            {item.note && (
+              <p className="text-xs text-blue-900 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200 font-mono font-bold">
+                {item.note}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
