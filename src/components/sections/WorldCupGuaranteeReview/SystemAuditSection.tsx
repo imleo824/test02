@@ -6,41 +6,86 @@ import { SystemAuditMetricsChart } from "./SystemAuditMetricsChart";
 import { ChapterTitle, ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
 
 export const SystemAuditSection: React.FC = () => {
-  const baseMetrics = [
-    { item: "每月总订单量", value: "2,200,000单" },
-    { item: "每月实际问题订单", value: "42,000单" },
-    { item: "当前人工审核错误率", value: "7‰" },
-    { item: "目标系统审核率", value: "80%" },
-    { item: "目标人工审核率", value: "20%" },
-  ];
-
-  const targetMetrics = [
-    { item: "系统审核率", value: "80%", role: "效率目标" },
-    { item: "人工审核率", value: "20%", role: "人工容量约束" },
-    { item: "系统审核量", value: "1,760,000单/月", role: "系统处理规模" },
-    { item: "人工审核量", value: "440,000单/月", role: "人工处理规模" },
-    { item: "系统错误率", value: "不高于7‰", role: "质量底线" },
-    { item: "系统最大错误单量", value: "不超过12,320单/月", role: "错误数量上限" },
-    { item: "问题订单召回率", value: "不低于70.67%", role: "核心风险指标" },
-    { item: "至少识别问题订单", value: "不少于29,680单/月", role: "召回结果" },
-    { item: "人工审核命中率", value: "不低于6.75%", role: "人工审核池最低风险浓度" },
-  ];
-
-  const definitionCards = [
-    { title: "系统审核率", formula: "系统审核量 / 总订单量", desc: "系统处理的订单占比，代表效率目标。" },
-    { title: "人工审核率", formula: "人工审核量 / 总订单量", desc: "人工处理的订单占比，代表人工容量约束。" },
-    { title: "系统错误率", formula: "系统漏出问题订单 / 系统审核量", desc: "系统放行的问题订单占系统审核量的比例，代表质量底线。" },
-    { title: "问题订单召回率", formula: "被识别的问题订单 / 全部问题订单", desc: "系统识别并转人工的问题订单占全部问题订单的比例，代表核心风险指标。" },
-    { title: "人工审核命中率", formula: "人工审核中实际问题订单 / 人工审核总订单", desc: "人工审核池里实际问题订单的比例，代表人工审核池风险浓度。" },
-  ];
-
-  const calculationSteps = [
-    { label: "目标系统审核量", formula: "220万 × 80% = 176万" },
-    { label: "目标人工审核量", formula: "220万 × 20% = 44万" },
-    { label: "最大错误单量", formula: "176万 × 7‰ = 12,320" },
-    { label: "至少识别问题订单", formula: "42,000 - 12,320 = 29,680" },
-    { label: "最低召回率", formula: "29,680 ÷ 42,000 = 70.67%" },
-    { label: "最低人工审核命中率", formula: "29,680 ÷ 440,000 = 6.75%" },
+  const metricDerivationRows = [
+    {
+      stage: "基础输入",
+      metric: "总订单量",
+      meaning: "每月提款订单总规模",
+      calculation: "已知：2,200,000单/月",
+      conclusion: "测算基数",
+    },
+    {
+      stage: "基础输入",
+      metric: "实际问题订单",
+      meaning: "每月实际存在问题的订单",
+      calculation: "已知：42,000单/月",
+      conclusion: "召回基数",
+    },
+    {
+      stage: "基础输入",
+      metric: "系统错误率基准",
+      meaning: "系统放行的问题订单占系统审核量的比例",
+      calculation: "沿用当前人工审核错误率：7‰",
+      conclusion: "系统错误率不高于7‰",
+      tone: "risk",
+    },
+    {
+      stage: "目标分流",
+      metric: "系统审核率",
+      meaning: "系统处理的订单占比，代表效率目标",
+      calculation: "目标设定：80%",
+      conclusion: "系统审核率80%",
+    },
+    {
+      stage: "目标分流",
+      metric: "人工审核率",
+      meaning: "人工处理的订单占比，代表人工容量约束",
+      calculation: "目标设定：20%",
+      conclusion: "人工审核率20%",
+    },
+    {
+      stage: "目标分流",
+      metric: "系统审核量",
+      meaning: "系统每月处理规模",
+      calculation: "2,200,000 × 80% = 1,760,000",
+      conclusion: "1,760,000单/月",
+    },
+    {
+      stage: "目标分流",
+      metric: "人工审核量",
+      meaning: "人工每月处理规模",
+      calculation: "2,200,000 × 20% = 440,000",
+      conclusion: "440,000单/月",
+    },
+    {
+      stage: "质量底线",
+      metric: "系统最大错误单量",
+      meaning: "系统最多可漏出的问题订单",
+      calculation: "1,760,000 × 7‰ = 12,320",
+      conclusion: "不超过12,320单/月",
+      tone: "risk",
+    },
+    {
+      stage: "召回要求",
+      metric: "至少识别问题订单",
+      meaning: "必须识别并转人工的问题订单",
+      calculation: "42,000 - 12,320 = 29,680",
+      conclusion: "不少于29,680单/月",
+    },
+    {
+      stage: "召回要求",
+      metric: "问题订单召回率",
+      meaning: "识别并转人工的问题订单占全部问题订单的比例",
+      calculation: "29,680 ÷ 42,000 = 70.67%",
+      conclusion: "不低于70.67%",
+    },
+    {
+      stage: "人工池结果",
+      metric: "人工审核命中率",
+      meaning: "人工审核池中实际问题订单占比",
+      calculation: "29,680 ÷ 440,000 = 6.75%",
+      conclusion: "不低于6.75%",
+    },
   ];
 
   return (
@@ -52,12 +97,12 @@ export const SystemAuditSection: React.FC = () => {
       <ModuleStatusCard
         coreValue="持续将风险特征系统化，持续迭代调优，以实现质量和效率的平衡"
         metricsList={[
-          { label: "系统审核率", current: "45%-50%", target: "80%" },
-          { label: "人工审核率", current: "50%-55%", target: "20%" },
+          { label: "系统审核率", current: "45%", target: "80%" },
+          { label: "人工审核率", current: "55%", target: "20%" },
           { label: "问题订单召回率", current: "51.25%", target: "不低于70.67%" },
           { label: "人工审核命中率", current: "11.40%", target: "不低于6.75%" },
         ]}
-        progress="50%"
+        progress="45%"
         estimatedTime="持续进行"
       />
 
@@ -73,86 +118,29 @@ export const SystemAuditSection: React.FC = () => {
           )}
         </SummaryBox>
 
-        <div className="grid grid-cols-1 xl:grid-cols-5 gap-4 items-stretch">
-          <div className="xl:col-span-2 report-card p-4">
-            <div className="report-small-title">基础数据</div>
-            <div className="mt-3 overflow-x-auto">
-              <table className="report-dense-table">
-                <tbody>
-                  {baseMetrics.map((row) => (
-                    <tr key={row.item}>
-                      <td className="font-black">{row.item}</td>
-                      <td className="font-black text-blue-900">{row.value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="xl:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="report-card-soft p-4 flex flex-col justify-between gap-3">
-              <div className="report-small-title">系统审核</div>
-              <div className="text-3xl md:text-4xl font-black text-blue-900 font-mono">1,760,000单</div>
-              <div className="text-base font-black text-slate-900">2,200,000 × 80% = 1,760,000</div>
-            </div>
-            <div className="report-card-soft p-4 flex flex-col justify-between gap-3">
-              <div className="report-small-title">人工审核</div>
-              <div className="text-3xl md:text-4xl font-black text-slate-900 font-mono">440,000单</div>
-              <div className="text-base font-black text-slate-900">2,200,000 × 20% = 440,000</div>
-            </div>
-          </div>
-        </div>
-
         <div className="space-y-3">
-          <div className="report-small-title">指标含义</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3">
-            {definitionCards.map((card) => (
-              <div key={card.title} className="report-card-soft p-3.5 space-y-2">
-                <div className="font-black text-blue-900">{card.title}</div>
-                <div className="font-black text-slate-900 border-y border-slate-200 py-2">{card.formula}</div>
-                <p className="font-bold text-slate-900 leading-relaxed">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="space-y-3">
-          <div className="report-small-title">测算过程</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-3">
-            {calculationSteps.map((step, index) => (
-              <div key={step.label} className="report-card p-3.5 space-y-2 min-h-[132px] flex flex-col justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-7 h-7 bg-slate-900 text-white flex items-center justify-center font-black rounded">
-                    {index + 1}
-                  </span>
-                  <span className="font-black text-slate-900">{step.label}</span>
-                </div>
-                <div className="font-black text-blue-900 leading-relaxed border-t border-slate-200 pt-2">
-                  {step.formula}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="space-y-3">
-          <div className="report-small-title">最终指标</div>
+          <div className="report-small-title">指标推导总表</div>
           <div className="overflow-x-auto">
-            <table className="report-dense-table">
+            <table className="report-dense-table min-w-[1040px]">
               <thead>
                 <tr>
+                  <th>阶段</th>
                   <th>指标</th>
-                  <th>最低要求</th>
-                  <th>指标作用</th>
+                  <th>含义</th>
+                  <th>计算过程</th>
+                  <th>结论口径</th>
                 </tr>
               </thead>
               <tbody>
-                {targetMetrics.map((row) => (
-                  <tr key={row.item}>
-                    <td className="font-black">{row.item}</td>
-                    <td className="font-black text-blue-900">{row.value}</td>
-                    <td className="font-bold">{row.role}</td>
+                {metricDerivationRows.map((row) => (
+                  <tr key={`${row.stage}-${row.metric}`}>
+                    <td className="font-black text-slate-900">{row.stage}</td>
+                    <td className="font-black text-slate-900">{row.metric}</td>
+                    <td className="font-bold text-slate-900">{row.meaning}</td>
+                    <td className="font-black text-slate-900">{row.calculation}</td>
+                    <td className={`font-black ${row.tone === "risk" ? "text-rose-700" : "text-blue-900"}`}>
+                      {row.conclusion}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -164,7 +152,7 @@ export const SystemAuditSection: React.FC = () => {
           <div className="font-black text-slate-900">指标关系</div>
           <p className="font-bold text-slate-900 leading-relaxed">
             {highlightNumbers(
-              "召回率是质量底线，决定系统不能漏掉太多问题订单；人工审核命中率是结果指标，反映人工审核池是否更集中。不能只追求人工审核命中率，否则可能漏掉大量问题订单。正确方向是：在召回率[[不低于70.67%]]的前提下，持续提升人工审核命中率。"
+              "召回率是质量底线，决定系统不能漏掉太多问题订单。人工审核命中率是结果指标，反映人工审核池是否更集中。只有召回率[[不低于70.67%]]，人工审核命中率提升才有意义。"
             )}
           </p>
         </div>
@@ -291,7 +279,7 @@ export const SystemAuditSection: React.FC = () => {
                   <p className="text-xs font-bold text-slate-900 leading-relaxed">
                     系统汇总步骤一命中的策略规则特征，综合计算风险分值。
                   </p>
-                  <div className="space-y-1 text-xs font-bold text-slate-800 bg-white p-2 rounded border border-blue-100">
+                  <div className="space-y-1 text-xs font-bold text-slate-900 bg-white p-2 rounded border border-blue-100">
                     <div className="flex justify-between">
                       <span>• 低风险分：</span>
                       <span className="text-emerald-700 font-black">分值 &lt; 策略阈值参数</span>
@@ -360,13 +348,13 @@ export const SystemAuditSection: React.FC = () => {
               <div className="space-y-1.5">
                 <div>
                   <div className="text-xs font-black text-slate-900">1. 召回率回溯（核对漏报）</div>
-                  <p className="text-xs font-bold text-slate-800 leading-normal">
+                  <p className="text-xs font-bold text-slate-900 leading-normal">
                     还原漏网提单特征，持续提升攻击拦截率与黑产覆盖。
                   </p>
                 </div>
                 <div>
-                  <div className="text-xs font-black text-slate-900">2. 命中率回溯（核对误报）</div>
-                  <p className="text-xs font-bold text-slate-800 leading-normal">
+                  <div className="text-xs font-black text-slate-900">2. 人工审核命中率回溯（核对误报）</div>
+                  <p className="text-xs font-bold text-slate-900 leading-normal">
                     精细化阈值参数调优，最大程度减少正常用户的系统摩擦。
                   </p>
                 </div>

@@ -72,25 +72,25 @@ export const SystemAuditMetricsChart: React.FC = () => {
         <div className="space-y-3">
           <div className="text-slate-900 font-bold text-sm leading-relaxed">
             {highlightNumbers(
-              "从风控业务特点，需优先保障召回率（有问题不能漏），再持续提升人工审核命中率（减少无效人工审核量）；人工审核命中率由原来的 [[～2%]] 提升至现在的 [[～10%]]"
+              "当前汇总召回率为[[51.25%]]，低于[[70.67%]]的最低要求；当前人工审核命中率为[[11.40%]]，高于[[6.75%]]的最低要求。后续先补召回，再在召回率不下降的前提下提升人工审核命中率。"
             )}
           </div>
           <div className="pt-2 border-t border-blue-200/80">
             <div className="text-sm font-black text-blue-950 mb-1.5 flex items-center gap-1.5">
-              <span>持续提升人工审核命中率的 3 个手段：</span>
+              <span>后续优化的 3 个动作：</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs font-bold text-slate-900">
               <div className="bg-white/80 p-2.5 rounded border border-blue-200">
-                <span className="font-black text-blue-900 block mb-0.5">1. 丰富风险特征维度</span>
-                <span>从单一规则向多层级组合判定升级，多维特征交叉验证，提高精准度。</span>
+                <span className="font-black text-blue-900 block mb-0.5">1. 丰富风险特征</span>
+                <span>让系统识别的问题订单更全。</span>
               </div>
               <div className="bg-white/80 p-2.5 rounded border border-blue-200">
-                <span className="font-black text-blue-900 block mb-0.5">2. 动态优化阈值模型</span>
-                <span>结合大盘数据动态调整预警阈值，有效过滤低风险噪音，大幅降低误报率。</span>
+                <span className="font-black text-blue-900 block mb-0.5">2. 调整阈值</span>
+                <span>减少低风险订单进入人工。</span>
               </div>
               <div className="bg-white/80 p-2.5 rounded border border-blue-200">
-                <span className="font-black text-blue-900 block mb-0.5">3. 审核数据闭环反哺</span>
-                <span>将人工专家审核结果实时反馈至规则引擎，持续调优策略实现自适应进化。</span>
+                <span className="font-black text-blue-900 block mb-0.5">3. 审核结果回填</span>
+                <span>用人工审核结果修正规则。</span>
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@ export const SystemAuditMetricsChart: React.FC = () => {
             <Bar
               dataKey="召回率"
               fill={chartSeriesColors.primary}
-              name="系统召回率"
+              name="问题订单召回率"
               isAnimationActive={false}
               radius={chartBarRadius.standard}
             >
