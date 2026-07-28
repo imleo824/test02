@@ -26,35 +26,35 @@ import {
   chartTooltipStyle,
 } from "./chartStyles";
 
-// 4, 5, 6月 及汇总 系统审核 召回率、准确率数据
+// 4, 5, 6月 及汇总 系统审核 召回率、人工审核命中率数据
 const systemMetricsData = [
   {
     month: "2026-04",
     召回率: 52.90,
-    准确率: 11.19,
+    人工审核命中率: 11.19,
     召回率标签: "52.90%",
-    准确率标签: "11.19%",
+    人工审核命中率标签: "11.19%",
   },
   {
     month: "2026-05",
     召回率: 49.63,
-    准确率: 12.82,
+    人工审核命中率: 12.82,
     召回率标签: "49.63%",
-    准确率标签: "12.82%",
+    人工审核命中率标签: "12.82%",
   },
   {
     month: "2026-06",
     召回率: 51.02,
-    准确率: 10.73,
+    人工审核命中率: 10.73,
     召回率标签: "51.02%",
-    准确率标签: "10.73%",
+    人工审核命中率标签: "10.73%",
   },
   {
     month: "汇总",
     召回率: 51.25,
-    准确率: 11.40,
+    人工审核命中率: 11.40,
     召回率标签: "51.25%",
-    准确率标签: "11.40%",
+    人工审核命中率标签: "11.40%",
   },
 ];
 
@@ -72,12 +72,12 @@ export const SystemAuditMetricsChart: React.FC = () => {
         <div className="space-y-3">
           <div className="text-slate-900 font-bold text-sm leading-relaxed">
             {highlightNumbers(
-              "从风控业务特点，需保障召回率的前提下（有问题不能漏），持续提升准确率（减少人工审核量）；准确率由原来的 [[～2%]] 提升至现在的 [[～10%]]"
+              "从风控业务特点，需优先保障召回率（有问题不能漏），再持续提升人工审核命中率（减少无效人工审核量）；人工审核命中率由原来的 [[～2%]] 提升至现在的 [[～10%]]"
             )}
           </div>
           <div className="pt-2 border-t border-blue-200/80">
             <div className="text-sm font-black text-blue-950 mb-1.5 flex items-center gap-1.5">
-              <span>持续提升准确率的 3 个手段：</span>
+              <span>持续提升人工审核命中率的 3 个手段：</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs font-bold text-slate-900">
               <div className="bg-white/80 p-2.5 rounded border border-blue-200">
@@ -142,16 +142,16 @@ export const SystemAuditMetricsChart: React.FC = () => {
                 style={chartLabelStyle}
               />
             </Bar>
-            {/* 准确率 柱子 */}
+            {/* 人工审核命中率 柱子 */}
             <Bar
-              dataKey="准确率"
+              dataKey="人工审核命中率"
               fill={chartSeriesColors.secondary}
-              name="系统准确率"
+              name="人工审核命中率"
               isAnimationActive={false}
               radius={chartBarRadius.standard}
             >
               <LabelList
-                dataKey="准确率标签"
+                dataKey="人工审核命中率标签"
                 position="top"
                 style={chartLabelStyle}
               />
