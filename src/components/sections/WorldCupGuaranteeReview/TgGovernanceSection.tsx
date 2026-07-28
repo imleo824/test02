@@ -3,6 +3,23 @@ import { ExpectedRhythm, ModuleBlockHeader, ReportInfoGrid, SummaryBox, highligh
 import { ReportPanel } from "../../ReportSections";
 
 export const TgGovernanceSection: React.FC = () => {
+  const statusGroups = [
+    {
+      label: "第一类",
+      title: "不需要或可简化的群及流程",
+      status: "已取消/已简化",
+      desc: "财务到账核实、证件认证信息、代理代存核实、质检案例对接等。",
+      className: "manual-flow-status-card manual-flow-status-card-muted",
+    },
+    {
+      label: "第二类",
+      title: "需存在转移到系统",
+      status: "完成 90%",
+      desc: "核心主业务流程，目前完成 90%；正在逐步切换中。",
+      className: "manual-flow-status-card manual-flow-status-card-focus",
+    },
+  ];
+
   const flows = [
     {
       id: "流程一",
@@ -38,23 +55,17 @@ export const TgGovernanceSection: React.FC = () => {
             </p>
           </SummaryBox>
 
-          <div className="space-y-2 pt-2 border-t border-slate-200">
-            <div className="text-sm font-bold text-slate-900 flex items-start gap-2">
-              <span className="w-1.5 h-1.5 bg-rose-500 rounded-full mt-1.5 shrink-0"></span>
-              <p>
-                <span className="font-black text-rose-950">第一类：不需要或可简化的群及流程</span>
-                <br />
-                <span className="text-rose-900 font-black">已取消/已简化：</span>如财务到账核实、证件认证信息、代理代存核实、质检案例对接等；
-              </p>
-            </div>
-            <div className="text-sm font-bold text-slate-900 flex items-start gap-2">
-              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 shrink-0"></span>
-              <p>
-                <span className="font-black text-blue-950">第二类：需存在转移到系统</span>
-                <br />
-                核心主业务流程，目前完成 <span className="text-blue-900 font-black underline">90%</span>；正在逐步切换中
-              </p>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 pt-2">
+            {statusGroups.map((group) => (
+              <div key={group.label} className={group.className}>
+                <div className="manual-flow-status-top">
+                  <span>{group.label}</span>
+                  <strong>{group.status}</strong>
+                </div>
+                <h4>{group.title}</h4>
+                <p>{group.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 

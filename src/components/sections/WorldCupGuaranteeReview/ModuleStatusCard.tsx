@@ -27,52 +27,50 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
   const numericProgress = parseFloat(progress.replace(/[^0-9.]/g, "")) || 0;
 
   return (
-    <div className="report-status-card p-5 md:p-6 text-slate-900">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-0 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+    <div className="report-status-card overflow-hidden text-slate-900">
+      <div className="grid grid-cols-1 lg:grid-cols-3 items-stretch">
         
         {/* 1. 核心价值 */}
-        <div className="flex flex-col justify-start space-y-3 pt-2 lg:pt-0 lg:pr-6 first:pt-0">
-          <div className="report-status-label flex items-center gap-2.5 shrink-0">
-            <span className="w-1 h-5 rounded-none bg-blue-700" />
+        <div className="report-status-segment">
+          <div className="report-status-heading">
             <span>核心价值</span>
           </div>
-          <div className="report-status-value my-auto">
+          <div className="report-status-content report-status-value">
             {coreValue}
           </div>
         </div>
 
         {/* 2. 核心指标 */}
-        <div className="flex flex-col justify-start space-y-3 pt-5 lg:pt-0 lg:px-6">
-          <div className="report-status-label flex items-center gap-2.5 shrink-0">
-            <span className="w-1 h-5 rounded-none bg-blue-700" />
-            <span>核心指标：</span>
+        <div className="report-status-segment">
+          <div className="report-status-heading">
+            <span>核心指标</span>
             {!metricsList && (
-              <span className="text-base md:text-lg font-black text-slate-900 ml-1">
+              <span className="report-status-heading-extra">
                 {metricLabel || "攻坚指标"}
               </span>
             )}
           </div>
           
           {metricsList && metricsList.length > 0 ? (
-            <div className="space-y-2 my-auto w-full">
+            <div className="report-status-content report-status-metric-list">
               {metricsList.map((m, idx) => (
-                <div key={idx} className="flex items-center justify-between bg-slate-50 px-4 py-3 rounded-lg gap-4">
-                  <span className="text-base font-black text-slate-900">{m.label}</span>
+                <div key={idx} className="report-status-metric-row">
+                  <span>{m.label}</span>
                   {(m.current || m.target) && (
-                    <div className="flex items-baseline gap-2 text-base font-black">
+                    <div className="report-status-range">
                       {m.current && (
                         <>
-                          <span className="text-slate-900 font-black">当前</span>
-                          <span className="text-slate-900">{m.current}</span>
+                          <span className="report-status-range-label">当前</span>
+                          <strong>{m.current}</strong>
                         </>
                       )}
                       {m.current && m.target && (
-                        <span className="text-slate-900 font-black px-1">→</span>
+                        <span className="report-status-arrow">→</span>
                       )}
                       {m.target && (
                         <>
-                          <span className="text-slate-900 font-black">目标</span>
-                          <span className="text-blue-700 font-black">{m.target}</span>
+                          <span className="report-status-range-label">目标</span>
+                          <strong className="report-status-target">{m.target}</strong>
                         </>
                       )}
                     </div>
@@ -81,36 +79,33 @@ export const ModuleStatusCard: React.FC<ModuleStatusCardProps> = ({
               ))}
             </div>
           ) : (
-            <div className="flex items-baseline gap-3 flex-wrap my-auto bg-slate-50 p-4 rounded-lg">
-              <span className="text-base font-black text-slate-900">当前</span>
-              <span className="text-3xl md:text-4xl font-black text-slate-900">
+            <div className="report-status-content report-status-single-metric">
+              <span>当前</span>
+              <strong>
                 {currentStatus}
-              </span>
-              <span className="text-2xl font-black text-slate-900 px-1">→</span>
-              <span className="text-base font-black text-slate-900">目标</span>
-              <span className="text-3xl md:text-4xl font-black text-blue-700">
+              </strong>
+              <i>→</i>
+              <span>目标</span>
+              <strong className="report-status-target">
                 {keyMetrics}
-              </span>
+              </strong>
             </div>
           )}
         </div>
 
         {/* 3. 整体进度 */}
-        <div className="flex flex-col justify-start space-y-3 pt-5 lg:pt-0 lg:pl-6">
-          <div className="report-status-label flex items-center gap-2.5 shrink-0">
-            <span className="w-1 h-5 rounded-none bg-blue-700" />
-            <span>整体进度：</span>
+        <div className="report-status-segment">
+          <div className="report-status-heading">
+            <span>整体进度</span>
           </div>
           
-          <div className="flex flex-col justify-center space-y-3 my-auto w-full bg-slate-50 p-4 rounded-lg">
-            <div className="flex items-end justify-between">
-              <span className="text-4xl md:text-5xl font-black text-slate-900 leading-none">
-                {progress}
-              </span>
-            </div>
-            <div className="w-full bg-white rounded-none h-3 overflow-hidden border border-slate-300">
+          <div className="report-status-content report-status-progress-panel">
+            <strong>
+              {progress}
+            </strong>
+            <div className="report-status-progress-track">
               <div
-                className="bg-blue-700 h-full rounded-none"
+                className="report-status-progress-fill"
                 style={{ width: `${Math.min(Math.max(numericProgress, 0), 100)}%` }}
               >
               </div>

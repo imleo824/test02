@@ -3,7 +3,7 @@ import { CoreActionHeader, SummaryBox, highlightNumbers } from "./utils";
 import { Scale, User, ShieldAlert, CheckCircle, RotateCcw, ArrowRight, ArrowLeft } from "lucide-react";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import { SystemAuditMetricsChart } from "./SystemAuditMetricsChart";
-import { ChapterTitle, ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import { ChapterTitle, ReportPanel, ReportPanelHeader } from "../../ReportSections";
 
 export const SystemAuditSection: React.FC = () => {
   const metricDerivationGroups = [
@@ -134,7 +134,6 @@ export const SystemAuditSection: React.FC = () => {
       <ReportPanel className="space-y-5">
         <ReportPanelHeader
           title="系统评估指标"
-          rightContent={<ReportBadge tone="blue">目标：系统审核率80%</ReportBadge>}
         />
 
         <SummaryBox className="mb-0">
@@ -143,8 +142,7 @@ export const SystemAuditSection: React.FC = () => {
           )}
         </SummaryBox>
 
-        <div className="space-y-3">
-          <div className="report-small-title">指标推导总表</div>
+        <div>
           <div className="overflow-x-auto">
             <table className="report-dense-table report-metric-derivation-table min-w-[1100px]">
               <colgroup>
@@ -360,7 +358,7 @@ export const SystemAuditSection: React.FC = () => {
 
           {/* 3. 评估反馈 */}
           <div className="relative flex flex-col items-center justify-center w-36 shrink-0">
-            <div className="bg-amber-600 text-white w-28 py-2.5 rounded-lg font-black text-sm text-center flex items-center justify-center gap-2 shadow-sm shrink-0">
+            <div className="bg-slate-900 text-white w-28 py-2.5 rounded-lg font-black text-sm text-center flex items-center justify-center gap-2 shadow-sm shrink-0">
               <RotateCcw className="w-4 h-4 text-white shrink-0" />
               <span>评估反馈</span>
             </div>

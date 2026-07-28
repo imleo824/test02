@@ -128,11 +128,12 @@ export const SmartDispatchSection: React.FC = () => {
                 </div>
 
                 {/* 人工审核向下指向【拦截 (拒绝)】(标示 2.5% 在箭头左侧，且箭头水平居中对齐) */}
-                <div className="relative w-full flex items-center justify-center my-0.5 text-slate-900 font-black">
-                  <span className="absolute right-[calc(50%+10px)] text-sm bg-rose-50 border border-rose-200 px-1.5 py-0.5 rounded text-rose-900 ">
+                <div className="w-full grid grid-cols-[1fr_auto_1fr] items-center py-2 text-slate-900 font-black">
+                  <span className="justify-self-end mr-3 text-sm bg-rose-50 border border-rose-200 px-2 py-1 rounded text-rose-900 leading-none">
                     2.5%
                   </span>
                   <span className="text-xl leading-none">↓</span>
+                  <span />
                 </div>
 
                 {/* 模块 5：拦截 (拒绝) */}
