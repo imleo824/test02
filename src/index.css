@@ -95,9 +95,7 @@
     margin-block-start: 0 !important;
   }
 
-  .report-shell [id^="section-"] > .report-chapter-title:first-child,
-  .report-shell [id^="section-"] > div:first-child:has(h2),
-  .report-shell [id^="section-"] > div:first-child:has(h3) {
+  .report-shell [id^="section-"] > .report-chapter-title:first-child {
     margin-top: 0;
   }
 
@@ -1031,10 +1029,7 @@
     background: #f8fafc !important;
   }
 
-  .report-dense-table tbody tr:last-child,
-  .report-dense-table tbody tr:has(td:first-child:last-child),
-  .report-dense-table tbody tr:has(td:first-child:nth-last-child(2)),
-  .report-dense-table tbody tr:has(td:first-child:nth-last-child(3)) {
+  .report-dense-table tbody tr:last-child {
     border-top: 1px solid var(--report-line);
   }
 
@@ -1048,22 +1043,17 @@
   }
 
   .report-dense-table td.font-mono,
-  .report-dense-table td.tabular-nums,
-  .report-dense-table td:has(.font-mono),
-  .report-dense-table td:has(.tabular-nums),
-  .report-dense-table td:not(:first-child):not([class*="text-left"]):not([class*="report-metric-meaning"]):not([class*="report-metric-name"]) {
+  .report-dense-table td.tabular-nums {
     text-align: right;
     color: var(--report-blue) !important;
     font-family: var(--font-mono);
   }
 
-  .report-dense-table td[class*="text-blue"],
-  .report-dense-table td:has([class*="text-blue"]) {
+  .report-dense-table td[class*="text-blue"] {
     color: var(--report-blue) !important;
   }
 
-  .report-dense-table td[class*="text-rose"],
-  .report-dense-table td:has([class*="text-rose"]) {
+  .report-dense-table td[class*="text-rose"] {
     color: var(--report-danger) !important;
   }
 
@@ -1859,15 +1849,6 @@
 
   .business-flywheel-conclusion p span {
     color: #0b3f8f;
-  }
-
-  .report-shell div:has(> .report-dense-table),
-  .report-shell div:has(> table.report-dense-table) {
-    overflow-x: auto;
-  }
-
-  .report-shell div:has(> .recharts-responsive-container) {
-    min-height: 260px;
   }
 
   .report-shell .rounded-xl,
