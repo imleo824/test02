@@ -187,7 +187,7 @@ export const AuditOverviewStudioInterception: React.FC = () => {
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-center">-</td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-center">2051.09</td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-center">100%</td>
-                <td className="px-2 md:px-3 lg:px-4 py-3 text-center">774.10</td>
+                <td className="px-2 md:px-3 lg:px-4 py-3 text-center">774.11</td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-center">100%</td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-center">849.46</td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-center">100%</td>

@@ -274,7 +274,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
               <td className="px-2 md:px-3 lg:px-4 py-3 text-center">100%</td>
               <td colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100 font-mono">16.63%</td>
               <td colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100 font-mono">55.99%</td>
-              <td colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100 font-mono">8.14%</td>
+              <td colSpan={2} className="p-0.5 md:p-1 lg:p-2 border-r border-slate-100 font-mono">8.13%</td>
               <td colSpan={2} className="p-0.5 md:p-1 lg:p-2 font-mono">19.24%</td>
             </tr>
           </tfoot>
