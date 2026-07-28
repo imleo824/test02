@@ -90,7 +90,7 @@ export const SystemAuditSection: React.FC = () => {
           conclusion: "不少于29,680单/月",
         },
         {
-          metric: "问题订单召回率",
+          metric: "问题召回率",
           meaning: "识别并转人工的问题订单占全部问题订单的比例",
           calculation: "29,680 ÷ 42,000 = 70.67%",
           conclusion: "不低于70.67%",
@@ -103,7 +103,7 @@ export const SystemAuditSection: React.FC = () => {
       stageClassName: "report-metric-stage-result",
       rows: [
         {
-          metric: "人工审核命中率",
+          metric: "问题命中率",
           meaning: "人工审核池中实际问题订单占比",
           calculation: "29,680 ÷ 440,000 = 6.75%",
           conclusion: "不低于6.75%",
@@ -138,7 +138,7 @@ export const SystemAuditSection: React.FC = () => {
 
         <SummaryBox className="mb-0">
           {highlightNumbers(
-            "召回率是质量底线，决定系统不能漏掉太多问题订单。人工审核命中率是结果指标，反映人工审核池是否更集中。只有召回率[[不低于70.67%]]，人工审核命中率提升才有意义。"
+            "问题召回率是质量底线，决定系统不能漏掉太多问题订单。问题命中率是结果指标，反映人工审核池是否更集中。只有问题召回率[[不低于70.67%]]，问题命中率提升才有意义。"
           )}
         </SummaryBox>
 
@@ -371,13 +371,13 @@ export const SystemAuditSection: React.FC = () => {
               </div>
               <div className="space-y-1.5">
                 <div>
-                  <div className="text-xs font-black text-slate-900">1. 召回率回溯（核对漏报）</div>
+                  <div className="text-xs font-black text-slate-900">1. 问题召回率回溯（核对漏报）</div>
                   <p className="text-xs font-bold text-slate-900 leading-normal">
                     还原漏网提单特征，持续提升攻击拦截率与黑产覆盖。
                   </p>
                 </div>
                 <div>
-                  <div className="text-xs font-black text-slate-900">2. 人工审核命中率回溯（核对误报）</div>
+                  <div className="text-xs font-black text-slate-900">2. 问题命中率回溯（核对误报）</div>
                   <p className="text-xs font-bold text-slate-900 leading-normal">
                     精细化阈值参数调优，最大程度减少正常用户的系统摩擦。
                   </p>

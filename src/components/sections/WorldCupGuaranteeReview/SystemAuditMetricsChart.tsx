@@ -26,35 +26,35 @@ import {
   chartTooltipStyle,
 } from "./chartStyles";
 
-// 4, 5, 6月 及汇总 系统审核 召回率、人工审核命中率数据
+// 4, 5, 6月 及汇总 系统审核 问题召回率、问题命中率数据
 const systemMetricsData = [
   {
     month: "2026-04",
-    召回率: 52.90,
-    人工审核命中率: 11.19,
-    召回率标签: "52.90%",
-    人工审核命中率标签: "11.19%",
+    问题召回率: 52.90,
+    问题命中率: 11.19,
+    问题召回率标签: "52.90%",
+    问题命中率标签: "11.19%",
   },
   {
     month: "2026-05",
-    召回率: 49.63,
-    人工审核命中率: 12.82,
-    召回率标签: "49.63%",
-    人工审核命中率标签: "12.82%",
+    问题召回率: 49.63,
+    问题命中率: 12.82,
+    问题召回率标签: "49.63%",
+    问题命中率标签: "12.82%",
   },
   {
     month: "2026-06",
-    召回率: 51.02,
-    人工审核命中率: 10.73,
-    召回率标签: "51.02%",
-    人工审核命中率标签: "10.73%",
+    问题召回率: 51.02,
+    问题命中率: 10.73,
+    问题召回率标签: "51.02%",
+    问题命中率标签: "10.73%",
   },
   {
     month: "汇总",
-    召回率: 51.25,
-    人工审核命中率: 11.40,
-    召回率标签: "51.25%",
-    人工审核命中率标签: "11.40%",
+    问题召回率: 51.25,
+    问题命中率: 11.40,
+    问题召回率标签: "51.25%",
+    问题命中率标签: "11.40%",
   },
 ];
 
@@ -72,7 +72,7 @@ export const SystemAuditMetricsChart: React.FC = () => {
         <div className="space-y-3">
           <div className="text-slate-900 font-bold text-sm leading-relaxed">
             {highlightNumbers(
-              "当前汇总召回率为[[51.25%]]，低于[[70.67%]]的最低要求；当前人工审核命中率为[[11.40%]]，高于[[6.75%]]的最低要求。后续先补召回，再在召回率不下降的前提下提升人工审核命中率。"
+              "当前汇总问题召回率为[[51.25%]]，低于[[70.67%]]的最低要求；当前问题命中率为[[11.40%]]，高于[[6.75%]]的最低要求。后续先补召回，再在问题召回率不下降的前提下提升问题命中率。"
             )}
           </div>
           <div className="pt-2 border-t border-blue-200/80">
@@ -128,30 +128,30 @@ export const SystemAuditMetricsChart: React.FC = () => {
             <Legend
               wrapperStyle={chartLegendStyle}
             />
-            {/* 召回率 柱子 */}
+            {/* 问题召回率 柱子 */}
             <Bar
-              dataKey="召回率"
+              dataKey="问题召回率"
               fill={chartSeriesColors.primary}
-              name="问题订单召回率"
+              name="问题召回率"
               isAnimationActive={false}
               radius={chartBarRadius.standard}
             >
               <LabelList
-                dataKey="召回率标签"
+                dataKey="问题召回率标签"
                 position="top"
                 style={chartLabelStyle}
               />
             </Bar>
-            {/* 人工审核命中率 柱子 */}
+            {/* 问题命中率 柱子 */}
             <Bar
-              dataKey="人工审核命中率"
+              dataKey="问题命中率"
               fill={chartSeriesColors.secondary}
-              name="人工审核命中率"
+              name="问题命中率"
               isAnimationActive={false}
               radius={chartBarRadius.standard}
             >
               <LabelList
-                dataKey="人工审核命中率标签"
+                dataKey="问题命中率标签"
                 position="top"
                 style={chartLabelStyle}
               />

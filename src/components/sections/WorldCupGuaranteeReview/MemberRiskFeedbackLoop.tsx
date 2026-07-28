@@ -68,25 +68,25 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
             评估指标核心逻辑说明
           </div>
           <p className="text-sm text-slate-900 font-bold leading-relaxed ">
-            一般情况下，<span className="text-rose-600 font-bold">召回率和准确率是相悖的</span>。针对FK业务性质，我们遵循<span className="font-bold underline underline-offset-2 text-slate-900">“召回率优先于准确率”</span>原则：<span className="font-bold text-slate-900">首先通过高召回保证损失风险最低，随后通过策略优化逐步剔除误报，最终实现准确率的稳步提升。</span>
+            一般情况下，<span className="text-rose-600 font-bold">问题召回率和准确率是相悖的</span>。针对FK业务性质，我们遵循<span className="font-bold underline underline-offset-2 text-slate-900">“问题召回率优先于准确率”</span>原则：<span className="font-bold text-slate-900">首先通过高召回保证损失风险最低，随后通过策略优化逐步剔除误报，最终实现准确率的稳步提升。</span>
           </p>
         </div>
 
-        {/* 召回率 & 准确率 卡片 */}
+        {/* 问题召回率 & 准确率 卡片 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* 指标 01 召回率 */}
+          {/* 指标 01 问题召回率 */}
           <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
             <div className="flex items-center gap-2">
               <span className="text-sm font-mono font-bold text-slate-900">指标 01</span>
               <span className="text-sm font-bold bg-slate-900 text-white px-0.5 md:px-1 lg:px-2 py-0.5 rounded-xs">
-                召回率
+                问题召回率
               </span>
             </div>
             <div className="text-sm md:text-base font-bold text-slate-900">
               所有有问题的订单中，被XT拦截的比例
             </div>
             <div className="bg-slate-50 border border-slate-100 rounded-xl rounded-lg p-1 md:p-2 lg:p-3 text-sm text-slate-900">
-              例子：<span className="font-bold underline text-slate-900">100个被FK</span>的体育打水订单，其中只有<span className="font-bold underline text-slate-900">80个命中了XT拦截策略</span>，那么召回率就是 <span className="font-black text-emerald-600 text-base">80%</span>
+              例子：<span className="font-bold underline text-slate-900">100个被FK</span>的体育打水订单，其中只有<span className="font-bold underline text-slate-900">80个命中了XT拦截策略</span>，那么问题召回率就是 <span className="font-black text-emerald-600 text-base">80%</span>
             </div>
           </div>
 
@@ -121,7 +121,7 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
             <tbody className="bg-white divide-y divide-slate-100">
               <tr className="bg-white">
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-left">
-                  召回率
+                  问题召回率
                 </td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-center">
                   ***

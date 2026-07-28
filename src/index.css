@@ -729,16 +729,44 @@
   }
 
   .business-flywheel-stage {
-    display: grid;
-    grid-template-columns: 250px minmax(0, 1fr);
-    gap: 18px;
-    align-items: stretch;
+    position: relative;
+    height: 510px;
     margin-top: 18px;
   }
 
+  .business-flywheel-ring {
+    position: absolute;
+    left: 50%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #e4eaf3;
+    border-radius: 999px !important;
+    pointer-events: none;
+  }
+
+  .business-flywheel-ring-one {
+    width: 300px;
+    height: 300px;
+  }
+
+  .business-flywheel-ring-two {
+    width: 390px;
+    height: 390px;
+  }
+
+  .business-flywheel-ring-three {
+    width: 480px;
+    height: 480px;
+  }
+
   .business-flywheel-center {
-    min-height: 100%;
-    border-radius: 8px !important;
+    position: absolute;
+    left: 50%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    width: 205px;
+    height: 205px;
+    border-radius: 999px !important;
     background: var(--report-ink);
     color: #ffffff;
     display: flex;
@@ -747,6 +775,7 @@
     justify-content: center;
     gap: 8px;
     padding: 24px;
+    z-index: 2;
   }
 
   .business-flywheel-center div {
@@ -763,14 +792,15 @@
   }
 
   .business-flywheel-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 12px;
+    position: absolute;
+    inset: 0;
   }
 
   .business-flywheel-card {
-    min-height: 188px;
-    padding: 14px;
+    position: absolute;
+    width: 330px;
+    min-height: 116px;
+    padding: 14px 16px;
     background: #ffffff;
     border: 1px solid var(--report-line);
     border-top: 3px solid var(--report-blue);
@@ -778,7 +808,35 @@
     box-shadow: none;
     display: flex;
     flex-direction: column;
-    gap: 13px;
+    gap: 10px;
+    z-index: 3;
+  }
+
+  .business-flywheel-card-one {
+    left: 50%;
+    top: 0;
+    width: 360px;
+    transform: translateX(-50%);
+  }
+
+  .business-flywheel-card-two {
+    right: 10px;
+    top: 155px;
+  }
+
+  .business-flywheel-card-three {
+    right: 110px;
+    bottom: 8px;
+  }
+
+  .business-flywheel-card-four {
+    left: 110px;
+    bottom: 8px;
+  }
+
+  .business-flywheel-card-five {
+    left: 10px;
+    top: 155px;
   }
 
   .business-flywheel-card-red {
@@ -787,7 +845,7 @@
   }
 
   .business-flywheel-card-top {
-    min-height: 28px;
+    min-height: 26px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -804,8 +862,8 @@
   }
 
   .business-flywheel-number {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 6px !important;
     background: var(--report-blue);
     color: #ffffff;
@@ -839,16 +897,16 @@
 
   .business-flywheel-card-body {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
+    gap: 12px;
+    align-items: center;
   }
 
   .business-flywheel-icon {
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     stroke-width: 2.5;
     color: var(--report-blue);
+    flex: 0 0 auto;
   }
 
   .business-flywheel-icon-red {
@@ -856,9 +914,9 @@
   }
 
   .business-flywheel-card-copy h4 {
-    margin: 0 0 7px;
+    margin: 0 0 6px;
     color: var(--report-ink);
-    font-size: 18px;
+    font-size: 19px;
     line-height: 1.25;
     font-weight: 900;
   }
@@ -866,7 +924,7 @@
   .business-flywheel-card-copy p {
     color: var(--report-ink);
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 1.42;
     font-weight: 800;
   }
 

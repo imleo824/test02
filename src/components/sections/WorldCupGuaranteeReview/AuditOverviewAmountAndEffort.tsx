@@ -77,7 +77,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
         {/* 右卡片: 26年第二季度平均审核时长 */}
         <div className="bg-white border border-slate-100 rounded-xl p-6 flex flex-col justify-between ">
           <div className="flex items-start justify-between mb-4 border-b border-slate-100 pb-3">
-            <span className="text-base font-black text-slate-900">Q2平均审核时长</span>
+            <span className="text-base font-black text-slate-900">Q2平均时长</span>
             <span className="text-3xl md:text-4xl font-black text-slate-900 font-mono tracking-tight">
               0:08:45
             </span>

@@ -69,13 +69,13 @@ const metricItems = [
     tone: "teal",
   },
   {
-    label: "召回率（问题订单）",
+    label: "问题召回率",
     value: "≥ 70.67%",
     icon: Target,
     tone: "teal",
   },
   {
-    label: "人工命中率",
+    label: "问题命中率",
     value: "≥ 6.75%",
     icon: Crosshair,
     tone: "orange",
@@ -103,6 +103,10 @@ export const ZZOverview: React.FC = () => {
         </div>
 
         <div className="business-flywheel-stage">
+          <div className="business-flywheel-ring business-flywheel-ring-one" />
+          <div className="business-flywheel-ring business-flywheel-ring-two" />
+          <div className="business-flywheel-ring business-flywheel-ring-three" />
+
           <div className="business-flywheel-center">
             <div>核心目标</div>
             <strong>质量更高</strong>
@@ -117,7 +121,7 @@ export const ZZOverview: React.FC = () => {
               return (
                 <div
                   key={step.number}
-                  className={`business-flywheel-card business-flywheel-card-${step.tone}`}
+                  className={`business-flywheel-card business-flywheel-card-${step.tone} ${step.className}`}
                 >
                   <div className="business-flywheel-card-top">
                     <div className={`business-flywheel-number business-flywheel-number-${step.tone}`}>

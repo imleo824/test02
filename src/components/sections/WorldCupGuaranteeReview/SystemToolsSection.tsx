@@ -35,7 +35,7 @@ export const SystemToolsSection: React.FC = () => {
           <ModuleBlockHeader title="系统工具支持" />
           <SummaryBox className="mb-2 p-4 md:p-5">
             <p className="text-sm md:text-base font-bold leading-relaxed text-slate-900">
-              {highlightNumbers("系统工具对[[重点风险特征]]识别效果显著，其中[[体育对压(跨AB系)]]召回率达 [[90%]]，[[卡进球点]]达 [[75%]]，[[体育打水]]达 [[68%]]，[[优势赔率]]达 [[58%]]。")}
+              {highlightNumbers("系统工具对[[重点风险特征]]识别效果显著，其中[[体育对压(跨AB系)]]问题召回率达 [[90%]]，[[卡进球点]]达 [[75%]]，[[体育打水]]达 [[68%]]，[[优势赔率]]达 [[58%]]。")}
             </p>
           </SummaryBox>
         </div>
