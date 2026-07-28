@@ -140,6 +140,102 @@
     line-height: 1.45;
   }
 
+  .report-module-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid var(--report-line);
+    padding-bottom: 12px;
+  }
+
+  .report-small-title {
+    color: var(--report-ink);
+    font-size: 14px;
+    font-weight: 900;
+    border-bottom: 1px solid var(--report-line);
+    padding-bottom: 8px;
+  }
+
+  .report-flow-box,
+  .report-info-box {
+    background: #ffffff;
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .report-flow-step {
+    background: var(--report-soft);
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    padding: 10px;
+    color: var(--report-ink);
+    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+  }
+
+  .report-flow-step-strong {
+    background: var(--report-ink);
+    border-color: var(--report-ink);
+    color: #ffffff;
+  }
+
+  .report-info-item {
+    background: var(--report-soft);
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 76px;
+  }
+
+  .report-compare {
+    background: #ffffff;
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .report-compare-side {
+    background: var(--report-soft);
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .report-compare-after {
+    background: var(--report-blue-soft);
+    border-color: #b8c9dd;
+  }
+
+  .report-compare-arrow {
+    color: var(--report-blue);
+    font-weight: 900;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .report-dense-table {
     font-size: 13px !important;
     line-height: 1.45 !important;
@@ -459,6 +555,21 @@
   .report-shell .recharts-default-tooltip {
     border-radius: 4px !important;
     box-shadow: none !important;
+  }
+
+  @media (max-width: 640px) {
+    .report-module-head {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .report-compare {
+      grid-template-columns: 1fr;
+    }
+
+    .report-compare-arrow {
+      transform: rotate(90deg);
+    }
   }
 }
 

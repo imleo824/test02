@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
 // 辅助函数：统一高亮数字样式（纯静态，不带任何动效，投屏无浮夸色彩）
 export function highlightNumbers(
@@ -345,3 +346,107 @@ export const ExpectedRhythm = ({
     </div>
   );
 };
+
+export const ModuleBlockHeader = ({
+  title,
+  right,
+}: {
+  title: React.ReactNode;
+  right?: React.ReactNode;
+}) => (
+  <div className="report-module-head">
+    <div className="flex items-center gap-2">
+      <span className="w-2.5 h-5 bg-blue-700 rounded-none shrink-0" />
+      <h4 className="text-base md:text-lg font-black text-slate-900">{title}</h4>
+    </div>
+    {right}
+  </div>
+);
+
+export const ReportFlow = ({
+  title,
+  steps,
+}: {
+  title: string;
+  steps: { title: string; desc: string; strong?: boolean }[];
+}) => (
+  <div className="report-flow-box">
+    <div className="report-small-title">{title}</div>
+    <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-2 items-stretch">
+      {steps.map((step, index) => (
+        <React.Fragment key={`${step.title}-${index}`}>
+          <div className={step.strong ? "report-flow-step report-flow-step-strong" : "report-flow-step"}>
+            <div className="text-sm font-black">{index + 1}. {step.title}</div>
+            <div className="text-xs font-bold leading-normal">{step.desc}</div>
+          </div>
+          {index < steps.length - 1 && (
+            <>
+              <div className="hidden md:flex items-center justify-center text-blue-900">
+                <ArrowRight className="w-5 h-5" strokeWidth={3} />
+              </div>
+              <div className="md:hidden flex items-center justify-center text-blue-900">
+                <ArrowDown className="w-5 h-5" strokeWidth={3} />
+              </div>
+            </>
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  </div>
+);
+
+export const ReportInfoGrid = ({
+  title,
+  desc,
+  items,
+}: {
+  title: React.ReactNode;
+  desc?: React.ReactNode;
+  items: { title: string; desc?: string; badge?: string }[];
+}) => (
+  <div className="report-info-box">
+    <div className="space-y-1.5 border-b border-slate-200 pb-2">
+      <div className="report-small-title border-0 pb-0">{title}</div>
+      {desc && <p className="text-sm font-bold text-slate-900 leading-relaxed">{desc}</p>}
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      {items.map((item) => (
+        <div key={item.title} className="report-info-item">
+          <div className="min-w-0">
+            <div className="text-sm font-black text-slate-900">{item.title}</div>
+            {item.desc && <p className="text-sm font-bold text-slate-900 leading-normal mt-1">{item.desc}</p>}
+          </div>
+          {item.badge && (
+            <span className="px-2 py-1 rounded border border-blue-200 bg-blue-50 text-blue-900 text-sm font-black shrink-0">
+              {item.badge}
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+export const BeforeAfter = ({
+  beforeTitle = "原来模式",
+  before,
+  afterTitle = "升级模式",
+  after,
+}: {
+  beforeTitle?: string;
+  before: React.ReactNode;
+  afterTitle?: string;
+  after: React.ReactNode;
+}) => (
+  <div className="report-compare">
+    <div className="report-compare-side">
+      <div className="text-sm font-black text-slate-900">{beforeTitle}</div>
+      <div className="text-sm font-bold text-slate-900 leading-relaxed">{before}</div>
+    </div>
+    <div className="report-compare-arrow">→</div>
+    <div className="report-compare-side report-compare-after">
+      <div className="text-sm font-black text-blue-900">{afterTitle}</div>
+      <div className="text-sm font-black text-slate-900 leading-relaxed">{after}</div>
+    </div>
+  </div>
+);

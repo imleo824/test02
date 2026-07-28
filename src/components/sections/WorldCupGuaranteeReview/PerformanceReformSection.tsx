@@ -1,18 +1,18 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
-import { CoreActionHeader, ExpectedRhythm } from "./utils";
+import { BeforeAfter, ExpectedRhythm, ModuleBlockHeader, SummaryBox, highlightNumbers } from "./utils";
 
 export const PerformanceReformSection: React.FC = () => {
   return (
     <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 space-y-4 flex flex-col justify-between h-full">
       <div className="space-y-4">
         {/* 顶部标题与标签 */}
-        <div className="space-y-2 border-b border-slate-100 pb-3">
-          <CoreActionHeader
-            title="升级考核机制"
-            desc="打破传统单一关注“粗暴划档”与“个人孤立竞争”的误区，重构绩效档次与老带动新机制，形成良币驱逐劣币的正向团队生态。"
-            summaryStyle={true}
-          />
+        <div className="space-y-2">
+          <ModuleBlockHeader title="升级考核机制" />
+          <SummaryBox className="mb-2 p-4 md:p-5">
+            <p className="text-sm md:text-base font-bold leading-relaxed text-slate-900">
+              {highlightNumbers("打破传统单一关注“粗暴划档”与“个人孤立竞争”的误区，重构绩效档次与老带动新机制，形成良币驱逐劣币的正向团队生态。")}
+            </p>
+          </SummaryBox>
         </div>
 
         {/* 2个核心维度对比 */}
@@ -28,35 +28,12 @@ export const PerformanceReformSection: React.FC = () => {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 relative">
-              <div className="bg-white border border-slate-200 border-dashed rounded-lg p-3 shadow-sm flex flex-col">
-                <div className="text-xs font-black text-slate-700 mb-1.5 flex items-center gap-1.5">
-                   <span className="w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0"></span>
-                   传统老机制
-                </div>
-                <div className="text-sm font-black text-slate-900 mb-1">按固定区间划档</div>
-                <p className="text-xs md:text-xs text-slate-800 font-bold leading-relaxed mt-auto">
-                  同一得分区间内绩效完全一致，挫伤多劳者积极性。
-                </p>
-              </div>
-
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden sm:block">
-                 <div className="bg-white rounded-full p-1 border border-slate-200 shadow-sm flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4 text-blue-600" strokeWidth={3} />
-                 </div>
-              </div>
-
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 shadow-sm flex flex-col">
-                <div className="text-xs font-black text-blue-600 mb-1.5 flex items-center gap-1.5">
-                   <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
-                   升级新机制
-                </div>
-                <div className="text-sm font-black text-slate-900 mb-1">按实际得分精细计提</div>
-                <p className="text-xs md:text-xs text-slate-900 font-bold leading-relaxed mt-auto">
-                  基于实际得分计提，70分一定比69分回报更高。
-                </p>
-              </div>
-            </div>
+            <BeforeAfter
+              before={<><span className="font-black">按固定区间划档</span><br />同一得分区间内绩效完全一致，挫伤多劳者积极性。</>}
+              after={<><span className="font-black">按实际得分精细计提</span><br />基于实际得分计提，70分一定比69分回报更高。</>}
+              afterTitle="升级新机制"
+              beforeTitle="传统老机制"
+            />
           </div>
 
           {/* 维度二：老带动新机制 */}
@@ -70,35 +47,12 @@ export const PerformanceReformSection: React.FC = () => {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 relative">
-              <div className="bg-white border border-slate-200 border-dashed rounded-lg p-3 shadow-sm flex flex-col">
-                <div className="text-xs font-black text-slate-700 mb-1.5 flex items-center gap-1.5">
-                   <span className="w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0"></span>
-                   传统老机制
-                </div>
-                <div className="text-sm font-black text-slate-900 mb-1">纯个人独立考核</div>
-                <p className="text-xs md:text-xs text-slate-800 font-bold leading-relaxed mt-auto">
-                  员工各自为战，新老竞争不愿传授经验，致经验断层。
-                </p>
-              </div>
-
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden sm:block">
-                 <div className="bg-white rounded-full p-1 border border-slate-200 shadow-sm flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4 text-blue-600" strokeWidth={3} />
-                 </div>
-              </div>
-
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 shadow-sm flex flex-col">
-                <div className="text-xs font-black text-blue-600 mb-1.5 flex items-center gap-1.5">
-                   <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
-                   升级新机制
-                </div>
-                <div className="text-sm font-black text-slate-900 mb-1">按组分配与组间PK</div>
-                <p className="text-xs md:text-xs text-slate-900 font-bold leading-relaxed mt-auto">
-                  组间竞争、合作，老员工主动辅导新人提升总胜率。
-                </p>
-              </div>
-            </div>
+            <BeforeAfter
+              before={<><span className="font-black">纯个人独立考核</span><br />员工各自为战，新老竞争不愿传授经验，致经验断层。</>}
+              after={<><span className="font-black">按组分配与组间PK</span><br />组间竞争、合作，老员工主动辅导新人提升总胜率。</>}
+              afterTitle="升级新机制"
+              beforeTitle="传统老机制"
+            />
           </div>
         </div>
       </div>
@@ -113,4 +67,3 @@ export const PerformanceReformSection: React.FC = () => {
     </div>
   );
 };
-

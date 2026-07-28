@@ -1,5 +1,5 @@
 import React from "react";
-import { SummaryBox, highlightNumbers, ExpectedRhythm } from "./utils";
+import { BeforeAfter, ExpectedRhythm, ModuleBlockHeader, ReportFlow, SummaryBox, highlightNumbers } from "./utils";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import { ChapterTitle } from "../../ReportSections";
 
@@ -56,53 +56,18 @@ export const AgentRiskControlSection: React.FC = () => {
         >
           <div className="space-y-4 flex-1 flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-5 bg-blue-600 rounded-full"></span>
-                  <h4 className="text-base md:text-lg font-black tracking-tight text-slate-900">
-                    系统随机派单
-                  </h4>
-                </div>
-              </div>
+              <ModuleBlockHeader title="系统随机派单" />
 
               <p className="text-sm font-bold text-slate-900 leading-relaxed">
                 改变线下指定分配模式，通过系统将审核任务随机派发给不同组长，且按月进行差异派单。隔绝长期固定审核关系，杜绝利益勾结空间，提高作弊违规成本。
               </p>
 
-              <div className="space-y-3">
-                {/* 原来模式 */}
-                <div className="bg-white rounded-lg p-3 space-y-2">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-1.5">
-                    <span className="text-xs font-black text-slate-900">原来模式：线下指定分配</span>
-                    <span className="text-xs bg-rose-50 text-rose-950 px-1.5 py-0.5 rounded font-black">高内部舞弊风险</span>
-                  </div>
-                  <p className="text-sm font-bold text-slate-900">组长与代理长期绑定，手工核算、缺乏机制隔离，极易产生内外勾结泄露。</p>
-                  <div className="bg-slate-50 p-2 rounded text-slate-900 font-mono font-black text-sm text-center">
-                    固定关联：组长 A → 代理 A
-                  </div>
-                </div>
-
-                {/* 升级模式 */}
-                <div className="bg-white rounded-lg p-3 space-y-2">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-1.5">
-                    <span className="text-xs font-black text-slate-900">升级模式：系统自动随机派单</span>
-                    <span className="text-xs bg-emerald-50 text-emerald-900 px-1.5 py-0.5 rounded font-black">机制规避风险</span>
-                  </div>
-                  <p className="text-sm font-bold text-slate-900">系统多维度交叉评估、随机分配，并逐月进行差异化轮换派单。</p>
-                  <div className="grid grid-cols-2 gap-2 text-sm font-mono font-bold items-center text-center">
-                    <div className="bg-slate-50 p-2 rounded text-slate-900">
-                      <div className="text-xs text-slate-900 font-sans font-bold mb-0.5">上月</div>
-                      组长 A → 代理 A
-                    </div>
-                    <div className="bg-emerald-50 p-2 rounded text-emerald-900">
-                      <div className="text-xs text-emerald-950 font-sans font-bold mb-0.5 flex items-center justify-center gap-1">
-                        <span>随机轮换</span>
-                      </div>
-                      组长 B → 代理 A
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <BeforeAfter
+                before={<><span className="font-black">组长与代理长期绑定，手工核算、缺乏机制隔离，极易产生内外勾结泄露。</span><br />固定关联：组长 A → 代理 A</>}
+                after={<><span className="font-black">系统多维度交叉评估、随机分配，并逐月进行差异化轮换派单。</span><br />上月：组长 A → 代理 A；随机轮换：组长 B → 代理 A</>}
+                beforeTitle="原来模式：线下指定分配"
+                afterTitle="升级模式：系统自动随机派单"
+              />
             </div>
           </div>
 
@@ -116,14 +81,7 @@ export const AgentRiskControlSection: React.FC = () => {
         >
           <div className="space-y-4 flex-1 flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-5 bg-blue-600 rounded-full"></span>
-                  <h4 className="text-base md:text-lg font-black tracking-tight text-slate-900">
-                    系统计算佣金
-                  </h4>
-                </div>
-              </div>
+              <ModuleBlockHeader title="系统计算佣金" />
 
               <p className="text-sm font-bold text-slate-900 leading-relaxed">
                 根据盈利贡献、成员质量与风险程度等核心模型，由系统生成对账报告。当人工录入值与系统计算值差异超过 5% 阈值时触发自动预警。
@@ -158,27 +116,15 @@ export const AgentRiskControlSection: React.FC = () => {
                 </table>
               </div>
 
-              <div className="bg-white rounded-lg p-3 space-y-3">
-                <span className="text-xs font-black text-slate-900 block border-b border-slate-100 pb-1">
-                  佣金审核预警演示
-                </span>
-                <div className="grid grid-cols-3 gap-2 text-center items-center">
-                  <div className="bg-slate-50 p-1.5 rounded border border-slate-100">
-                    <div className="text-xs text-slate-900">人工录入</div>
-                    <div className="text-xs font-black text-slate-900">45%</div>
-                  </div>
-                  <div className="text-xs font-black text-slate-900">
-                    对比偏差 <span className="text-rose-600 font-mono text-xs font-black">+10%</span>
-                  </div>
-                  <div className="bg-slate-50 p-1.5 rounded border border-slate-100">
-                    <div className="text-xs text-slate-900">系统标准</div>
-                    <div className="text-xs font-black text-slate-900">35%</div>
-                  </div>
-                </div>
-                <div className="bg-rose-50 text-rose-950 font-black text-sm py-2 text-center rounded">
-                  触发异常预警（偏差值超过5%设定阈值）
-                </div>
-              </div>
+              <ReportFlow
+                title="佣金审核预警演示"
+                steps={[
+                  { title: "人工录入", desc: "45%" },
+                  { title: "系统标准", desc: "35%" },
+                  { title: "对比偏差", desc: "+10%" },
+                  { title: "触发异常预警", desc: "偏差值超过5%设定阈值", strong: true },
+                ]}
+              />
             </div>
           </div>
 

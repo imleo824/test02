@@ -1,5 +1,5 @@
 import React from "react";
-import { ExpectedRhythm, CoreActionHeader } from "./utils";
+import { ExpectedRhythm, ModuleBlockHeader, ReportInfoGrid, SummaryBox, highlightNumbers } from "./utils";
 import { ReportPanel } from "../../ReportSections";
 
 export const TgGovernanceSection: React.FC = () => {
@@ -30,12 +30,13 @@ export const TgGovernanceSection: React.FC = () => {
     <ReportPanel tone="soft" padding="sm" className="space-y-4 flex flex-col justify-between h-full">
       <div className="space-y-3">
         {/* 顶部标题与标签 */}
-        <div className="space-y-2 border-b border-slate-100 pb-3">
-          <CoreActionHeader
-            title={<>流程线上化</>}
-            desc="全面推动标准业务流从 TG 向管理后台迁移，实现过程可控、数据结构化与风险闭环，彻底剥离 TG 的业务操作属性。"
-            summaryStyle={true}
-          />
+        <div className="space-y-2">
+          <ModuleBlockHeader title="流程线上化" />
+          <SummaryBox className="mb-2 p-4 md:p-5">
+            <p className="text-sm md:text-base font-bold leading-relaxed text-slate-900">
+              {highlightNumbers("全面推动标准业务流从 TG 向管理后台迁移，实现过程可控、数据结构化与风险闭环，彻底剥离 TG 的业务操作属性。")}
+            </p>
+          </SummaryBox>
 
           <div className="space-y-2 pt-2 border-t border-slate-200">
             <div className="text-sm font-bold text-slate-900 flex items-start gap-2">
@@ -58,24 +59,10 @@ export const TgGovernanceSection: React.FC = () => {
         </div>
 
         {/* 4个流程卡片（两行两列） */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 pt-1">
-          {flows.map((flow) => (
-            <div
-              key={flow.id}
-              className="report-card p-3 space-y-1.5 flex flex-col h-full"
-            >
-              <div className="flex items-center gap-1.5 border-b border-slate-100 pb-1.5">
-                <span className="w-1.5 h-3 bg-blue-600 rounded-full"></span>
-                <span className="font-black text-slate-900 text-sm flex items-center gap-1">
-                  {flow.title}
-                </span>
-              </div>
-              <p className="text-sm text-slate-900 font-bold leading-relaxed pt-0.5">
-                {flow.coreOneSentence}
-              </p>
-            </div>
-          ))}
-        </div>
+        <ReportInfoGrid
+          title="核心流程"
+          items={flows.map((flow) => ({ title: flow.title, desc: flow.coreOneSentence }))}
+        />
       </div>
 
       <ExpectedRhythm

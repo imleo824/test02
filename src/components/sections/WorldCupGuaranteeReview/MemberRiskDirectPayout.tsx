@@ -1,5 +1,5 @@
 import React from "react";
-import { CoreActionHeader, SummaryBox, highlightNumbers, ExpectedRhythm } from "./utils";
+import { BeforeAfter, CoreActionHeader, ExpectedRhythm, ModuleBlockHeader } from "./utils";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import { ReportBadge, ReportPanel } from "../../ReportSections";
 
@@ -7,37 +7,13 @@ export const MemberRiskDirectPayout: React.FC = () => {
   return (
     <ReportPanel id="section-member-direct-payout" tone="soft" padding="sm" className="space-y-4 flex flex-col justify-between">
       {/* 头部标题：3.3.1 提升系统直接出单比例 */}
-      <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-        <CoreActionHeader title={<><span className="w-2.5 h-5 bg-blue-600 rounded-full shrink-0"></span>提升系统直接出单比例</>} />
-        <ReportBadge>风险分数驱动</ReportBadge>
-      </div>
+      <ModuleBlockHeader title="提升系统直接出单比例" right={<ReportBadge>风险分数驱动</ReportBadge>} />
 
       {/* 核心思路 / 升级前后对比 */}
-      <ReportPanel tone="soft" padding="sm" className="space-y-2.5">
-        <div className="text-sm font-black text-slate-900 border-b border-slate-100 pb-2 flex items-center justify-between">
-          <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-            模式升级对比
-          </span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-11 gap-3 items-center text-sm">
-          <div className="md:col-span-5 bg-white p-3 rounded-lg border border-slate-100 space-y-1">
-            <div className="text-sm font-bold text-slate-900">原来模式：</div>
-            <div className="font-black text-slate-900 text-sm">
-              命中任意 1 个策略特征都转人工，极低风险订单给到了人工，造成资源浪费
-            </div>
-          </div>
-          <div className="md:col-span-1 text-center font-black text-blue-900 text-lg">
-            →
-          </div>
-          <div className="md:col-span-5 bg-emerald-50 p-3 rounded-lg border border-emerald-200 space-y-1">
-            <div className="text-sm font-bold text-emerald-900">升级模式：</div>
-            <div className="font-black text-emerald-900 text-sm">
-              风险分数 &gt; xx 才会转人工
-            </div>
-          </div>
-        </div>
-      </ReportPanel>
+      <BeforeAfter
+        before="命中任意 1 个策略特征都转人工，极低风险订单给到了人工，造成资源浪费"
+        after="风险分数 > xx 才会转人工"
+      />
 
       {/* 风险分数驱动流程 */}
       <ReportPanel tone="soft" className="space-y-4">
