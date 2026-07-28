@@ -6,10 +6,17 @@ export const stripDisplayUnits = (value: string | number) =>
     .replace(/3\s*[kK][wW]/g, "3000")
     .replace(/([+\-]?\d+(?:[.,]\d+)*)\s*(?:万元|亿元|[kK][wW]|[wW]|[eE]|万|亿)/g, "$1");
 
-// 辅助函数：统一高亮数字样式（纯静态，不带任何动效，投屏无浮夸色彩）
+const summaryNumberClass =
+  "report-number text-blue-900 font-black font-mono tabular-nums mx-0.5";
+const summaryRiskNumberClass =
+  "report-number report-number-risk text-rose-900 font-black font-mono tabular-nums mx-0.5";
+const summaryCoreClass =
+  "report-core-underline text-blue-900 font-black mx-0.5";
+
+// 辅助函数：统一高亮核心内容与数字样式（纯静态，不带任何动效，投屏无浮夸色彩）
 export function highlightNumbers(
   text: string,
-  colorClass: string = "text-blue-900 font-bold",
+  colorClass: string = summaryNumberClass,
 ) {
   const pattern =
     /(\[\[(.*?)\]\])|([+\-]?\d+(?:[.,]\d+)*(?:\s*(?:%|人|场|项|倍|E|W|万|亿|万元|亿元|元|h|ms|min|k|个))?)/g;
@@ -30,7 +37,7 @@ export function highlightNumbers(
         result.push(
           <span
             key={match.index}
-            className="text-emerald-900 font-bold font-mono mx-0.5"
+            className={summaryNumberClass}
           >
             {phrase.substring(6)}
           </span>,
@@ -40,7 +47,7 @@ export function highlightNumbers(
       }
       if (phrase.startsWith("red:")) {
         result.push(
-          <span key={match.index} className="text-rose-900 font-bold font-mono mx-0.5">
+          <span key={match.index} className={summaryRiskNumberClass}>
             {phrase.substring(4)}
           </span>,
         );
@@ -49,7 +56,7 @@ export function highlightNumbers(
       }
       if (phrase.startsWith("blue:")) {
         result.push(
-          <span key={match.index} className="text-blue-900 font-bold font-mono mx-0.5">
+          <span key={match.index} className={summaryNumberClass}>
             {phrase.substring(5)}
           </span>,
         );
@@ -67,7 +74,7 @@ export function highlightNumbers(
         (phrase.startsWith("-") || parseFloat(numericValue) < 0)
       ) {
         result.push(
-          <span key={match.index} className="text-rose-900 font-bold font-mono mx-0.5">
+          <span key={match.index} className={summaryRiskNumberClass}>
             {phrase}
           </span>,
         );
@@ -78,7 +85,7 @@ export function highlightNumbers(
         result.push(
           <span
             key={match.index}
-            className="text-emerald-900 font-bold font-mono mx-0.5"
+            className={summaryNumberClass}
           >
             {phrase.substring(1)}
           </span>,
@@ -87,7 +94,7 @@ export function highlightNumbers(
         result.push(
           <span
             key={match.index}
-            className={`${colorClass} font-mono mx-0.5`}
+            className={colorClass}
           >
             {phrase}
           </span>,
@@ -96,7 +103,7 @@ export function highlightNumbers(
         result.push(
           <span
             key={match.index}
-            className="text-slate-900 font-black mx-0.5"
+            className={summaryCoreClass}
           >
             {phrase}
           </span>,
@@ -109,7 +116,7 @@ export function highlightNumbers(
         result.push(
           <strong
             key={match.index}
-            className="font-mono tracking-tight mx-0.5 text-emerald-900 font-bold"
+            className={summaryNumberClass}
           >
             {part.substring(1)}
           </strong>,
@@ -118,7 +125,7 @@ export function highlightNumbers(
         result.push(
           <strong
             key={match.index}
-            className="font-mono tracking-tight mx-0.5 text-rose-900 font-bold"
+            className={summaryRiskNumberClass}
           >
             {part}
           </strong>,
@@ -127,7 +134,7 @@ export function highlightNumbers(
         result.push(
           <strong
             key={match.index}
-            className={`${colorClass} font-mono tracking-tight mx-0.5`}
+            className={colorClass}
           >
             {part}
           </strong>,

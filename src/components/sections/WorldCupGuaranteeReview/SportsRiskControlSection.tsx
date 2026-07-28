@@ -238,7 +238,7 @@ export const SportsRiskControlSection: React.FC = () => {
                     </div>
                     {item.text && (
                       <p className="mt-3 text-base font-black leading-relaxed text-slate-900">
-                        {highlightNumbers(item.text, "text-slate-900")}
+                        {highlightNumbers(item.text)}
                       </p>
                     )}
                     {item.points && item.points.length > 0 && (
