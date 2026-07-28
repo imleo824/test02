@@ -1,5 +1,5 @@
 import React from "react";
-import { BeforeAfter, CoreActionHeader, ExpectedRhythm, ModuleBlockHeader } from "./utils";
+import { BeforeAfter, CoreActionHeader, ExpectedRhythm, ModuleBlockHeader, SummaryBox, highlightNumbers } from "./utils";
 import { ReportBadge, ReportPanel } from "../../ReportSections";
 
 export const MemberRiskSmartDispatch: React.FC = () => {
@@ -29,13 +29,12 @@ export const MemberRiskSmartDispatch: React.FC = () => {
             <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
             双向特征加权路由匹配模型
           </div>
+          <SummaryBox>
+            {highlightNumbers("基于订单与人员的多维特征进行双向加权计算，将特定高危或专项订单精准分发至最匹配、绩效最优的处理人，极大提升审核质量与处理效率。")}
+          </SummaryBox>
           
           <div className="bg-white rounded-xl border border-slate-200 p-4 md:p-6 overflow-hidden relative shadow-sm space-y-4">
-            <p className="text-sm font-bold text-slate-900 leading-relaxed text-center px-4">
-              基于订单与人员的多维特征进行双向加权计算，将特定高危或专项订单精准分发至最匹配、绩效最优的处理人，极大提升审核质量与处理效率。
-            </p>
-
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 relative z-10 pt-2">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 relative z-10">
               {/* 左侧：订单特征 */}
               <div className="flex-1 w-full max-w-sm bg-slate-50 border border-slate-200 rounded-xl p-4 shadow-sm relative">
                 <div className="text-center mb-3">
