@@ -404,10 +404,12 @@ export const ReportInfoGrid = ({
   title,
   desc,
   items,
+  showIndex = false,
 }: {
   title: React.ReactNode;
   desc?: React.ReactNode;
   items: { title: string; desc?: string; badge?: string }[];
+  showIndex?: boolean;
 }) => (
   <div className="report-info-box">
     <div className="space-y-1.5 border-b border-slate-200 pb-2">
@@ -415,10 +417,11 @@ export const ReportInfoGrid = ({
       {desc && <p className="text-sm font-bold text-slate-900 leading-relaxed">{desc}</p>}
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-      {items.map((item) => (
+      {items.map((item, index) => (
         <div key={item.title} className="report-info-item">
-          <div className="min-w-0">
-            <div className="text-sm font-black text-slate-900">{item.title}</div>
+          {showIndex && <span className="report-info-index">{index + 1}</span>}
+          <div className="min-w-0 flex-1">
+            <div className="text-sm font-black text-slate-900 leading-tight">{item.title}</div>
             {item.desc && <p className="text-sm font-bold text-slate-900 leading-normal mt-1">{item.desc}</p>}
           </div>
           {item.badge && (

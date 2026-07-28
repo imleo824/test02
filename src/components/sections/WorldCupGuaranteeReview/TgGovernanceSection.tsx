@@ -72,6 +72,7 @@ export const TgGovernanceSection: React.FC = () => {
         <ReportInfoGrid
           title="核心流程"
           items={flows.map((flow) => ({ title: flow.title, desc: flow.coreOneSentence }))}
+          showIndex
         />
       </div>
 

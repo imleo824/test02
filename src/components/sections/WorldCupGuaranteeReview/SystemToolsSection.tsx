@@ -43,7 +43,8 @@ export const SystemToolsSection: React.FC = () => {
         {/* 4大工具 */}
         <ReportInfoGrid
           title="工具清单"
-          items={tools.map((tool) => ({ title: `${tool.id}：${tool.name}`, desc: tool.desc }))}
+          items={tools.map((tool) => ({ title: tool.name, desc: tool.desc }))}
+          showIndex
         />
       </div>
 
