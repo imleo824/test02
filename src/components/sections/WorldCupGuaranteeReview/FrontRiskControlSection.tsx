@@ -19,8 +19,12 @@ import {
   chartAxisTick,
   chartColors,
   chartLabelStyle,
+  chartBarRadius,
+  chartBarSize,
+  chartBarGap,
   chartLegendStyle,
   chartMargins,
+  chartSeriesColors,
   chartTooltipItemStyle,
   chartTooltipStyle,
 } from "./chartStyles";
@@ -82,7 +86,7 @@ export const FrontRiskControlSection: React.FC = () => {
 
         <div className="h-[380px] w-full pt-4">
           <ResponsiveContainer width="100%" height="100%">
-            <ComposedChart data={monthlyTrendData} margin={chartMargins.standard}>
+            <ComposedChart data={monthlyTrendData} margin={chartMargins.standard} barSize={chartBarSize.grouped} barGap={chartBarGap.grouped}>
               <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
               <XAxis dataKey="month" stroke={chartColors.ink} tick={chartAxisTick} />
               <YAxis 
@@ -111,7 +115,7 @@ export const FrontRiskControlSection: React.FC = () => {
                 }}
               />
               <Legend wrapperStyle={chartLegendStyle} />
-              <Bar yAxisId="left" dataKey="总人工订单" fill={chartColors.ink} name="总人工订单" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+              <Bar yAxisId="left" dataKey="总人工订单" fill={chartSeriesColors.primary} name="总人工订单" radius={chartBarRadius.standard} isAnimationActive={false}>
                 <LabelList 
                   dataKey="总人工订单" 
                   position="top" 
@@ -119,7 +123,7 @@ export const FrontRiskControlSection: React.FC = () => {
                   style={chartLabelStyle}
                 />
               </Bar>
-              <Bar yAxisId="left" dataKey="总有标订单" fill={chartColors.blue} name="总有标订单" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+              <Bar yAxisId="left" dataKey="总有标订单" fill={chartSeriesColors.secondary} name="总有标订单" radius={chartBarRadius.standard} isAnimationActive={false}>
                 <LabelList 
                   dataKey="总有标订单" 
                   position="top" 
@@ -131,11 +135,11 @@ export const FrontRiskControlSection: React.FC = () => {
                 yAxisId="right" 
                 type="monotone" 
                 dataKey="提款有标率" 
-                stroke={chartColors.ink}
+                stroke={chartSeriesColors.trend}
                 strokeWidth={3} 
                 name="提款有标率(%)" 
                 isAnimationActive={false}
-                dot={{ r: 6, fill: chartColors.ink, strokeWidth: 2, stroke: "#ffffff" }}
+                dot={{ r: 6, fill: chartSeriesColors.trend, strokeWidth: 2, stroke: "#ffffff" }}
               >
                 <LabelList 
                   dataKey="提款有标率" 

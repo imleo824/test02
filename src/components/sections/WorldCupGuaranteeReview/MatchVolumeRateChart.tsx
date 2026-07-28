@@ -33,6 +33,13 @@ import {
   waterDiffMatchData,
 } from "./data";
 import { highlightNumbers, SignColoredValue, SummaryBox } from "./utils";
+import {
+  chartBarRadius,
+  chartBarSize,
+  chartColors,
+  chartLabelStyle,
+  chartSeriesColors,
+} from "./chartStyles";
 
 const PlaystyleTooltip = ({ active, payload }: any) => {
   if (!active || !payload?.length) return null;
@@ -655,7 +662,7 @@ export const MatchVolumeRateChart = ({
               <ReferenceLine
                 yAxisId="left"
                 y={0}
-                stroke="#334155"
+                stroke={chartColors.ink}
                 strokeWidth={2}
               />
 
@@ -754,7 +761,7 @@ export const MatchVolumeRateChart = ({
                 yAxisId="right"
                 type="monotone"
                 dataKey="rate"
-                stroke="#334155"
+                stroke={chartColors.ink}
                 strokeWidth={3}
                 dot={(props: any) => {
                   const { cx, cy, payload } = props;
@@ -765,7 +772,7 @@ export const MatchVolumeRateChart = ({
                       cx={cx}
                       cy={cy}
                       r={4}
-                      fill={isPositive ? "#10b981" : "#ef4444"}
+                      fill={isPositive ? chartSeriesColors.positive : chartSeriesColors.negative}
                       stroke="#fff"
                       strokeWidth={2}
                     />
@@ -865,18 +872,18 @@ export const MatchVolumeRateChart = ({
                           />
                           <Bar 
                             dataKey="count" 
-                            fill="#1d4e89" 
-                            radius={[6, 6, 0, 0]} 
-                            barSize={42}
+                            fill={chartSeriesColors.secondary} 
+                            radius={chartBarRadius.standard} 
+                            barSize={chartBarSize.single}
                             isAnimationActive={false}
                           >
-                            <Cell fill="#1d4e89" />
-                            <Cell fill="#1d4e89" />
-                            <Cell fill="#1d4e89" />
-                            <Cell fill="#1d4e89" />
-                            <Cell fill="#1d4e89" />
-                            <Cell fill="#1e293b" />
-                            <Cell fill="#1e293b" />
+                            <Cell fill={chartSeriesColors.secondary} />
+                            <Cell fill={chartSeriesColors.secondary} />
+                            <Cell fill={chartSeriesColors.secondary} />
+                            <Cell fill={chartSeriesColors.secondary} />
+                            <Cell fill={chartSeriesColors.secondary} />
+                            <Cell fill={chartSeriesColors.primary} />
+                            <Cell fill={chartSeriesColors.primary} />
                             <LabelList 
                               dataKey="label" 
                               position="top" 
@@ -1114,19 +1121,19 @@ export const MatchVolumeRateChart = ({
               <ReferenceLine
                 yAxisId="left"
                 y={0}
-                stroke="#334155"
+                stroke={chartColors.ink}
                 strokeWidth={2.5}
               />
               <Bar
                 yAxisId="left"
                 dataKey="winLoss"
-                barSize={32}
+                barSize={chartBarSize.grouped}
                 isAnimationActive={false}
               >
                 {sortedPlaystyleProfitData.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={entry.winLoss >= 0 ? "#059669" : "#e11d48"}
+                    fill={entry.winLoss >= 0 ? chartSeriesColors.positive : chartSeriesColors.negative}
                   />
                 ))}
                 <LabelList
@@ -1139,7 +1146,7 @@ export const MatchVolumeRateChart = ({
                       <text
                         x={x + width / 2}
                         y={y - 25}
-                        fill="#334155"
+                        fill={chartColors.ink}
                         textAnchor="middle"
                         fontSize={11}
                         fontWeight="black"
@@ -1174,7 +1181,7 @@ export const MatchVolumeRateChart = ({
                 yAxisId="right"
                 type="monotone"
                 dataKey="rate"
-                stroke="#475569"
+                stroke={chartColors.ink}
                 strokeWidth={3}
                 dot={(props: any) => {
                   const { cx, cy, payload } = props;
@@ -1217,13 +1224,13 @@ export const MatchVolumeRateChart = ({
                           height={16}
                           rx={4}
                           fill={isTop3 ? "#fef3c7" : "#f1f5f9"}
-                          stroke={isTop3 ? "#d97706" : "#334155"}
+                          stroke={isTop3 ? chartSeriesColors.manual : chartColors.ink}
                           strokeWidth={1}
                         />
                         <text
                           x={x}
                           y={y - 10}
-                          fill={isTop3 ? "#b45309" : "#0f172a"}
+                          fill={isTop3 ? chartSeriesColors.manual : chartColors.ink}
                           textAnchor="middle"
                           fontSize={10}
                           fontWeight={isTop3 ? "black" : "bold"}
@@ -1478,16 +1485,16 @@ export const MatchVolumeRateChart = ({
                 domain={waterYDomain}
               />
 
-              <ReferenceLine y={0} stroke="#cbd5e1" strokeWidth={1.5} />
+              <ReferenceLine y={0} stroke={chartColors.line} strokeWidth={1.5} />
               {/* Tooltip removed to disable interaction */}
 
-              <Bar dataKey="waterDiff" yAxisId="left" barSize={10} isAnimationActive={false}>
+              <Bar dataKey="waterDiff" yAxisId="left" barSize={chartBarSize.delta} isAnimationActive={false}>
                 {waterDiffMatchData.map((entry, idx) => {
                   const isPositive = entry.waterDiff >= 0;
                   return (
                     <Cell
                       key={`cell-${idx}`}
-                      fill={isPositive ? "#10b981" : "#ef4444"}
+                      fill={isPositive ? chartSeriesColors.positive : chartSeriesColors.negative}
                     />
                   );
                 })}

@@ -16,8 +16,12 @@ import {
   chartAxisTick,
   chartColors,
   chartLabelStyle,
+  chartBarRadius,
+  chartBarSize,
+  chartBarGap,
   chartLegendStyle,
   chartMargins,
+  chartSeriesColors,
   chartTooltipItemStyle,
   chartTooltipStyle,
 } from "./chartStyles";
@@ -99,8 +103,8 @@ export const SystemAuditMetricsChart: React.FC = () => {
           <BarChart
             data={systemMetricsData}
             margin={chartMargins.compact}
-            barGap={8}
-            barSize={28}
+            barGap={chartBarGap.grouped}
+            barSize={chartBarSize.grouped}
           >
             <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
             <XAxis
@@ -127,10 +131,10 @@ export const SystemAuditMetricsChart: React.FC = () => {
             {/* 召回率 柱子 */}
             <Bar
               dataKey="召回率"
-              fill={chartColors.ink}
+              fill={chartSeriesColors.primary}
               name="系统召回率"
               isAnimationActive={false}
-              radius={[4, 4, 0, 0]}
+              radius={chartBarRadius.standard}
             >
               <LabelList
                 dataKey="召回率标签"
@@ -141,10 +145,10 @@ export const SystemAuditMetricsChart: React.FC = () => {
             {/* 准确率 柱子 */}
             <Bar
               dataKey="准确率"
-              fill={chartColors.blue}
+              fill={chartSeriesColors.secondary}
               name="系统准确率"
               isAnimationActive={false}
-              radius={[4, 4, 0, 0]}
+              radius={chartBarRadius.standard}
             >
               <LabelList
                 dataKey="准确率标签"

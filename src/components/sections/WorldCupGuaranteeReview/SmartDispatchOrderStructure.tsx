@@ -17,8 +17,12 @@ import {
   chartAxisTick,
   chartColors,
   chartLabelStyle,
+  chartBarRadius,
+  chartBarSize,
+  chartBarGap,
   chartLegendStyle,
   chartMargins,
+  chartSeriesColors,
   chartTooltipItemStyle,
   chartTooltipStyle,
 } from "./chartStyles";
@@ -112,7 +116,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
       {/* 柱状图与折线图双轴组合图表 */}
       <div className="h-[420px] w-full pt-2">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart data={auditStructureData} barSize={32} barGap={4} margin={chartMargins.standard}>
+          <ComposedChart data={auditStructureData} barSize={chartBarSize.grouped} barGap={chartBarGap.grouped} margin={chartMargins.standard}>
             <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
             <XAxis dataKey="month" stroke={chartColors.ink} tick={chartAxisTick} />
             
@@ -161,21 +165,21 @@ export const SmartDispatchOrderStructure: React.FC = () => {
             <Legend wrapperStyle={chartLegendStyle} />
 
             {/* 柱状图：各角色单量，柱顶标注【单量+占比】 */}
-            <Bar yAxisId="left" dataKey="系统单量" fill={chartColors.ink} name="系统审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+            <Bar yAxisId="left" dataKey="系统单量" fill={chartSeriesColors.primary} name="系统审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
               <LabelList 
                 dataKey="系统标签" 
                 position="top" 
                 style={chartLabelStyle}
               />
             </Bar>
-            <Bar yAxisId="left" dataKey="总部单量" fill={chartColors.green} name="总部审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+            <Bar yAxisId="left" dataKey="总部单量" fill={chartSeriesColors.positive} name="总部审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
               <LabelList 
                 dataKey="总部标签" 
                 position="top" 
                 style={chartLabelStyle}
               />
             </Bar>
-            <Bar yAxisId="left" dataKey="外包单量" fill={chartColors.blue} name="外包审核单量" radius={[4, 4, 0, 0]} isAnimationActive={false}>
+            <Bar yAxisId="left" dataKey="外包单量" fill={chartSeriesColors.secondary} name="外包审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
               <LabelList 
                 dataKey="外包标签" 
                 position="top" 
@@ -192,7 +196,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               strokeWidth={0} 
               legendType="circle"
               name="系统质量" 
-              dot={{ r: 5, fill: chartColors.ink, strokeWidth: 2, stroke: "#ffffff" }}
+              dot={{ r: 5, fill: chartSeriesColors.primary, strokeWidth: 2, stroke: "#ffffff" }}
               isAnimationActive={false}
               transform="translate(-36, 0)"
             >
@@ -212,7 +216,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               strokeWidth={0} 
               legendType="circle"
               name="总部质量" 
-              dot={{ r: 5, fill: chartColors.green, strokeWidth: 2, stroke: "#ffffff" }}
+              dot={{ r: 5, fill: chartSeriesColors.positive, strokeWidth: 2, stroke: "#ffffff" }}
               isAnimationActive={false}
               transform="translate(0, 0)"
             >
@@ -232,7 +236,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
               strokeWidth={0} 
               legendType="circle"
               name="外包质量" 
-              dot={{ r: 5, fill: chartColors.blue, strokeWidth: 2, stroke: "#ffffff" }}
+              dot={{ r: 5, fill: chartSeriesColors.secondary, strokeWidth: 2, stroke: "#ffffff" }}
               isAnimationActive={false}
               transform="translate(36, 0)"
             >
@@ -250,4 +254,3 @@ export const SmartDispatchOrderStructure: React.FC = () => {
     </ReportPanel>
   );
 };
-

@@ -17,8 +17,12 @@ import {
   chartAxisTick,
   chartColors,
   chartLabelStyle,
+  chartBarRadius,
+  chartBarSize,
+  chartBarGap,
   chartLegendStyle,
   chartMargins,
+  chartSeriesColors,
   chartTooltipItemStyle,
   chartTooltipStyle,
 } from "./chartStyles";
@@ -115,8 +119,8 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             data={efficiencyData}
-            barSize={26}
-            barGap={6}
+            barSize={chartBarSize.grouped}
+            barGap={chartBarGap.grouped}
             margin={chartMargins.standard}
           >
             <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
@@ -155,9 +159,9 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
             {/* 柱状图：总部人员人均效率 */}
             <Bar
               dataKey="总部人员效率"
-              fill={chartColors.ink}
+              fill={chartSeriesColors.primary}
               name="总部人均效率"
-              radius={[4, 4, 0, 0]}
+              radius={chartBarRadius.standard}
               isAnimationActive={false}
             >
               <LabelList
@@ -170,9 +174,9 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
             {/* 柱状图：外包人员人均效率 */}
             <Bar
               dataKey="外包人员效率"
-              fill={chartColors.blue}
+              fill={chartSeriesColors.secondary}
               name="外包人均效率"
-              radius={[4, 4, 0, 0]}
+              radius={chartBarRadius.standard}
               isAnimationActive={false}
             >
               <LabelList
@@ -185,9 +189,9 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
             {/* 柱状图：全归总部假设人均效率 */}
             <Bar
               dataKey="全归总部效率"
-              fill={chartColors.green}
+              fill={chartSeriesColors.positive}
               name="全归总部假设人均效率"
-              radius={[4, 4, 0, 0]}
+              radius={chartBarRadius.standard}
               isAnimationActive={false}
             >
               <LabelList

@@ -10,6 +10,17 @@ import {
   Tooltip,
   LabelList,
 } from "recharts";
+import {
+  chartAxisTick,
+  chartBarRadius,
+  chartBarSize,
+  chartColors,
+  chartLabelStyle,
+  chartMargins,
+  chartSeriesColors,
+  chartTooltipItemStyle,
+  chartTooltipStyle,
+} from "./sections/WorldCupGuaranteeReview/chartStyles";
 
 const interceptData = [
   { name: "TY打水", amount: 13868.02, pct: "81.24%" },
@@ -22,13 +33,13 @@ const interceptData = [
 ];
 
 const colors = [
-  "#0f172a",
-  "#1e293b",
-  "#1d4e89",
-  "#334155",
-  "#475569",
-  "#64748b",
-  "#94a3b8",
+  chartSeriesColors.primary,
+  chartSeriesColors.secondary,
+  chartSeriesColors.tertiary,
+  chartSeriesColors.manual,
+  chartSeriesColors.positive,
+  chartSeriesColors.negative,
+  chartColors.line,
 ];
 
 export const InterceptTypeBarChart: React.FC = () => {
@@ -37,46 +48,34 @@ export const InterceptTypeBarChart: React.FC = () => {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={interceptData}
-          margin={{ top: 28, right: 30, left: 10, bottom: 20 }}
+          margin={chartMargins.standard}
         >
           <CartesianGrid
             strokeDasharray="3 3"
             vertical={false}
-            stroke="#e2e8f0"
+            stroke={chartColors.grid}
           />
           <XAxis
             dataKey="name"
-            axisLine={{ stroke: "#475569" }}
+            axisLine={{ stroke: chartColors.ink }}
             tickLine={false}
-            tick={{ fontSize: 13, fill: "#0f172a", fontWeight: 900 }}
+            tick={chartAxisTick}
             interval={0}
             dy={8}
           />
           <YAxis
             axisLine={false}
             tickLine={false}
-            tick={{
-              fontSize: 13,
-              fill: "#0f172a",
-              fontWeight: 800,
-              fontFamily: "monospace",
-            }}
+            tick={chartAxisTick}
             tickFormatter={(val) => val.toLocaleString()}
           />
           <Tooltip
-            contentStyle={{
-              borderRadius: "4px",
-              border: "1px solid #d7dee8",
-              backgroundColor: "#ffffff",
-              padding: "12px",
-              boxShadow: "none",
-              color: "#0f172a",
-            }}
-            itemStyle={{ fontWeight: 800, fontSize: "13px", color: "#0f172a" }}
+            contentStyle={chartTooltipStyle}
+            itemStyle={chartTooltipItemStyle}
             labelStyle={{
               fontWeight: 900,
               marginBottom: "4px",
-              color: "#0f172a",
+              color: chartColors.ink,
               fontSize: "14px",
             }}
             cursor={{ fill: "#f1f5f9" }}
@@ -88,8 +87,8 @@ export const InterceptTypeBarChart: React.FC = () => {
           />
           <Bar
             dataKey="amount"
-            radius={[6, 6, 0, 0]}
-            barSize={48}
+            radius={chartBarRadius.standard}
+            barSize={chartBarSize.single}
             isAnimationActive={false}
           >
             {interceptData.map((entry, index) => (
@@ -102,12 +101,7 @@ export const InterceptTypeBarChart: React.FC = () => {
               dataKey="amount"
               position="top"
               formatter={(val: number) => `${val.toLocaleString()}`}
-              style={{
-                fill: "#0f172a",
-                fontSize: 13,
-                fontWeight: 900,
-                fontFamily: "monospace",
-              }}
+              style={chartLabelStyle}
               offset={10}
             />
           </Bar>

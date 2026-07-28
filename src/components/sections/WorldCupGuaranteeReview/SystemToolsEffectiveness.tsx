@@ -9,7 +9,15 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { Info } from "lucide-react";
+import {
+  chartAxisTick,
+  chartBarRadius,
+  chartBarSize,
+  chartColors,
+  chartLabelStyle,
+  chartMargins,
+  chartSeriesColors,
+} from "./chartStyles";
 
 export const SystemToolsEffectiveness: React.FC = () => {
   const data = [
@@ -27,56 +35,46 @@ export const SystemToolsEffectiveness: React.FC = () => {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            margin={{ top: 25, right: 20, left: 0, bottom: 20 }}
+            margin={chartMargins.mini}
           >
             <CartesianGrid
               strokeDasharray="3 3"
               vertical={false}
-              stroke="#e2e8f0"
+              stroke={chartColors.grid}
             />
             <XAxis
               dataKey="name"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 800 }}
+              tick={chartAxisTick}
               interval={0}
               dy={10}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{
-                fill: "#0f172a",
-                fontSize: 13,
-                fontWeight: 800,
-                fontFamily: "monospace",
-              }}
+              tick={chartAxisTick}
               domain={[0, 100]}
               ticks={[0, 25, 50, 75, 100]}
               tickFormatter={(val) => `${val}%`}
             />
             <Bar
               dataKey="accuracy"
-              radius={[4, 4, 0, 0]}
-              barSize={48}
+              radius={chartBarRadius.standard}
+              barSize={chartBarSize.single}
               isAnimationActive={false}
             >
               {data.map((_, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={["#1d4e89", "#1d4e89", "#0f172a", "#8aa6c8"][index % 4]}
+                  fill={[chartSeriesColors.secondary, chartSeriesColors.secondary, chartSeriesColors.primary, chartSeriesColors.tertiary][index % 4]}
                 />
               ))}
               <LabelList
                 dataKey="accuracy"
                 position="top"
                 formatter={(val: number) => `${val}%`}
-                style={{
-                  fill: "#0f172a",
-                  fontSize: 13,
-                  fontWeight: 900,
-                  fontFamily: "monospace",
-                }}
+                style={chartLabelStyle}
                 offset={8}
               />
             </Bar>
@@ -88,4 +86,3 @@ export const SystemToolsEffectiveness: React.FC = () => {
 };
 
 export default SystemToolsEffectiveness;
-

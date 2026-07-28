@@ -12,6 +12,16 @@ import {
 } from 'recharts';
 import { auditVolumeData } from './data';
 import { highlightNumbers, SummaryBox } from './utils';
+import {
+  chartAxisTick,
+  chartBarGap,
+  chartBarRadius,
+  chartBarSize,
+  chartColors,
+  chartLegendStyle,
+  chartMargins,
+  chartSeriesColors,
+} from './chartStyles';
 
 interface AuditVolumeStatsProps {
   totalInterceptAmount?: number;
@@ -191,15 +201,15 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             data={auditVolumeData}
-            margin={{ top: 20, right: 10, left: 0, bottom: 0 }}
-            barGap={0}
+            margin={chartMargins.compact}
+            barGap={chartBarGap.stacked}
           >
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#cbd5e1" />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={chartColors.grid} />
             <XAxis 
               dataKey="date" 
-              axisLine={{ stroke: '#475569', strokeWidth: 1.5 }}
+              axisLine={{ stroke: chartColors.ink, strokeWidth: 1.5 }}
               tickLine={false}
-              tick={{ fill: '#0f172a', fontSize: 13, fontWeight: 900 }}
+              tick={chartAxisTick}
               minTickGap={20}
               dy={10}
             />
@@ -207,7 +217,7 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
               yAxisId="left"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#0f172a', fontSize: 13, fontWeight: 900 }}
+              tick={chartAxisTick}
               tickFormatter={(val) => val >= 1000 ? `${(val/1000).toFixed(0)}k` : val}
               dx={-5}
             />
@@ -216,7 +226,7 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
               orientation="right"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#b45309', fontSize: 13, fontWeight: 900 }}
+              tick={{ ...chartAxisTick, fill: chartSeriesColors.manual }}
               tickFormatter={(val) => `${val}%`}
               domain={[0, 40]}
               dx={5}
@@ -262,16 +272,16 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
             <Legend 
               verticalAlign="top" 
               align="right"
-              wrapperStyle={{ paddingBottom: 25, fontSize: 13, fontWeight: 900, color: '#0f172a' }}
+              wrapperStyle={chartLegendStyle}
             />
             <Bar
               yAxisId="left"
               dataKey="system"
               name="系统单量"
               stackId="a"
-              fill="#1d4e89"
-              radius={[0, 0, 0, 0]}
-              barSize={24}
+              fill={chartSeriesColors.secondary}
+              radius={chartBarRadius.square}
+              barSize={chartBarSize.stacked}
               isAnimationActive={false}
             />
             <Bar
@@ -279,9 +289,9 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
               dataKey="manual"
               name="人工单量"
               stackId="a"
-              fill="#d97706"
-              radius={[4, 4, 0, 0]}
-              barSize={24}
+              fill={chartSeriesColors.manual}
+              radius={chartBarRadius.stackedTop}
+              barSize={chartBarSize.stacked}
               isAnimationActive={false}
             />
             <Line
@@ -289,10 +299,10 @@ const AuditVolumeStats: React.FC<AuditVolumeStatsProps> = ({
               type="monotone"
               dataKey="manualPct"
               name="人工比例"
-              stroke="#d97706"
+              stroke={chartSeriesColors.trend}
               strokeWidth={3}
-              dot={{ r: 4, fill: '#fff', stroke: '#d97706', strokeWidth: 2 }}
-              activeDot={{ r: 6, fill: '#d97706', stroke: '#fff', strokeWidth: 2 }}
+              dot={{ r: 4, fill: '#fff', stroke: chartSeriesColors.trend, strokeWidth: 2 }}
+              activeDot={{ r: 6, fill: chartSeriesColors.trend, stroke: '#fff', strokeWidth: 2 }}
               isAnimationActive={false}
             />
           </ComposedChart>

@@ -1,6 +1,15 @@
 import React from "react";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, ComposedChart, Line } from "recharts";
 import { CoreActionHeader, SummaryBox, highlightNumbers } from "./utils";
+import {
+  chartAxisTick,
+  chartBarRadius,
+  chartBarSize,
+  chartColors,
+  chartLabelStyle,
+  chartMargins,
+  chartSeriesColors,
+} from "./chartStyles";
 
 export const AuditOverviewAmountAndEffort: React.FC = () => {
   // Chart 1: 26年第二季度总防范金 (月度数据 2026/1 ~ 2026/6)
@@ -56,10 +65,10 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
           </div>
           <div className="h-64 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={amountData} margin={{ top: 25, right: 10, left: -20, bottom: 0 }}>
-                <XAxis dataKey="month" tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
+              <BarChart data={amountData} margin={chartMargins.hiddenAxis}>
+                <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                 <YAxis hide domain={[0, 1.4]} />
-                <Bar dataKey="amount" fill="#1d4e89" radius={[4, 4, 0, 0]} isAnimationActive={false} label={{ position: "top", fill: "#0f172a", fontSize: 13, fontWeight: "900" }} />
+                <Bar dataKey="amount" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} barSize={chartBarSize.single} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle }} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -75,28 +84,29 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
           </div>
           <div className="h-64 w-full pt-2">
             <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={effortData} margin={{ top: 25, right: 10, left: -20, bottom: 0 }}>
-                <XAxis dataKey="month" tick={{ fill: "#0f172a", fontSize: 13, fontWeight: 700 }} axisLine={{ stroke: "#475569" }} tickLine={false} />
+              <ComposedChart data={effortData} margin={chartMargins.hiddenAxis}>
+                <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                 <YAxis yAxisId="volume" hide domain={[0, 900]} />
                 <YAxis yAxisId="duration" hide domain={[0, 11]} />
                 <Bar
                   yAxisId="volume"
                   dataKey="volume"
-                  fill="#1d4e89"
-                  radius={[4, 4, 0, 0]}
+                  fill={chartSeriesColors.secondary}
+                  radius={chartBarRadius.standard}
+                  barSize={chartBarSize.single}
                   isAnimationActive={false}
-                  label={{ position: "insideTop", fill: "#0f172a", fontSize: 11, fontWeight: "800", dy: 10 }}
+                  label={{ position: "insideTop", ...chartLabelStyle, dy: 10 }}
                 />
                 <Line
                   yAxisId="duration"
                   type="monotone"
                   dataKey="durationVal"
-                  stroke="#0f172a"
+                  stroke={chartSeriesColors.trend}
                   strokeWidth={3}
                   isAnimationActive={false}
-                  dot={{ r: 4, fill: "#0f172a" }}
+                  dot={{ r: 4, fill: chartSeriesColors.trend }}
                   label={({ x, y, index }) => (
-                    <text x={x} y={y - 12} fill="#0f172a" fontSize={11} fontWeight="900" textAnchor="middle">
+                    <text x={x} y={y - 12} fill={chartColors.ink} fontSize={13} fontWeight="900" textAnchor="middle">
                       {effortData[index].duration}
                     </text>
                   )}
@@ -109,4 +119,3 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
     </div>
   );
 };
-

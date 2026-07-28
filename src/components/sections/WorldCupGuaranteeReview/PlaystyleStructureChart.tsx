@@ -11,6 +11,13 @@ import {
   Cell,
   LabelList,
 } from "recharts";
+import {
+  chartAxisTick,
+  chartBarRadius,
+  chartBarSize,
+  chartColors,
+  chartSeriesColors,
+} from "./chartStyles";
 
 export const PlaystyleStructureChart = () => {
   const data = [
@@ -106,7 +113,7 @@ export const PlaystyleStructureChart = () => {
                         strokeDasharray="3 3"
                         horizontal={true}
                         vertical={false}
-                        stroke="#e2e8f0"
+                        stroke={chartColors.grid}
                       />
                       <XAxis type="number" hide />
                       <YAxis
@@ -115,21 +122,17 @@ export const PlaystyleStructureChart = () => {
                         tickLine={false}
                         axisLine={false}
                         width={85}
-                        tick={{
-                          fill: "#0f172a",
-                          fontSize: 13,
-                          fontWeight: "900",
-                        }}
+                        tick={chartAxisTick}
                       />
                       <Bar
                         dataKey="volumePct"
-                        fill="#1e293b"
-                        radius={[0, 4, 4, 0]}
-                        barSize={16}
+                        fill={chartSeriesColors.primary}
+                        radius={chartBarRadius.horizontal}
+                        barSize={chartBarSize.horizontal}
                         isAnimationActive={false}
                       >
                         {sortedVolumeData.map((entry, index) => (
-                           <Cell key={`cell-vol-${index}`} fill="#1e293b" />
+                           <Cell key={`cell-vol-${index}`} fill={chartSeriesColors.primary} />
                         ))}
                         <LabelList
                           dataKey="volumePct"
@@ -143,7 +146,7 @@ export const PlaystyleStructureChart = () => {
                               <text
                                 x={x + width + 8}
                                 y={y + 12}
-                                fill="#1e3a8a"
+                                fill={chartColors.ink}
                                 fontSize={11}
                                 fontWeight="bold"
                               >
@@ -176,7 +179,7 @@ export const PlaystyleStructureChart = () => {
                         strokeDasharray="3 3"
                         horizontal={true}
                         vertical={false}
-                        stroke="#e2e8f0"
+                        stroke={chartColors.grid}
                       />
                       <XAxis type="number" hide />
                       <YAxis
@@ -185,21 +188,17 @@ export const PlaystyleStructureChart = () => {
                         tickLine={false}
                         axisLine={false}
                         width={85}
-                        tick={{
-                          fill: "#0f172a",
-                          fontSize: 13,
-                          fontWeight: "900",
-                        }}
+                        tick={chartAxisTick}
                       />
                       <Bar
                         dataKey="usersPct"
-                        fill="#475569"
-                        radius={[0, 4, 4, 0]}
-                        barSize={16}
+                        fill={chartSeriesColors.secondary}
+                        radius={chartBarRadius.horizontal}
+                        barSize={chartBarSize.horizontal}
                         isAnimationActive={false}
                       >
                         {sortedUsersData.map((entry, index) => (
-                          <Cell key={`cell-user-${index}`} fill="#475569" />
+                          <Cell key={`cell-user-${index}`} fill={chartSeriesColors.secondary} />
                         ))}
                         <LabelList
                           dataKey="usersPct"
@@ -213,7 +212,7 @@ export const PlaystyleStructureChart = () => {
                               <text
                                 x={x + width + 8}
                                 y={y + 12}
-                                fill="#1e3a8a"
+                                fill={chartColors.ink}
                                 fontSize={11}
                                 fontWeight="bold"
                               >
