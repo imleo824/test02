@@ -222,7 +222,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-blue-600 rounded-xs"></span>B系</span>
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-blue-400 rounded-xs"></span>Y系</span>
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-slate-300 rounded-xs"></span>BW</span>
-              <span className="flex items-center gap-1.5"><span className="w-4 h-0.5 bg-slate-900"></span>综合</span>
+              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-slate-900 rounded-full"></span>综合</span>
             </div>
           </div>
           <div className="h-64 w-full pt-2">
@@ -234,7 +234,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 <Bar yAxisId="left" dataKey="b_sys" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="y_sys" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="bw_sys" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke={chartSeriesColors.trend} strokeWidth={3} isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
+                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
                   <g>
                     <rect x={x - 22} y={y - 44} width="44" height="18" rx="3" fill={chartColors.ink} />
                     <text x={x} y={y - 32} fill="#ffffff" fontSize={14} fontWeight="black" textAnchor="middle">
@@ -258,7 +258,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-blue-600 rounded-xs"></span>IM</span>
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-blue-400 rounded-xs"></span>冠名</span>
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-slate-800 rounded-xs"></span>熊猫</span>
-              <span className="flex items-center gap-1.5"><span className="w-4 h-0.5 bg-slate-900"></span>综合</span>
+              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-slate-900 rounded-full"></span>综合</span>
             </div>
           </div>
           <div className="h-64 w-full pt-2">
@@ -270,7 +270,7 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 <Bar yAxisId="left" dataKey="im_venue" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="title_venue" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
                 <Bar yAxisId="left" dataKey="panda_venue" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke={chartSeriesColors.trend} strokeWidth={3} isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
+                <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={{ r: 5, fill: chartSeriesColors.trend }} label={({ x, y, index }) => (
                   <g>
                     <rect x={x - 22} y={y - 44} width="44" height="18" rx="3" fill={chartColors.ink} />
                     <text x={x} y={y - 32} fill="#ffffff" fontSize={14} fontWeight="black" textAnchor="middle">
