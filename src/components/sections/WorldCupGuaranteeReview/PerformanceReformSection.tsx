@@ -10,7 +10,7 @@ export const PerformanceReformSection: React.FC = () => {
           <ModuleBlockHeader title="升级考核机制" />
           <SummaryBox className="mb-2 p-4 md:p-5">
             <p className="text-sm md:text-base font-bold leading-relaxed text-slate-900">
-              {highlightNumbers("打破传统单一关注“粗暴划档”与“个人孤立竞争”的误区，重构绩效档次与老带动新机制，形成良币驱逐劣币的正向团队生态。")}
+              {highlightNumbers("打破传统单一关注[[粗暴划档]]与[[个人孤立竞争]]的误区，重构[[绩效档次]]与[[老带动新机制]]，形成正向团队生态。")}
             </p>
           </SummaryBox>
         </div>

@@ -16,14 +16,14 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
             <span>核心问题</span>
           </div>
           <p className="text-sm text-rose-900 pl-2  leading-relaxed">
-            包括存量漏洞，以及新型套利作弊手法的不断出现，目前缺少一套机制，去<span className="font-bold underline decoration-rose-400">持续发现并优化FK流程及套利策略</span>；
+            包括存量漏洞，以及新型套利作弊手法的不断出现，目前缺少一套机制，去<span className="font-bold underline decoration-rose-400">持续发现并优化风控流程及套利策略</span>；
           </p>
         </div>
 
         {/* 解决方案 */}
         <SummaryBox>
           {highlightNumbers(
-            "建立强制性“事后评估”，实现“[[XT识别-人工确认-结果反馈-模型学习]]”的闭环机制，人工的每一次精准纠偏都将作为[[高质量标注数据]]，持续喂养XT算法。",
+            "建立强制性“事后评估”，实现“[[系统识别-人工确认-结果反馈-模型学习]]”的闭环机制，人工的每一次精准纠偏都将作为[[高质量标注数据]]，持续反哺系统算法。",
           )}
         </SummaryBox>
       </div>
@@ -37,7 +37,7 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
             <span>错误案例分析</span>
           </div>
           <p className="text-sm text-slate-900 font-bold leading-relaxed ">
-            每日抽取XT直出订单与人工审核订单进行双重交叉质检。重点针对“<span className="font-bold text-slate-900">XT未命中：但是人工已实锤</span>”与“<span className="font-bold text-slate-900">XT已命中，但是人工未实锤</span>”的典型案例进行深度复盘。
+            每日抽取系统直出订单与人工审核订单进行双重交叉质检。重点针对“<span className="font-bold text-slate-900">系统未命中，但人工已实锤</span>”与“<span className="font-bold text-slate-900">系统已命中，但人工未实锤</span>”的典型案例进行深度复盘。
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
             <span>反向策略优化</span>
           </div>
           <p className="text-sm text-slate-900 font-bold leading-relaxed ">
-            将案例分析结果转化为具体的<span className="font-bold text-slate-900 underline underline-offset-2">规则优化建议</span>。通过调整XT阈值、增加特征维度或更新派单权重，实现策略的动态迭代。
+            将案例分析结果转化为具体的<span className="font-bold text-slate-900 underline underline-offset-2">规则优化建议</span>。通过调整系统阈值、增加特征维度或更新派单权重，实现策略动态迭代。
           </p>
         </div>
       </div>
@@ -68,11 +68,11 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
             评估指标核心逻辑说明
           </div>
           <p className="text-sm text-slate-900 font-bold leading-relaxed ">
-            一般情况下，<span className="text-rose-600 font-bold">问题召回率和准确率是相悖的</span>。针对FK业务性质，我们遵循<span className="font-bold underline underline-offset-2 text-slate-900">“问题召回率优先于准确率”</span>原则：<span className="font-bold text-slate-900">首先通过高召回保证损失风险最低，随后通过策略优化逐步剔除误报，最终实现准确率的稳步提升。</span>
+            一般情况下，<span className="text-rose-600 font-bold">问题召回率和问题命中率存在取舍</span>。针对业务性质，我们遵循<span className="font-bold underline underline-offset-2 text-slate-900">“问题召回率优先于问题命中率”</span>原则：<span className="font-bold text-slate-900">首先通过高召回降低漏判风险，随后通过策略优化逐步剔除误报，最终实现问题命中率稳步提升。</span>
           </p>
         </div>
 
-        {/* 问题召回率 & 准确率 卡片 */}
+        {/* 问题召回率 & 问题命中率 卡片 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* 指标 01 问题召回率 */}
           <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
@@ -83,26 +83,26 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
               </span>
             </div>
             <div className="text-sm md:text-base font-bold text-slate-900">
-              所有有问题的订单中，被XT拦截的比例
+              所有有问题的订单中，被系统拦截的比例
             </div>
             <div className="bg-slate-50 border border-slate-100 rounded-xl rounded-lg p-1 md:p-2 lg:p-3 text-sm text-slate-900">
-              例子：<span className="font-bold underline text-slate-900">100个被FK</span>的体育打水订单，其中只有<span className="font-bold underline text-slate-900">80个命中了XT拦截策略</span>，那么问题召回率就是 <span className="font-black text-emerald-600 text-base">80%</span>
+              例子：<span className="font-bold underline text-slate-900">100个被实锤</span>的体育打水订单，其中只有<span className="font-bold underline text-slate-900">80个命中了系统拦截策略</span>，那么问题召回率就是 <span className="font-black text-emerald-600 text-base">80%</span>
             </div>
           </div>
 
-          {/* 指标 02 准确率 */}
+          {/* 指标 02 问题命中率 */}
           <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
             <div className="flex items-center gap-2">
               <span className="text-sm font-mono font-bold text-slate-900">指标 02</span>
               <span className="text-sm font-bold bg-slate-900 text-white px-0.5 md:px-1 lg:px-2 py-0.5 rounded-xs">
-                准确率
+                问题命中率
               </span>
             </div>
             <div className="text-sm md:text-base font-bold text-slate-900">
-              被XT拦截的订单中，确实有问题的比例
+              被系统拦截的订单中，确实有问题的比例
             </div>
             <div className="bg-slate-50 border border-slate-100 rounded-xl rounded-lg p-1 md:p-2 lg:p-3 text-sm text-slate-900">
-              例子：<span className="font-bold underline text-slate-900">100个命中了体育打水XT拦截策略</span>，最终被FK的只有<span className="font-bold underline text-slate-900">80个</span>，那么准确率就是 <span className="font-black text-emerald-600 text-base">80%</span>
+              例子：<span className="font-bold underline text-slate-900">100个命中了体育打水系统拦截策略</span>，最终被实锤的只有<span className="font-bold underline text-slate-900">80个</span>，那么问题命中率就是 <span className="font-black text-emerald-600 text-base">80%</span>
             </div>
           </div>
         </div>
@@ -130,12 +130,12 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
                   98%
                 </td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-left">
-                  100个问题订单，98个被XT拦截
+                  100个问题订单，98个被系统拦截
                 </td>
               </tr>
               <tr className="bg-slate-50 border border-slate-100">
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-left">
-                  准确率
+                  问题命中率
                 </td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-center">
                   ***
@@ -144,7 +144,7 @@ export const MemberRiskFeedbackLoop: React.FC = () => {
                   95%
                 </td>
                 <td className="px-2 md:px-3 lg:px-4 py-3 text-left">
-                  XT拦截100个订单，95个有问题
+                  系统拦截100个订单，95个有问题
                 </td>
               </tr>
             </tbody>

@@ -194,7 +194,7 @@ export const SystemAuditSection: React.FC = () => {
           </span>
         </div>
         <SummaryBox>
-          {highlightNumbers("系统先按规则和模型审核订单，人工复核异常结果，再把审核结论回填到系统，持续修正规则、特征和阈值。")}
+          {highlightNumbers("系统先按[[规则和模型]]审核订单，人工复核异常结果，再把[[审核结论]]回填到系统，持续修正[[规则、特征和阈值]]。")}
         </SummaryBox>
 
         {/* 流程图主容器 */}

@@ -164,7 +164,7 @@ export const AuditOverviewInterceptionType: React.FC = () => {
       <SummaryBox>
         <p className="text-base text-slate-900 font-bold leading-relaxed mb-3">
           {highlightNumbers(
-            "[[体育拦截]]为主体，占比达[[55.99%]]；其次为[[代理拦截]]（[[16.63%]]）、[[红利拦截]]（[[8.14%]]）与[[其他拦截]]（[[19.24%]]）。站点分布中[[4站]]（33.01%）、[[8站]]（10.69%）、[[BD+XK]]（9.75%）及[[6+9站]]（9.47%）占比居前：",
+            "[[体育拦截]]为主体，占比达[[55.99%]]；其次为[[代理拦截]]（[[16.63%]]）、[[红利拦截]]（[[8.13%]]）与[[其他拦截]]（[[19.24%]]）。站点分布中[[4站]]（33.01%）、[[8站]]（10.69%）、[[BD+XK]]（9.75%）及[[6+9站]]（9.47%）占比居前：",
           )}
         </p>
         <ul className="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-900 font-bold">
@@ -283,4 +283,3 @@ export const AuditOverviewInterceptionType: React.FC = () => {
     </div>
   );
 };
-

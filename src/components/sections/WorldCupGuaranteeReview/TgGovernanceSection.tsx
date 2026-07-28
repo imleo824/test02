@@ -29,16 +29,16 @@ export const TgGovernanceSection: React.FC = () => {
     {
       id: "流程二",
       title: "红利审核全线上化",
-      coreOneSentence: "强制红利过后台风控线上审核，彻底取消 TG 审核群与 EXCEL 列表传输，解决数据外泄与无追溯问题。",
+      coreOneSentence: "强制红利过后台风控线上审核，彻底取消线下审核群与表格列表传输，解决数据外泄与无追溯问题。",
     },
     {
       id: "流程三",
       title: "风控复审线上化",
-      coreOneSentence: "二审后台一键查看打分依据并完成复核判定，解决 TG 群留存敏感数据与人工繁琐黏贴问题。",
+      coreOneSentence: "二审后台一键查看打分依据并完成复核判定，解决线下群留存敏感数据与人工繁琐黏贴问题。",
     },
     {
       id: "流程四",
-      title: "上标解解锁线上化",
+      title: "上标解锁线上化",
       coreOneSentence: "上线后台工单与标签审批系统，申请自动流转并触发解封，解决线下审批随意与耗时长问题。",
     },
   ];
@@ -51,7 +51,7 @@ export const TgGovernanceSection: React.FC = () => {
           <ModuleBlockHeader title="流程线上化" />
           <SummaryBox className="mb-2 p-4 md:p-5">
             <p className="text-sm md:text-base font-bold leading-relaxed text-slate-900">
-              {highlightNumbers("全面推动标准业务流从 TG 向管理后台迁移，实现过程可控、数据结构化与风险闭环，彻底剥离 TG 的业务操作属性。")}
+              {highlightNumbers("全面推动[[标准业务流]]从线下群向管理后台迁移，实现[[过程可控]]、[[数据结构化]]与[[风险闭环]]，剥离线下群的业务操作属性。")}
             </p>
           </SummaryBox>
 

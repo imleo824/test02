@@ -5,14 +5,14 @@ export const MemberRiskFramework: React.FC = () => {
   const steps = [
     {
       num: "01",
-      title: "XT自动上FK标",
+      title: "系统自动上标",
       desc: "系统全场景监控，触发异常与关联识别并进行前置预处理；",
       note: "备注：不需要实时计算，可以有一定延迟",
     },
     {
       num: "02",
-      title: "提升XT直接出单比例",
-      desc: "转到人工审核的订单，只有大约2.5%被FK。提升拦截策略效果，大部分订单XT自动化处理，大幅降低对人工审核的依赖。",
+      title: "提升系统直接出单比例",
+      desc: "转到人工审核的订单，只有大约2.5%被实锤。提升拦截策略效果，让大部分订单由系统自动化处理，大幅降低对人工审核的依赖。",
     },
     {
       num: "03",
@@ -22,12 +22,12 @@ export const MemberRiskFramework: React.FC = () => {
     {
       num: "04",
       title: "简化人工审单过程",
-      desc: "由人工整个后台各种菜单点来点去，升级为“XT直接给出FK报告”，人工只需要聚焦异常点，提升执行效率。",
+      desc: "由人工在后台多个菜单反复查询，升级为“系统直接给出风险报告”，人工只需要聚焦异常点，提升执行效率。",
     },
     {
       num: "05",
       title: "结果评估与反向优化",
-      desc: "针对“XT未命中：人工已实锤”与“XT已命中：人工未实锤”的案例转化为建议。调整XT参数、增加特征维度等，实现策略的迭代。",
+      desc: "针对“系统未命中：人工已实锤”与“系统已命中：人工未实锤”的案例转化为建议。调整系统参数、增加特征维度等，实现策略迭代。",
     },
   ];
 
@@ -37,15 +37,15 @@ export const MemberRiskFramework: React.FC = () => {
       <SummaryBox>
         <div className="space-y-4 text-center py-2">
           <p className="text-xl md:text-2xl font-black text-slate-900">
-            实现 <span className="underline underline-offset-4 decoration-2 decoration-blue-600 font-mono">XT替代人工</span> 的最核心要攻克问题
+            {highlightNumbers("实现[[系统替代人工]]的核心问题")}
           </p>
           <div className="text-slate-900 font-extrabold text-xl">↓</div>
           <p className="text-xl md:text-2xl font-black text-slate-900">
-            如何让 <span className="underline underline-offset-4 decoration-2 decoration-blue-600 font-mono">XT 精准识别套利作弊行为</span>？
+            {highlightNumbers("如何让[[系统精准识别套利作弊行为]]？")}
           </p>
           <div className="text-slate-900 font-extrabold text-xl">↓</div>
           <p className="text-base md:text-lg font-bold text-slate-900 leading-relaxed max-w-3xl mx-auto">
-            拆解为 {highlightNumbers("[[5个核心环节]]")} 来实现XT精准识别套利作弊行为，且是一具备 {highlightNumbers("[[持续迭代进化]]")} 的闭环流程：
+            拆解为 {highlightNumbers("[[5个核心环节]]")} 来实现系统精准识别套利作弊行为，并形成具备 {highlightNumbers("[[持续迭代进化]]")} 能力的闭环流程：
           </p>
         </div>
       </SummaryBox>

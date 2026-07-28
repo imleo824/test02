@@ -116,10 +116,10 @@ export const AuditOverviewAgentInterception: React.FC = () => {
       <SummaryBox>
         <div className="space-y-2">
           {highlightNumbers(
-            "[[基础与额外佣金拦截]]：两项总计拦截金额达 [[5,523.2 万]]，占代理拦截的 [[62.42%]]，主要为[[基础以及扶持降低派发拦截]]。",
+            "[[基础与额外佣金拦截]]：两项总计拦截金额达 [[2,472.8]]，占代理拦截的 [[58.26%]]，主要为[[基础以及扶持降低派发拦截]]。",
           )}
           {highlightNumbers(
-            "[[代理活动与人头费]]：首复存与新增冲刺活动占整体的 [[28.79%]]；人头费拦截 [[374.1 万]]（占比 [[4.23%]]）。",
+            "[[代理活动与人头费]]：首复存、首复存奖励与新增冲刺活动占整体的 [[37.20%]]；人头费拦截 [[193.0]]（占比 [[4.55%]]）。",
           )}
         </div>
       </SummaryBox>
@@ -212,4 +212,3 @@ export const AuditOverviewAgentInterception: React.FC = () => {
     </div>
   );
 };
-

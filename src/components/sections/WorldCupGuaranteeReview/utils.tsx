@@ -48,7 +48,7 @@ export function highlightNumbers(
       if (phrase.startsWith("red:")) {
         result.push(
           <span key={match.index} className={summaryRiskNumberClass}>
-            {phrase.substring(4)}
+            {stripDisplayUnits(phrase.substring(4))}
           </span>,
         );
         lastIndex = pattern.lastIndex;
@@ -67,11 +67,11 @@ export function highlightNumbers(
       // 提取纯数字部分进行判断
       const numericValue = phrase.replace(/[^\d.-]/g, "");
       const isNumber =
-        /^[+\-]?\d+(?:[.,]\d+)*(?:%|人|项|倍|元|h|ms|min|k|个)?$/.test(phrase);
+        /^[<>≤≥]?\s*[+\-]?\d+(?:[.,]\d+)*(?:%|人|项|倍|元|h|ms|min|k|个)?$/.test(phrase);
 
       if (
         isNumber &&
-        (phrase.startsWith("-") || parseFloat(numericValue) < 0)
+        (phrase.startsWith("-") || phrase.startsWith("<") || parseFloat(numericValue) < 0)
       ) {
         result.push(
           <span key={match.index} className={summaryRiskNumberClass}>

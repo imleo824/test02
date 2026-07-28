@@ -37,7 +37,7 @@ export const SmartDispatchSection: React.FC = () => {
 
         {/* 现状总结一句话 */}
         <SummaryBox className="mb-0">
-          当前提款订单中 <span className="font-black text-blue-900 underline">50% 转入人工审核</span>，但最终违规实锤占比 <span className="font-black text-rose-900 underline">&lt;2.5%</span>，大量低风险常规单挤占审核资源，亟需提升系统直出与派单质效。
+          {highlightNumbers("当前提款订单中 [[50%转入人工审核]]，但最终违规实锤占比 [[red:<2.5%]]，大量低风险常规单挤占审核资源，亟需提升[[系统直出]]与[[派单质效]]。")}
         </SummaryBox>
 
         {/* 2个优化点，一行2列 */}

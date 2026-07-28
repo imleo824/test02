@@ -30,7 +30,7 @@ export const MemberRiskSmartDispatch: React.FC = () => {
             双向特征加权路由匹配模型
           </div>
           <SummaryBox>
-            {highlightNumbers("基于订单与人员的多维特征进行双向加权计算，将特定高危或专项订单精准分发至最匹配、绩效最优的处理人，极大提升审核质量与处理效率。")}
+            {highlightNumbers("基于[[订单与人员的多维特征]]进行[[双向加权计算]]，将特定高危或专项订单精准分发至[[最匹配、绩效最优的处理人]]，提升审核质量与处理效率。")}
           </SummaryBox>
           
           <div className="bg-white rounded-xl border border-slate-200 p-4 md:p-6 overflow-hidden relative shadow-sm space-y-4">
