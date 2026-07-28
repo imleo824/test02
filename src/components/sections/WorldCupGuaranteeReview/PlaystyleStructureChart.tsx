@@ -16,6 +16,7 @@ import {
   chartBarRadius,
   chartBarSize,
   chartColors,
+  chartLabelStyle,
   chartSeriesColors,
 } from "./chartStyles";
 
@@ -146,9 +147,7 @@ export const PlaystyleStructureChart = () => {
                               <text
                                 x={x + width + 8}
                                 y={y + 12}
-                                fill={chartColors.ink}
-                                fontSize={14}
-                                fontWeight="bold"
+                                {...chartLabelStyle}
                               >
                                 {`${Number(value).toFixed(2)}% (${item.volume.toLocaleString()})`}
                               </text>
@@ -212,9 +211,7 @@ export const PlaystyleStructureChart = () => {
                               <text
                                 x={x + width + 8}
                                 y={y + 12}
-                                fill={chartColors.ink}
-                                fontSize={14}
-                                fontWeight="bold"
+                                {...chartLabelStyle}
                               >
                                 {`${Number(value).toFixed(2)}% (${Math.round(item.users / 104).toLocaleString()} 人/场均)`}
                               </text>

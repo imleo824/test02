@@ -708,8 +708,6 @@ export const MatchVolumeRateChart = ({
                       data.winLoss.toLocaleString();
 
                     const labelY = y - 35;
-                    const color = isMaxWin ? "#059669" : "#e11d48";
-
                     return (
                       <g>
                         <rect
@@ -719,27 +717,23 @@ export const MatchVolumeRateChart = ({
                           height={32}
                           rx={4}
                           fill="white"
-                          stroke={color}
+                          stroke={chartColors.ink}
                           strokeWidth={1}
                           fillOpacity={0.9}
                         />
                         <text
                           x={x + width / 2}
                           y={labelY}
-                          fill={color}
                           textAnchor="middle"
-                          fontSize={14}
-                          fontWeight="black"
+                          {...chartLabelStyle}
                         >
                           {teamName}
                         </text>
                         <text
                           x={x + width / 2}
                           y={labelY + 12}
-                          fill={color}
                           textAnchor="middle"
-                          fontSize={14}
-                          fontWeight="bold"
+                          {...chartLabelStyle}
                         >
                           {winLossStr}
                         </text>
@@ -748,7 +742,7 @@ export const MatchVolumeRateChart = ({
                           y1={labelY + 18}
                           x2={x + width / 2}
                           y2={y}
-                          stroke={color}
+                          stroke={chartColors.ink}
                           strokeWidth={1}
                           strokeDasharray="2 2"
                         />
@@ -887,7 +881,7 @@ export const MatchVolumeRateChart = ({
                             <LabelList 
                               dataKey="label" 
                               position="top" 
-                              style={{ fill: '#1e293b', fontSize: 16, fontWeight: 900 }}
+                              style={chartLabelStyle}
                             />
                           </Bar>
                         </BarChart>
@@ -1146,10 +1140,8 @@ export const MatchVolumeRateChart = ({
                       <text
                         x={x + width / 2}
                         y={y - 25}
-                        fill={chartColors.ink}
                         textAnchor="middle"
-                        fontSize={14}
-                        fontWeight="black"
+                        {...chartLabelStyle}
                       >
                         流:{value.toLocaleString()}
                       </text>
@@ -1166,10 +1158,8 @@ export const MatchVolumeRateChart = ({
                       <text
                         x={x + width / 2}
                         y={y - 8}
-                        fill={value >= 0 ? "#047857" : "#be123c"}
                         textAnchor="middle"
-                        fontSize={14}
-                        fontWeight="black"
+                        {...chartLabelStyle}
                       >
                         盈:{value.toLocaleString()}
                       </text>
@@ -1230,10 +1220,8 @@ export const MatchVolumeRateChart = ({
                         <text
                           x={x}
                           y={y - 10}
-                          fill={isTop3 ? chartSeriesColors.manual : chartColors.ink}
                           textAnchor="middle"
-                          fontSize={14}
-                          fontWeight={isTop3 ? "black" : "bold"}
+                          {...chartLabelStyle}
                         >
                           {`${Number(value).toFixed(2)}%`}
                         </text>

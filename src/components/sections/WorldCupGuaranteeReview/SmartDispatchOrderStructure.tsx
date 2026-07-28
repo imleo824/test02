@@ -76,7 +76,7 @@ const auditStructureData = [
   },
 ];
 
-const renderAuditStructureLabel = (offsetY = 24) => ({ x, y, width, value }: any) => {
+const renderAuditStructureLabel = (offsetY = 24, offsetX = 0) => ({ x, y, width, value }: any) => {
   if (typeof x !== "number" || typeof y !== "number" || typeof width !== "number" || !value) {
     return null;
   }
@@ -85,7 +85,7 @@ const renderAuditStructureLabel = (offsetY = 24) => ({ x, y, width, value }: any
   const match = text.match(/^(.+?)\s*\((.+)\)$/);
   const amount = match?.[1] ?? text;
   const ratio = match?.[2] ?? "";
-  const centerX = x + width / 2;
+  const centerX = x + width / 2 + offsetX;
 
   return (
     <text
@@ -202,19 +202,19 @@ export const SmartDispatchOrderStructure: React.FC = () => {
             <Bar yAxisId="left" dataKey="系统单量" fill={chartSeriesColors.primary} name="系统审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
               <LabelList 
                 dataKey="系统标签" 
-                content={renderAuditStructureLabel(24)}
+                content={renderAuditStructureLabel(24, -10)}
               />
             </Bar>
             <Bar yAxisId="left" dataKey="总部单量" fill={chartSeriesColors.positive} name="总部审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
               <LabelList 
                 dataKey="总部标签" 
-                content={renderAuditStructureLabel(-24)}
+                content={renderAuditStructureLabel(54, 10)}
               />
             </Bar>
             <Bar yAxisId="left" dataKey="外包单量" fill={chartSeriesColors.secondary} name="外包审核单量" radius={chartBarRadius.standard} isAnimationActive={false}>
               <LabelList 
                 dataKey="外包标签" 
-                content={renderAuditStructureLabel(24)}
+                content={renderAuditStructureLabel(24, 10)}
               />
             </Bar>
 
@@ -235,6 +235,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 dataKey="系统质量" 
                 position="top" 
                 dx={-36}
+                dy={-12}
                 fill={chartColors.ink}
                 formatter={(val: any) => `${val}%`}
                 style={chartLabelStyle}
@@ -256,6 +257,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 dataKey="总部质量" 
                 position="top" 
                 dx={0}
+                dy={-12}
                 fill={chartColors.ink}
                 formatter={(val: any) => `${val}%`}
                 style={chartLabelStyle}
@@ -277,6 +279,7 @@ export const SmartDispatchOrderStructure: React.FC = () => {
                 dataKey="外包质量" 
                 position="top" 
                 dx={36}
+                dy={-12}
                 fill={chartColors.ink}
                 formatter={(val: any) => `${val}%`}
                 style={chartLabelStyle}
