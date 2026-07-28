@@ -70,6 +70,16 @@
     padding-inline: clamp(20px, 3vw, 44px);
   }
 
+  .report-shell [id^="section-"] {
+    scroll-margin-top: 32px;
+  }
+
+  .report-shell [id^="section-"] > .report-chapter-title:first-child,
+  .report-shell [id^="section-"] > div:first-child:has(h2),
+  .report-shell [id^="section-"] > div:first-child:has(h3) {
+    margin-top: 0;
+  }
+
   .report-chapter-title {
     border-top: 3px solid var(--report-ink);
     border-bottom: 1px solid var(--report-line);
@@ -141,6 +151,10 @@
   .report-dense-table td {
     padding: 10px 12px !important;
     vertical-align: middle;
+  }
+
+  .report-dense-table tr {
+    min-height: 42px;
   }
 
   .report-shell .rounded-xl,
@@ -345,6 +359,12 @@
     color: #ffffff !important;
   }
 
+  .report-shell [class*="bg-white"][class*="border"][class*="rounded"],
+  .report-shell [class*="bg-slate-50"][class*="border"][class*="rounded"],
+  .report-shell [class*="bg-[#f8fafc]"][class*="border"][class*="rounded"] {
+    border-color: #e4e9f1 !important;
+  }
+
   .report-shell table {
     border-collapse: collapse;
     color: var(--report-ink);
@@ -372,7 +392,7 @@
     fill: var(--report-ink) !important;
     font-family: var(--font-sans);
     font-weight: 800;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .report-shell .recharts-cartesian-axis-tick-value,
@@ -380,10 +400,20 @@
   .report-shell .recharts-legend-item-text {
     color: var(--report-ink) !important;
     fill: var(--report-ink) !important;
+    font-size: 13px !important;
   }
 
   .report-shell .recharts-cartesian-grid line {
     stroke: var(--report-line) !important;
+  }
+
+  .report-shell .recharts-wrapper svg {
+    overflow: visible;
+  }
+
+  .report-shell .recharts-default-tooltip {
+    border-radius: 4px !important;
+    box-shadow: none !important;
   }
 }
 
