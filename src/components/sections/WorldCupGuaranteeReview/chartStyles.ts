@@ -35,6 +35,59 @@ export const chartLabelStyle = {
   strokeLinejoin: "round",
 };
 
+export const chartLabelEmphasisStyle = {
+  ...chartLabelStyle,
+  fill: chartColors.blue,
+  fontWeight: 900,
+};
+
+export const chartLabelRiskStyle = {
+  ...chartLabelStyle,
+  fill: chartColors.red,
+  fontWeight: 900,
+};
+
+export const getChartLabelStyle = (
+  value: number,
+  values: number[],
+  options: { highlight?: "max" | "min" | "none"; riskBelowZero?: boolean } = {},
+) => {
+  const { highlight = "max", riskBelowZero = true } = options;
+  const finiteValues = values.filter((item) => Number.isFinite(item));
+
+  if (riskBelowZero && value < 0) {
+    return chartLabelRiskStyle;
+  }
+
+  if (highlight !== "none" && finiteValues.length > 0) {
+    const targetValue = highlight === "min" ? Math.min(...finiteValues) : Math.max(...finiteValues);
+    if (value === targetValue) {
+      return chartLabelEmphasisStyle;
+    }
+  }
+
+  return chartLabelStyle;
+};
+
+export const getChartLabelClassName = (
+  value: number,
+  values: number[],
+  options: { highlight?: "max" | "min" | "none"; riskBelowZero?: boolean } = {},
+) => {
+  const { highlight = "max", riskBelowZero = true } = options;
+  const finiteValues = values.filter((item) => Number.isFinite(item));
+
+  if (riskBelowZero && value < 0) return "chart-label-risk";
+
+  if (highlight !== "none" && finiteValues.length > 0) {
+    const targetValue = highlight === "min" ? Math.min(...finiteValues) : Math.max(...finiteValues);
+    if (value === targetValue) return "chart-label-key";
+  }
+
+  return "chart-label-normal";
+};
+
+
 export const chartTooltipStyle = {
   backgroundColor: "#ffffff",
   color: chartColors.ink,

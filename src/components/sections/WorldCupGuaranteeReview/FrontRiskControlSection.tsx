@@ -18,7 +18,8 @@ import {
 import {
   chartAxisTick,
   chartColors,
-  chartLabelStyle,
+  getChartLabelClassName,
+  getChartLabelStyle,
   chartBarRadius,
   chartBarSize,
   chartBarGap,
@@ -34,6 +35,43 @@ const monthlyTrendData = [
   { month: "5月", 总人工订单: 1775260, 总有标订单: 556082, 提款有标率: 31.3 },
   { month: "6月", 总人工订单: 2545113, 总有标订单: 667227, 提款有标率: 26.2 },
 ];
+const totalManualValues = monthlyTrendData.map((item) => item.总人工订单);
+const taggedOrderValues = monthlyTrendData.map((item) => item.总有标订单);
+const taggedRateValues = monthlyTrendData.map((item) => item.提款有标率);
+
+const renderMonthlyBarLabel =
+  (values: number[], formatter: (value: number) => string) =>
+  ({ x, y, width, value }: any) => {
+    const numericValue = Number(value);
+    return (
+      <text
+        x={x + width / 2}
+        y={y - 8}
+        textAnchor="middle"
+        className={getChartLabelClassName(numericValue, values)}
+        {...getChartLabelStyle(numericValue, values)}
+      >
+        {formatter(numericValue)}
+      </text>
+    );
+  };
+
+const renderMonthlyPointLabel =
+  (values: number[], formatter: (value: number) => string) =>
+  ({ x, y, value }: any) => {
+    const numericValue = Number(value);
+    return (
+      <text
+        x={x}
+        y={y - 12}
+        textAnchor="middle"
+        className={getChartLabelClassName(numericValue, values)}
+        {...getChartLabelStyle(numericValue, values)}
+      >
+        {formatter(numericValue)}
+      </text>
+    );
+  };
 
 export const FrontRiskControlSection: React.FC = () => {
   return (
@@ -119,16 +157,14 @@ export const FrontRiskControlSection: React.FC = () => {
                 <LabelList 
                   dataKey="总人工订单" 
                   position="top" 
-                  formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}`}
-                  style={chartLabelStyle}
+                  content={renderMonthlyBarLabel(totalManualValues, (value) => `${(value / 10000).toFixed(1)}`)}
                 />
               </Bar>
               <Bar yAxisId="left" dataKey="总有标订单" fill={chartSeriesColors.secondary} name="总有标订单" radius={chartBarRadius.standard} isAnimationActive={false}>
                 <LabelList 
                   dataKey="总有标订单" 
                   position="top" 
-                  formatter={(val: any) => `${(Number(val) / 10000).toFixed(1)}`}
-                  style={chartLabelStyle}
+                  content={renderMonthlyBarLabel(taggedOrderValues, (value) => `${(value / 10000).toFixed(1)}`)}
                 />
               </Bar>
               <Line 
@@ -144,8 +180,7 @@ export const FrontRiskControlSection: React.FC = () => {
                 <LabelList 
                   dataKey="提款有标率" 
                   position="top" 
-                  formatter={(val: any) => `${val}%`}
-                  style={chartLabelStyle}
+                  content={renderMonthlyPointLabel(taggedRateValues, (value) => `${value}%`)}
                 />
               </Line>
             </ComposedChart>

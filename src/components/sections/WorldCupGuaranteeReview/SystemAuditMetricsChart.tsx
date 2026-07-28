@@ -15,7 +15,8 @@ import { ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSection
 import {
   chartAxisTick,
   chartColors,
-  chartLabelStyle,
+  getChartLabelClassName,
+  getChartLabelStyle,
   chartBarRadius,
   chartBarSize,
   chartBarGap,
@@ -57,6 +58,27 @@ const systemMetricsData = [
     问题命中率标签: "11.40%",
   },
 ];
+const recallValues = systemMetricsData.map((item) => item.问题召回率);
+const hitValues = systemMetricsData.map((item) => item.问题命中率);
+
+const renderSystemMetricLabel =
+  (metricKey: "问题召回率" | "问题命中率", labelKey: "问题召回率标签" | "问题命中率标签") =>
+  ({ x, y, width, payload }: any) => {
+    const values = metricKey === "问题召回率" ? recallValues : hitValues;
+    const numericValue = Number(payload[metricKey]);
+    const isSummary = payload.month === "汇总";
+    return (
+      <text
+        x={x + width / 2}
+        y={y - 8}
+        textAnchor="middle"
+        className={isSummary ? "chart-label-key" : getChartLabelClassName(numericValue, values)}
+        {...(isSummary ? getChartLabelStyle(numericValue, [numericValue]) : getChartLabelStyle(numericValue, values))}
+      >
+        {payload[labelKey]}
+      </text>
+    );
+  };
 
 export const SystemAuditMetricsChart: React.FC = () => {
   return (
@@ -139,7 +161,7 @@ export const SystemAuditMetricsChart: React.FC = () => {
               <LabelList
                 dataKey="问题召回率标签"
                 position="top"
-                style={chartLabelStyle}
+                content={renderSystemMetricLabel("问题召回率", "问题召回率标签")}
               />
             </Bar>
             {/* 问题命中率 柱子 */}
@@ -153,7 +175,7 @@ export const SystemAuditMetricsChart: React.FC = () => {
               <LabelList
                 dataKey="问题命中率标签"
                 position="top"
-                style={chartLabelStyle}
+                content={renderSystemMetricLabel("问题命中率", "问题命中率标签")}
               />
             </Bar>
           </BarChart>

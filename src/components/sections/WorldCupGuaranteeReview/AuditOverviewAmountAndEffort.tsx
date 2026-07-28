@@ -6,7 +6,8 @@ import {
   chartBarRadius,
   chartBarSize,
   chartColors,
-  chartLabelStyle,
+  getChartLabelClassName,
+  getChartLabelStyle,
   chartMargins,
   chartSeriesColors,
 } from "./chartStyles";
@@ -31,6 +32,26 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
     { month: "2026/5", volume: 224.03, duration: "0:08:07", durationVal: 8.12 },
     { month: "2026/6", volume: 300.77, duration: "0:08:14", durationVal: 8.23 },
   ];
+  const amountValues = amountData.map((item) => item.amount);
+  const volumeValues = effortData.map((item) => item.volume);
+  const durationValues = effortData.map((item) => item.durationVal);
+
+  const renderTopLabel =
+    (values: number[], formatter: (value: number, index: number) => string, highlight: "max" | "min" = "max") =>
+    ({ x, y, width, value, index }: any) => {
+      const numericValue = Number(value);
+      return (
+        <text
+          x={x + width / 2}
+          y={y - 8}
+          textAnchor="middle"
+          className={getChartLabelClassName(numericValue, values, { highlight })}
+          {...getChartLabelStyle(numericValue, values, { highlight })}
+        >
+          {formatter(numericValue, index)}
+        </text>
+      );
+    };
 
   return (
     <div id="section-audit-amount-effort" className="space-y-6">
@@ -68,7 +89,14 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
               <BarChart data={amountData} margin={chartMargins.hiddenAxis}>
                 <XAxis dataKey="month" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                 <YAxis hide domain={[0, 1.4]} />
-                <Bar dataKey="amount" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} barSize={chartBarSize.single} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle }} />
+                <Bar
+                  dataKey="amount"
+                  fill={chartSeriesColors.secondary}
+                  radius={chartBarRadius.standard}
+                  barSize={chartBarSize.single}
+                  isAnimationActive={false}
+                  label={renderTopLabel(amountValues, (value) => value.toFixed(3))}
+                />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -95,7 +123,7 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
                   radius={chartBarRadius.standard}
                   barSize={chartBarSize.single}
                   isAnimationActive={false}
-                  label={{ position: "top", ...chartLabelStyle }}
+                  label={renderTopLabel(volumeValues, (value) => value.toFixed(2))}
                 />
                 <Line
                   yAxisId="duration"
@@ -106,7 +134,13 @@ export const AuditOverviewAmountAndEffort: React.FC = () => {
                   isAnimationActive={false}
                   dot={{ r: 4, fill: chartSeriesColors.trend }}
                   label={({ x, y, index }) => (
-                    <text x={x} y={y - 12} textAnchor="middle" {...chartLabelStyle}>
+                    <text
+                      x={x}
+                      y={y - 12}
+                      textAnchor="middle"
+                      className={getChartLabelClassName(effortData[index].durationVal, durationValues, { highlight: "min" })}
+                      {...getChartLabelStyle(effortData[index].durationVal, durationValues, { highlight: "min" })}
+                    >
                       {effortData[index].duration}
                     </text>
                   )}

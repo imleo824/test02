@@ -83,6 +83,7 @@ export const AgentRiskControlSection: React.FC = () => {
 
               <div className="agent-dispatch-model">
                 <div className="agent-dispatch-panel">
+                  <div className="agent-dispatch-panel-badge">原</div>
                   <div className="agent-dispatch-panel-head">
                     <span>原来模式</span>
                     <strong>线下指定分配</strong>
@@ -102,6 +103,7 @@ export const AgentRiskControlSection: React.FC = () => {
                 </div>
 
                 <div className="agent-dispatch-panel agent-dispatch-panel-strong">
+                  <div className="agent-dispatch-panel-badge">新</div>
                   <div className="agent-dispatch-panel-head">
                     <span>升级模式</span>
                     <strong>系统自动随机派单</strong>

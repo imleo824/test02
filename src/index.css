@@ -703,29 +703,52 @@
 
   .agent-dispatch-model {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 128px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) 132px minmax(0, 1fr);
+    gap: 16px;
     align-items: stretch;
     background: #ffffff;
     border: 1px solid var(--report-line);
     border-radius: 8px;
-    padding: 12px;
+    padding: 16px;
   }
 
   .agent-dispatch-panel {
-    background: var(--report-soft);
+    position: relative;
+    background: #ffffff;
     border: 1px solid var(--report-line);
     border-radius: 8px;
-    padding: 12px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-height: 170px;
+    gap: 12px;
+    min-height: 218px;
   }
 
   .agent-dispatch-panel-strong {
     background: var(--report-blue-soft);
     border-color: #b8c9e6;
+  }
+
+  .agent-dispatch-panel-badge {
+    position: absolute;
+    top: -12px;
+    left: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--report-ink);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 900;
+  }
+
+  .agent-dispatch-panel-strong .agent-dispatch-panel-badge {
+    background: var(--report-blue);
   }
 
   .agent-dispatch-panel-head {
@@ -762,20 +785,24 @@
 
   .agent-dispatch-list span {
     color: var(--report-ink);
-    background: #ffffff;
+    background: var(--report-soft);
     border: 1px solid #d8e3f1;
     border-radius: 6px;
-    padding: 8px 10px;
+    padding: 10px 12px;
     font-size: 14px;
     line-height: 1.3;
     font-weight: 900;
+  }
+
+  .agent-dispatch-panel-strong .agent-dispatch-list span {
+    background: #ffffff;
   }
 
   .agent-dispatch-relation {
     margin-top: auto;
     color: var(--report-ink);
     border-top: 1px solid var(--report-line);
-    padding-top: 8px;
+    padding-top: 10px;
     font-size: 14px;
     line-height: 1.3;
     font-weight: 900;
@@ -784,8 +811,11 @@
   .agent-dispatch-core {
     background: var(--report-ink);
     color: #ffffff;
-    border-radius: 8px;
-    padding: 12px 10px;
+    border-radius: 999px;
+    width: 132px;
+    min-height: 132px;
+    padding: 16px 12px;
+    align-self: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1736,6 +1766,20 @@
     stroke: #ffffff;
     stroke-width: 3px;
     stroke-linejoin: round;
+  }
+
+  .report-shell .chart-label-normal {
+    fill: var(--report-ink) !important;
+  }
+
+  .report-shell .chart-label-key {
+    fill: var(--report-blue) !important;
+    font-weight: 900 !important;
+  }
+
+  .report-shell .chart-label-risk {
+    fill: var(--report-danger) !important;
+    font-weight: 900 !important;
   }
 
   .report-shell .recharts-label-list text[fill="#ffffff"],

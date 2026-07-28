@@ -6,7 +6,8 @@ import {
   chartBarRadius,
   chartBarSize,
   chartColors,
-  chartLabelStyle,
+  getChartLabelClassName,
+  getChartLabelStyle,
   chartMargins,
   chartSeriesColors,
 } from "./chartStyles";
@@ -62,6 +63,22 @@ export const AuditOverviewSportsInterception: React.FC = () => {
       comboLabel: "6.50%",
     },
   ];
+  const renderRateBarLabel =
+    (values: number[]) =>
+    ({ x, y, width, value }: any) => {
+      const numericValue = Number(value);
+      return (
+        <text
+          x={x + width / 2}
+          y={y - 8}
+          textAnchor="middle"
+          className={getChartLabelClassName(numericValue, values)}
+          {...getChartLabelStyle(numericValue, values)}
+        >
+          {numericValue}%
+        </text>
+      );
+    };
 
   // 4组明细表格数据
   const venueTables = [
@@ -242,9 +259,9 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                 <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
                 <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
-                <Bar yAxisId="left" dataKey="b_sys" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="y_sys" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="bw_sys" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="b_sys" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.b_sys))} />
+                <Bar yAxisId="left" dataKey="y_sys" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.y_sys))} />
+                <Bar yAxisId="left" dataKey="bw_sys" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(siteSlData.map((item) => item.bw_sys))} />
                 <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={false} activeDot={false} label={renderComboLabel(siteSlData)} />
               </ComposedChart>
             </ResponsiveContainer>
@@ -271,9 +288,9 @@ export const AuditOverviewSportsInterception: React.FC = () => {
                 <XAxis dataKey="quarter" tick={chartAxisTick} axisLine={{ stroke: chartColors.ink }} tickLine={false} />
                 <YAxis yAxisId="left" domain={[0, 10]} ticks={[0, 2.5, 5, 7.5, 10]} tick={chartAxisTick} axisLine={false} tickLine={false} />
                 <YAxis yAxisId="right" orientation="right" domain={[3.0, 8.0]} ticks={[3.0, 4.0, 5.0, 6.0, 7.0, 8.0]} tick={chartAxisTick} axisLine={false} tickLine={false} />
-                <Bar yAxisId="left" dataKey="im_venue" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="title_venue" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
-                <Bar yAxisId="left" dataKey="panda_venue" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={{ position: "top", ...chartLabelStyle, formatter: (v: any) => `${v}%` }} />
+                <Bar yAxisId="left" dataKey="im_venue" fill={chartSeriesColors.secondary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.im_venue))} />
+                <Bar yAxisId="left" dataKey="title_venue" fill={chartSeriesColors.tertiary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.title_venue))} />
+                <Bar yAxisId="left" dataKey="panda_venue" fill={chartSeriesColors.primary} radius={chartBarRadius.standard} isAnimationActive={false} label={renderRateBarLabel(venueSlData.map((item) => item.panda_venue))} />
                 <Line yAxisId="right" type="monotone" dataKey="comboVal" stroke="transparent" strokeWidth={0} legendType="none" isAnimationActive={false} dot={false} activeDot={false} label={renderComboLabel(venueSlData)} />
               </ComposedChart>
             </ResponsiveContainer>

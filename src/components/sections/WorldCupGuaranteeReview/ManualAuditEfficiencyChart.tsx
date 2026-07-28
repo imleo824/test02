@@ -16,7 +16,9 @@ import { ReportPanel, ReportPanelHeader } from "../../ReportSections";
 import {
   chartAxisTick,
   chartColors,
-  chartLabelStyle,
+  getChartLabelClassName,
+  getChartLabelStyle,
+  chartLabelRiskStyle,
   chartBarRadius,
   chartBarSize,
   chartBarGap,
@@ -68,6 +70,38 @@ const efficiencyData = [
     全归总部月审单量: "12,735 单/月",
   },
 ];
+const hqEfficiencyValues = efficiencyData.map((item) => item.总部人员效率);
+const outsourceEfficiencyValues = efficiencyData.map((item) => item.外包人员效率);
+const allHqEfficiencyValues = efficiencyData.map((item) => item.全归总部效率);
+
+const renderEfficiencyLabel =
+  (
+    metricKey: "总部人员效率" | "外包人员效率" | "全归总部效率",
+    labelKey: "总部标签" | "外包标签" | "全归总部标签",
+    options: { riskScenario?: boolean } = {},
+  ) =>
+  ({ x, y, width, payload }: any) => {
+    const values =
+      metricKey === "总部人员效率"
+        ? hqEfficiencyValues
+        : metricKey === "外包人员效率"
+          ? outsourceEfficiencyValues
+          : allHqEfficiencyValues;
+    const numericValue = Number(payload[metricKey]);
+    const labelStyle = options.riskScenario ? chartLabelRiskStyle : getChartLabelStyle(numericValue, values);
+    const className = options.riskScenario ? "chart-label-risk" : getChartLabelClassName(numericValue, values);
+    return (
+      <text
+        x={x + width / 2}
+        y={y - 8}
+        textAnchor="middle"
+        className={className}
+        {...labelStyle}
+      >
+        {payload[labelKey]}
+      </text>
+    );
+  };
 
 export const ManualAuditEfficiencyChart: React.FC = () => {
   return (
@@ -160,7 +194,7 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
               <LabelList
                 dataKey="总部标签"
                 position="top"
-                style={chartLabelStyle}
+                content={renderEfficiencyLabel("总部人员效率", "总部标签")}
               />
             </Bar>
 
@@ -175,7 +209,7 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
               <LabelList
                 dataKey="外包标签"
                 position="top"
-                style={chartLabelStyle}
+                content={renderEfficiencyLabel("外包人员效率", "外包标签")}
               />
             </Bar>
 
@@ -190,7 +224,7 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
               <LabelList
                 dataKey="全归总部标签"
                 position="top"
-                style={chartLabelStyle}
+                content={renderEfficiencyLabel("全归总部效率", "全归总部标签", { riskScenario: true })}
               />
             </Bar>
           </ComposedChart>

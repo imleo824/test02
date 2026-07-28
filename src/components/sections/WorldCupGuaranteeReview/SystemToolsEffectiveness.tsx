@@ -14,7 +14,8 @@ import {
   chartBarRadius,
   chartBarSize,
   chartColors,
-  chartLabelStyle,
+  getChartLabelClassName,
+  getChartLabelStyle,
   chartMargins,
   chartSeriesColors,
 } from "./chartStyles";
@@ -26,6 +27,7 @@ export const SystemToolsEffectiveness: React.FC = () => {
     { name: "体育对压(跨AB系)", accuracy: 90 },
     { name: "卡进球点", accuracy: 75 },
   ];
+  const accuracyValues = data.map((item) => item.accuracy);
 
   return (
     <div className="rounded-xl border border-slate-100 bg-white p-5 md:p-6 space-y-5">
@@ -73,8 +75,20 @@ export const SystemToolsEffectiveness: React.FC = () => {
               <LabelList
                 dataKey="accuracy"
                 position="top"
-                formatter={(val: number) => `${val}%`}
-                style={chartLabelStyle}
+                content={({ x, y, width, value }: any) => {
+                  const numericValue = Number(value);
+                  return (
+                    <text
+                      x={x + width / 2}
+                      y={y - 8}
+                      textAnchor="middle"
+                      className={getChartLabelClassName(numericValue, accuracyValues)}
+                      {...getChartLabelStyle(numericValue, accuracyValues)}
+                    >
+                      {numericValue}%
+                    </text>
+                  );
+                }}
                 offset={8}
               />
             </Bar>
