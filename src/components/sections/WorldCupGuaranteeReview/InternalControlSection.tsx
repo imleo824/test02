@@ -1,16 +1,13 @@
 import React from "react";
 import { Shield, Search, Eye, AlertTriangle, FileText, UserX, Check, Lock, Database } from "lucide-react";
 import { CoreActionHeader, SummaryBox, highlightNumbers } from "./utils";
+import { ChapterTitle } from "../../ReportSections";
 
 export const InternalControlSection: React.FC = () => {
   return (
     <div id="section-internal-control" className="space-y-10">
       {/* 2.2 内控概览 模块主标题 */}
-      <div className="bg-slate-900 text-white rounded-xl py-3 px-5 ">
-        <h2 className="text-xl md:text-2xl font-black tracking-tight text-white">
-          2.2 内控数据
-        </h2>
-      </div>
+      <ChapterTitle>2.2 内控数据</ChapterTitle>
 
       <SummaryBox>
         {highlightNumbers(

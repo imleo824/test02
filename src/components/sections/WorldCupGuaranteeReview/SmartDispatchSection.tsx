@@ -4,16 +4,13 @@ import { MemberRiskDirectPayout } from "./MemberRiskDirectPayout";
 import { MemberRiskSmartDispatch } from "./MemberRiskSmartDispatch";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import { SmartDispatchOrderStructure } from "./SmartDispatchOrderStructure";
+import { ChapterTitle } from "../../ReportSections";
 
 export const SmartDispatchSection: React.FC = () => {
   return (
     <div id="section-smart-dispatch" className="space-y-8">
       {/* 3.3 智能派单 模块主标题 */}
-      <div className="bg-slate-900 text-white rounded-xl py-3 px-5 ">
-        <h2 className="text-xl md:text-2xl font-black tracking-tight text-white">
-          3.3 智能派单
-        </h2>
-      </div>
+      <ChapterTitle>3.3 智能派单</ChapterTitle>
 
       {/* 3.3 核心价值、关键指标、当前状态与整体进度 */}
       <ModuleStatusCard

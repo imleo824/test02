@@ -88,13 +88,13 @@ export const ReportCover: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-8 md:p-16 space-y-12 w-full mx-auto min-h-fit flex flex-col ">
+    <div className="report-card p-7 md:p-12 space-y-10 w-full mx-auto min-h-fit flex flex-col">
       {/* 封面标题区 */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-100">
-        <h1 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-7 border-b border-slate-200">
+        <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight max-w-4xl">
           {FA.reportTitle}
         </h1>
-        <div className="flex gap-10 text-sm text-slate-900 font-bold mb-2">
+        <div className="flex flex-wrap gap-x-8 gap-y-2 text-base text-slate-900 font-bold mb-1">
           <div className="flex items-center gap-2">
             <span>数据周期:</span>
             <span className="font-bold text-slate-900">{FA.navTitle}</span>
@@ -109,32 +109,32 @@ export const ReportCover: React.FC = () => {
       </div>
 
       {/* 极简目录罗列 - 从上到下 */}
-      <div className="space-y-8 max-w-4xl">
-        <div className="space-y-8">
+      <div className="space-y-7 max-w-5xl">
+        <div className="space-y-7">
           {sections.map((section) => (
-            <div key={section.id} className="space-y-4">
+            <div key={section.id} className="space-y-3">
               {/* 大章节 */}
-              <div className="flex items-baseline gap-2 border-b border-slate-200 pb-2">
-                <span className="text-xl font-black text-slate-900 font-mono">
+              <div className="flex items-baseline gap-3 border-b border-slate-200 pb-2">
+                <span className="text-xl md:text-2xl font-black text-slate-900 font-mono">
                   {section.id}
                 </span>
-                <span className="text-xl font-black text-slate-900">
+                <span className="text-xl md:text-2xl font-black text-slate-900">
                   {section.title}
                 </span>
               </div>
 
               {/* 子目录从上到下罗列 */}
-              <div className="pl-6 space-y-4">
+              <div className="pl-2 md:pl-6 space-y-3">
                 {section.paths.map((path) => (
                   <div key={path.title} className="space-y-2">
-                    <div className="text-base font-black text-slate-900">
+                    <div className="text-base md:text-lg font-black text-slate-900">
                       {path.title}
                     </div>
                     {path.items && path.items.length > 0 && (
-                      <div className="pl-6 flex flex-col space-y-2 border-l-2 border-slate-200">
+                      <div className="pl-4 md:pl-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2">
                         {path.items.map((item) => (
                           <div key={item.title} className="space-y-1">
-                            <div className="text-sm font-bold text-slate-900">
+                            <div className="text-sm md:text-base font-bold text-slate-900">
                               {item.title}
                             </div>
                             {item.items && item.items.length > 0 && (
@@ -142,7 +142,7 @@ export const ReportCover: React.FC = () => {
                                 {item.items.map((subItem) => (
                                   <div
                                     key={subItem.title}
-                                    className="text-xs font-semibold text-slate-900"
+                                    className="text-sm font-semibold text-slate-900"
                                   >
                                     {subItem.title}
                                   </div>

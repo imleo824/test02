@@ -2,6 +2,7 @@ import React from "react";
 import { SummaryBox, highlightNumbers } from "./utils";
 import { ShieldAlert, ArrowRight } from "lucide-react";
 import { ModuleStatusCard } from "./ModuleStatusCard";
+import { ChapterTitle } from "../../ReportSections";
 import {
   ComposedChart,
   Bar,
@@ -25,11 +26,7 @@ export const FrontRiskControlSection: React.FC = () => {
   return (
     <div id="section-front-risk-control" className="space-y-8">
       {/* 3.1 风控前置 模块主标题 */}
-      <div className="bg-slate-900 text-white rounded-xl py-3 px-5  flex items-center justify-between">
-        <h2 className="text-xl md:text-2xl font-black tracking-tight text-white">
-          3.1 风控前置
-        </h2>
-      </div>
+      <ChapterTitle>3.1 风控前置</ChapterTitle>
 
       {/* 3.1 核心价值、关键指标、当前状态与整体进度 */}
       <ModuleStatusCard
@@ -449,5 +446,4 @@ export const FrontRiskControlSection: React.FC = () => {
     </div>
   );
 };
-
 

@@ -3,16 +3,13 @@ import { CoreActionHeader, SummaryBox, highlightNumbers } from "./utils";
 import { Scale, User, ShieldAlert, CheckCircle, RotateCcw, ArrowRight, ArrowLeft } from "lucide-react";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import { SystemAuditMetricsChart } from "./SystemAuditMetricsChart";
+import { ChapterTitle } from "../../ReportSections";
 
 export const SystemAuditSection: React.FC = () => {
   return (
     <div id="section-system-audit" className="space-y-8">
       {/* 3.2 系统审核 模块主标题 */}
-      <div className="bg-slate-900 text-white rounded-xl py-3 px-5 ">
-        <h2 className="text-xl md:text-2xl font-black tracking-tight text-white">
-          3.2 系统审核
-        </h2>
-      </div>
+      <ChapterTitle>3.2 系统审核</ChapterTitle>
 
       {/* 3.2 核心价值、关键指标、当前状态与整体进度 */}
       <ModuleStatusCard

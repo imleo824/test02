@@ -41,7 +41,7 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll helper
+  // Section jump helper
   const scrollToSection = (id: string) => {
     const ref = sectionRefs[id as keyof typeof sectionRefs];
     if (ref && ref.current) {
@@ -54,16 +54,16 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-50 antialiased">
+    <div className="report-shell min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-blue-50 antialiased">
       {/* Print-only Header (visible when printing) */}
       <div className="hidden print:flex items-center justify-between border-b-2 border-black pb-3 mb-10 text-base font-black text-slate-900">
         <span>{FA.printHeaderLeft}</span>
       </div>
 
       {/* Workspace Container */}
-      <div className="flex-1 flex w-full max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 py-8">
+      <div className="flex-1 flex w-full px-5 md:px-8 lg:px-12 py-8 md:py-10">
         {/* Main Content Area */}
-        <main className="flex-1 w-full max-w-none space-y-16 print:space-y-20">
+        <main className="report-main flex-1 w-full space-y-14 print:space-y-20">
           {/* Cover & Directory */}
           <div ref={sectionRefs.cover} className="scroll-mt-6">
             <ReportCover />
@@ -79,7 +79,7 @@ export default function App() {
             <div className="flex flex-col items-center justify-center space-y-8">
               <div className="flex flex-col items-center gap-4">
                 <div className="h-1 w-16 bg-slate-900" />
-                <div className="text-slate-900 font-black tracking-[0.6em] text-sm uppercase">
+                <div className="text-slate-900 font-black text-base">
                   汇报结束
                 </div>
               </div>

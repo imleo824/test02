@@ -4,16 +4,13 @@ import { PerformanceReformSection } from "./PerformanceReformSection";
 import { SystemToolsSection } from "./SystemToolsSection";
 import { ModuleStatusCard } from "./ModuleStatusCard";
 import { ManualAuditEfficiencyChart } from "./ManualAuditEfficiencyChart";
+import { ChapterTitle } from "../../ReportSections";
 
 export const ManualAuditSection: React.FC = () => {
   return (
     <div id="section-manual-audit" className="space-y-8">
       {/* 3.4 人工审核 模块主标题 */}
-      <div className="bg-slate-900 text-white rounded-xl py-3 px-5 ">
-        <h2 className="text-xl md:text-2xl font-black tracking-tight text-white">
-          3.4 人工审核
-        </h2>
-      </div>
+      <ChapterTitle>3.4 人工审核</ChapterTitle>
 
       {/* 3.4 核心价值、关键指标、当前状态与整体进度 */}
       <ModuleStatusCard
@@ -37,4 +34,3 @@ export const ManualAuditSection: React.FC = () => {
     </div>
   );
 };
-

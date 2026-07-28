@@ -1,19 +1,311 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&family=Fira+Code:wght@400;500;600;700&display=swap');
-
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
-  --font-display: "Outfit", sans-serif;
+  --font-sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DIN Alternate", "PingFang SC", "Microsoft YaHei", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
-  body {
-    @apply text-slate-900 text-base leading-relaxed;
+  :root {
+    --report-ink: #111827;
+    --report-blue: #1d4e89;
+    --report-blue-soft: #eef5ff;
+    --report-line: #d7dee8;
+    --report-soft: #f7f9fc;
+    --report-danger: #9f1239;
+    --report-danger-soft: #fff1f2;
+    --report-ok: #166534;
+    --report-ok-soft: #eef8f2;
+    --report-warn: #854d0e;
+    --report-warn-soft: #fff7ed;
   }
+
+  html {
+    background: #ffffff;
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply text-base;
+    background: #ffffff;
+    color: var(--report-ink);
+    line-height: 1.65;
+    font-variant-numeric: tabular-nums;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
+    @apply font-display;
+    color: var(--report-ink);
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+@layer components {
+  .report-shell {
+    background: #ffffff;
+    color: var(--report-ink);
+    font-family: var(--font-sans);
+  }
+
+  .report-shell *,
+  .report-shell *::before,
+  .report-shell *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+    letter-spacing: 0 !important;
+  }
+
+  .report-main {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .report-chapter-title {
+    border-top: 3px solid var(--report-ink);
+    border-bottom: 1px solid var(--report-line);
+    background: #ffffff;
+    padding: 14px 0 12px;
+  }
+
+  .report-chapter-title h2 {
+    color: var(--report-ink);
+    font-size: clamp(24px, 2.1vw, 34px);
+    font-weight: 900;
+  }
+
+  .report-card {
+    background: #ffffff;
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .report-card-soft {
+    background: var(--report-soft);
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .report-note {
+    background: var(--report-blue-soft);
+    border-left: 4px solid var(--report-blue);
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .report-status-card {
+    background: #ffffff;
+    border-top: 3px solid var(--report-ink);
+    border-right: 1px solid var(--report-line);
+    border-bottom: 1px solid var(--report-line);
+    border-left: 1px solid var(--report-line);
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .report-status-label {
+    color: var(--report-blue);
+    font-size: 15px;
+    font-weight: 900;
+  }
+
+  .report-status-value {
+    color: var(--report-ink);
+    font-size: clamp(20px, 2.2vw, 32px);
+    font-weight: 900;
+    line-height: 1.35;
+  }
+
+  .report-shell .rounded-xl,
+  .report-shell .rounded-2xl,
+  .report-shell .rounded-3xl {
+    border-radius: 8px !important;
+  }
+
+  .report-shell .shadow,
+  .report-shell .shadow-sm,
+  .report-shell .shadow-md,
+  .report-shell .shadow-lg,
+  .report-shell .shadow-xl,
+  .report-shell .shadow-2xl,
+  .report-shell .shadow-xs {
+    box-shadow: none !important;
+  }
+
+  .report-shell [class*="text-slate-"],
+  .report-shell [class*="text-gray-"],
+  .report-shell [class*="text-zinc-"],
+  .report-shell [class*="text-neutral-"] {
+    color: var(--report-ink) !important;
+  }
+
+  .report-shell [class*="bg-slate-900"],
+  .report-shell [class*="bg-[#1e293b]"] {
+    background-color: var(--report-ink) !important;
+    color: #ffffff !important;
+  }
+
+  .report-shell [class*="bg-slate-50"],
+  .report-shell [class*="bg-slate-100"],
+  .report-shell [class*="bg-slate-200"],
+  .report-shell [class*="bg-[#f8fafc]"] {
+    background-color: var(--report-soft) !important;
+  }
+
+  .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-50"][class*="border"],
+  .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-100"][class*="border"],
+  .report-shell div[class*="bg-white"][class*="border"] div[class*="bg-slate-200"][class*="border"] {
+    border-color: transparent !important;
+  }
+
+  .report-shell [class*="border-slate-100"],
+  .report-shell [class*="border-slate-200"],
+  .report-shell [class*="border-slate-300"],
+  .report-shell [class*="divide-slate-100"],
+  .report-shell [class*="divide-slate-200"] {
+    border-color: var(--report-line) !important;
+  }
+
+  .report-shell [class*="text-blue-"],
+  .report-shell [class*="text-sky-"],
+  .report-shell [class*="text-indigo-"],
+  .report-shell [class*="text-purple-"] {
+    color: var(--report-blue) !important;
+  }
+
+  .report-shell [class*="bg-blue-"],
+  .report-shell [class*="bg-sky-"],
+  .report-shell [class*="bg-indigo-"],
+  .report-shell [class*="bg-purple-"] {
+    background-color: var(--report-blue-soft) !important;
+  }
+
+  .report-shell [class*="border-blue-"],
+  .report-shell [class*="border-sky-"],
+  .report-shell [class*="border-indigo-"],
+  .report-shell [class*="border-purple-"] {
+    border-color: #b8c9e6 !important;
+  }
+
+  .report-shell .bg-blue-600,
+  .report-shell .bg-blue-700 {
+    background-color: var(--report-blue) !important;
+    color: #ffffff !important;
+  }
+
+  .report-shell [class*="text-rose-"],
+  .report-shell [class*="text-red-"] {
+    color: var(--report-danger) !important;
+  }
+
+  .report-shell [class*="bg-rose-"],
+  .report-shell [class*="bg-red-"] {
+    background-color: var(--report-danger-soft) !important;
+  }
+
+  .report-shell [class*="border-rose-"],
+  .report-shell [class*="border-red-"] {
+    border-color: #f3c7ce !important;
+  }
+
+  .report-shell .bg-rose-600,
+  .report-shell .bg-red-600,
+  .report-shell .bg-red-500 {
+    background-color: var(--report-danger) !important;
+    color: #ffffff !important;
+  }
+
+  .report-shell [class*="text-emerald-"],
+  .report-shell [class*="text-green-"] {
+    color: var(--report-ok) !important;
+  }
+
+  .report-shell [class*="bg-emerald-"],
+  .report-shell [class*="bg-green-"] {
+    background-color: var(--report-ok-soft) !important;
+  }
+
+  .report-shell [class*="border-emerald-"],
+  .report-shell [class*="border-green-"] {
+    border-color: #bdd8c8 !important;
+  }
+
+  .report-shell .bg-emerald-600,
+  .report-shell .bg-emerald-700,
+  .report-shell .bg-green-600,
+  .report-shell .bg-green-700 {
+    background-color: var(--report-ok) !important;
+    color: #ffffff !important;
+  }
+
+  .report-shell [class*="text-amber-"],
+  .report-shell [class*="text-orange-"],
+  .report-shell [class*="text-yellow-"] {
+    color: var(--report-warn) !important;
+  }
+
+  .report-shell [class*="bg-amber-"],
+  .report-shell [class*="bg-orange-"],
+  .report-shell [class*="bg-yellow-"] {
+    background-color: var(--report-warn-soft) !important;
+  }
+
+  .report-shell [class*="border-amber-"],
+  .report-shell [class*="border-orange-"],
+  .report-shell [class*="border-yellow-"] {
+    border-color: #efd0aa !important;
+  }
+
+  .report-shell [class*="bg-slate-900"] *,
+  .report-shell [class*="bg-[#1e293b]"] *,
+  .report-shell [class*="bg-blue-600"] *,
+  .report-shell [class*="bg-blue-700"] *,
+  .report-shell [class*="bg-emerald-700"] * {
+    color: #ffffff !important;
+  }
+
+  .report-shell table {
+    border-collapse: collapse;
+    color: var(--report-ink);
+  }
+
+  .report-shell th {
+    background: #eef2f7 !important;
+    color: var(--report-ink) !important;
+    font-weight: 900 !important;
+  }
+
+  .report-shell td,
+  .report-shell th {
+    border-color: var(--report-line) !important;
+  }
+
+  .report-shell .recharts-text {
+    fill: var(--report-ink) !important;
+    font-family: var(--font-sans);
+    font-weight: 800;
+  }
+
+  .report-shell .recharts-cartesian-axis-tick-value,
+  .report-shell .recharts-label,
+  .report-shell .recharts-legend-item-text {
+    color: var(--report-ink) !important;
+    fill: var(--report-ink) !important;
+  }
+
+  .report-shell .recharts-cartesian-grid line {
+    stroke: var(--report-line) !important;
   }
 }
 

@@ -155,27 +155,19 @@ export const SummaryBox = ({
   const hasMargin = className.match(/\b(m|m[tby])-\d+/);
   const marginClass = hasMargin ? "" : "mb-6";
 
-  const defaultIcon = (
-    <div className="shrink-0 w-7 h-7 rounded-lg bg-blue-600 border border-blue-600 flex items-center justify-center text-white mt-0.5">
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    </div>
-  );
-
   return (
     <div
-      className={`rounded-xl bg-blue-50/40 border border-blue-100 p-5 md:p-6 ${marginClass} relative ${className}`}
+      className={`report-note p-4 md:p-5 ${marginClass} relative ${className}`}
     >
       {title && (
         <div
-          className="flex items-center gap-2 mb-3 text-blue-950 font-black text-sm uppercase tracking-wider"
+          className="flex items-center gap-2 mb-2 text-blue-950 font-black text-sm"
         >
           {icon && <span>{icon}</span>}
           <span>{title}</span>
         </div>
       )}
-      <div className="flex items-start gap-3.5">
+      <div className="flex items-start gap-3">
         <div className="text-base md:text-lg text-slate-950 font-bold leading-relaxed flex-1">
           {children}
         </div>
@@ -249,8 +241,8 @@ export const MetricTile = ({
 }) => {
   const showUnit = unit && !["E", "万", "亿", "万元", "亿元"].includes(unit);
   return (
-    <div className="rounded-2xl bg-white p-6 border border-slate-100 ">
-      <div className="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900">
+    <div className="report-card p-5 md:p-6">
+      <div className="mb-3 text-sm font-bold text-slate-900">
         {label}
         {showUnit ? ` (${unit})` : ""}
       </div>
@@ -283,11 +275,11 @@ export const CoreActionHeader = ({
   <div className="flex flex-col gap-3 break-inside-avoid mb-1">
     <div className="flex flex-wrap items-center gap-3">
       {index && (
-        <span className="rounded-md bg-blue-600/10 px-2 py-0.5 text-sm font-mono font-bold tracking-wide text-blue-900">
+        <span className="rounded-md bg-blue-600/10 px-2 py-0.5 text-sm font-mono font-bold text-blue-900">
           {index}
         </span>
       )}
-      <h3 className="text-xl md:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-1.5">
+      <h3 className="text-xl md:text-2xl font-black text-slate-900 flex items-center gap-2">
         {title}
       </h3>
     </div>
@@ -313,7 +305,7 @@ export const ExpectedRhythm = ({
   items: { month: string; title?: string; desc?: string; status?: string; submitTime?: string; tagColor?: "blue" | "amber" | "emerald" | "slate" }[];
 }) => {
   return (
-    <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 space-y-3 mt-auto">
+    <div className="report-card-soft p-4 space-y-3 mt-auto">
       <div className="flex items-center justify-between border-b border-slate-200 pb-2">
         <span className="font-black text-slate-900 text-sm md:text-base flex items-center gap-2">
           <span className="w-2 h-4 bg-blue-600 rounded-full"></span>
@@ -328,7 +320,7 @@ export const ExpectedRhythm = ({
           if (step.tagColor === "slate") colorClass = "text-slate-900 bg-slate-100 border-slate-200";
 
           return (
-            <div key={idx} className="bg-white border border-slate-200 rounded-lg p-3 flex flex-col justify-between h-full space-y-2 shadow-sm">
+            <div key={idx} className="bg-white rounded-lg p-3 flex flex-col justify-between h-full space-y-2">
               <div>
                 <span className={`text-xs font-black px-2 py-0.5 rounded border inline-block mb-2 w-full text-center ${items.length > 3 && !step.title && !step.submitTime ? "" : "w-auto text-left"} ${colorClass}`}>
                   {step.month}
@@ -336,12 +328,12 @@ export const ExpectedRhythm = ({
                 {step.title && <div className="font-black text-slate-900 text-sm">{step.title}</div>}
               </div>
               {step.desc && (
-                <div className={`text-xs text-slate-800 font-bold leading-relaxed ${items.length > 3 && !step.title && !step.submitTime ? "text-center mt-auto mb-auto" : ""}`}>
+                <div className={`text-xs text-slate-900 font-bold leading-relaxed ${items.length > 3 && !step.title && !step.submitTime ? "text-center mt-auto mb-auto" : ""}`}>
                   {step.desc}
                 </div>
               )}
               {step.submitTime && (
-                 <div className="text-xs text-slate-600 font-bold pt-2 border-t border-slate-100 mt-2">
+                 <div className="text-xs text-slate-900 font-bold pt-2 border-t border-slate-100 mt-2">
                    <div className="flex justify-between items-center mb-1"><span className="font-black text-slate-900">提交:</span> <span className="font-mono text-blue-900">{step.submitTime}</span></div>
                    <div className="flex justify-between items-center"><span className="font-black text-slate-900">状态:</span> <span className="text-amber-900">{step.status}</span></div>
                  </div>
