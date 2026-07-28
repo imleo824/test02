@@ -388,6 +388,7 @@
 
   .report-status-content {
     flex: 1;
+    min-height: 0;
   }
 
   .report-status-label {
@@ -402,8 +403,8 @@
     font-weight: 900;
     line-height: 1.55;
     display: flex;
-    align-items: flex-start;
-    padding-top: 4px;
+    align-items: center;
+    padding-top: 0;
   }
 
   .report-status-metric-list {
@@ -478,6 +479,7 @@
     background: var(--report-blue-soft);
     border: 1px solid #d8e3f1;
     border-radius: 6px;
+    margin-block: auto;
   }
 
   .report-status-progress-panel strong {
@@ -528,6 +530,26 @@
     color: var(--report-ink);
     font-size: 15px;
     line-height: 1.2;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .manual-flow-status-top span i {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: var(--report-blue);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1;
+    font-style: normal;
     font-weight: 900;
   }
 
@@ -867,6 +889,65 @@
 
   .agent-warning-step-risk strong {
     color: #b42318;
+  }
+
+  .dispatch-decision-card {
+    background: #ffffff;
+    border: 1px solid var(--report-line);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+  }
+
+  .dispatch-decision-body {
+    color: var(--report-ink);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 800;
+    flex: 1;
+  }
+
+  .dispatch-decision-result {
+    margin-top: auto;
+    border-top: 1px solid var(--report-line);
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+  }
+
+  .dispatch-decision-result span {
+    color: var(--report-ink);
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .dispatch-decision-result strong {
+    color: var(--report-blue);
+    background: var(--report-blue-soft);
+    border: 1px solid #d8e3f1;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .dispatch-decision-result p {
+    color: var(--report-ink);
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 900;
   }
 
   .report-dense-table {

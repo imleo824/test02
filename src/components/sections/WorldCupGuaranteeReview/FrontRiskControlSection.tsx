@@ -265,17 +265,19 @@ export const FrontRiskControlSection: React.FC = () => {
                         <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
                         <span>风控事件</span>
                       </div>
-                      <span className="px-2 py-1 rounded text-xs font-black shrink-0 bg-amber-50 text-amber-900 border border-amber-200">
-                        提交时间：20260309
-                      </span>
                     </div>
 
                     <div className="space-y-2.5 pl-1.5">
                       {/* 子元素 1: 扣款事件 */}
                       <div className="bg-white border border-slate-200 p-2.5 rounded-lg space-y-1">
-                        <div className="flex items-center gap-1.5 text-slate-900 font-black text-xs">
-                          <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
-                          <span>① 扣款事件</span>
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1.5 text-slate-900 font-black text-xs">
+                            <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
+                            <span>① 扣款事件</span>
+                          </div>
+                          <span className="px-2 py-0.5 rounded text-xs font-black shrink-0 bg-amber-50 text-amber-900 border border-amber-200">
+                            提交时间：20260309
+                          </span>
                         </div>
                         <p className="text-xs text-slate-900 font-bold leading-relaxed pl-2.5">
                           账号扣款触发跨站多账号关联上标；如某站一个账号被扣款，所有站点与这个账号强关联的账号都会被上标
@@ -284,9 +286,14 @@ export const FrontRiskControlSection: React.FC = () => {
 
                       {/* 子元素 2: 禁用事件 */}
                       <div className="bg-white border border-slate-200 p-2.5 rounded-lg space-y-1">
-                        <div className="flex items-center gap-1.5 text-slate-900 font-black text-xs">
-                          <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
-                          <span>② 禁用事件</span>
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1.5 text-slate-900 font-black text-xs">
+                            <span className="w-1 h-1 bg-amber-500 rounded-full"></span>
+                            <span>② 禁用事件</span>
+                          </div>
+                          <span className="px-2 py-0.5 rounded text-xs font-black shrink-0 bg-amber-50 text-amber-900 border border-amber-200">
+                            提交时间：20260309
+                          </span>
                         </div>
                         <p className="text-xs text-slate-900 font-bold leading-relaxed pl-2.5">
                           账号禁用同步标记同设备与同存款地址关联用户；如某站一个账号被禁用，所有站点与这个账号强关联的账号都会被上标

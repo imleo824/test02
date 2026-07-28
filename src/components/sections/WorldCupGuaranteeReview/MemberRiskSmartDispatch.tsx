@@ -110,14 +110,14 @@ export const MemberRiskSmartDispatch: React.FC = () => {
             运行场景与分配决策演示
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
             {/* 场景一：体育专长匹配 */}
-            <div className="bg-white border border-slate-200 rounded-xl p-4 space-y-3">
+            <div className="dispatch-decision-card">
               <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
                 <span className="w-6 h-6 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">1</span>
                 <span className="text-sm font-black text-slate-900">体育专长匹配</span>
               </div>
-              <div className="space-y-2 text-sm text-slate-900">
+              <div className="dispatch-decision-body">
                 <div>
                   <span className="font-bold">待分订单：</span>
                   <span className="font-black text-blue-900 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">体育类型订单</span>
@@ -126,21 +126,21 @@ export const MemberRiskSmartDispatch: React.FC = () => {
                   <span className="font-bold">空闲人员：</span>
                   <span className="font-black text-slate-900">审核员 A (擅长体育) | B (擅长真人)</span>
                 </div>
-                <div className="pt-1 border-t border-slate-200">
-                  <span className="font-bold">分配决策：</span>
-                  <span className="font-black text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded">指派 A 审核</span>
-                  <div className="text-xs font-black text-slate-900 mt-1">专业对口，提升审核效率。</div>
+                <div className="dispatch-decision-result">
+                  <span>分配决策</span>
+                  <strong>指派 A 审核</strong>
+                  <p>专业对口，提升审核效率。</p>
                 </div>
               </div>
             </div>
 
             {/* 场景二：高绩效优先 */}
-            <div className="bg-white border border-slate-200 rounded-xl p-4 space-y-3">
+            <div className="dispatch-decision-card">
               <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
                 <span className="w-6 h-6 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">2</span>
                 <span className="text-sm font-black text-slate-900">高绩效优先</span>
               </div>
-              <div className="space-y-2 text-sm text-slate-900">
+              <div className="dispatch-decision-body">
                 <div>
                   <span className="font-bold">待分订单：</span>
                   <span className="font-black text-slate-900 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-300">常规提款订单</span>
@@ -149,21 +149,21 @@ export const MemberRiskSmartDispatch: React.FC = () => {
                   <span className="font-bold">空闲人员：</span>
                   <span className="font-black text-slate-900">审核员 A (历史绩效高) | B (绩效普通)</span>
                 </div>
-                <div className="pt-1 border-t border-slate-200">
-                  <span className="font-bold">分配决策：</span>
-                  <span className="font-black text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded">指派 A 审核</span>
-                  <div className="text-xs font-black text-slate-900 mt-1">优先保障高绩效人员处理，提高质量。</div>
+                <div className="dispatch-decision-result">
+                  <span>分配决策</span>
+                  <strong>指派 A 审核</strong>
+                  <p>优先保障高绩效人员处理，提高质量。</p>
                 </div>
               </div>
             </div>
 
             {/* 场景三：分组权限控制 */}
-            <div className="bg-white border border-slate-200 rounded-xl p-4 space-y-3">
+            <div className="dispatch-decision-card">
               <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
                 <span className="w-6 h-6 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">3</span>
                 <span className="text-sm font-black text-slate-900">分组权限控制</span>
               </div>
-              <div className="space-y-2 text-sm text-slate-900">
+              <div className="dispatch-decision-body">
                 <div>
                   <span className="font-bold">待分订单：</span>
                   <span className="font-black text-rose-900 bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200">大额或高风险订单</span>
@@ -172,10 +172,10 @@ export const MemberRiskSmartDispatch: React.FC = () => {
                   <span className="font-bold">空闲人员：</span>
                   <span className="font-black text-slate-900">审核员 A (资深组权限) | B (限低风险低金额)</span>
                 </div>
-                <div className="pt-1 border-t border-slate-200">
-                  <span className="font-bold">分配决策：</span>
-                  <span className="font-black text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded">指派 A 审核</span>
-                  <div className="text-xs font-black text-slate-900 mt-1">严格拦截权限不足人员，保障资金安全。</div>
+                <div className="dispatch-decision-result">
+                  <span>分配决策</span>
+                  <strong>指派 A 审核</strong>
+                  <p>严格拦截权限不足人员，保障资金安全。</p>
                 </div>
               </div>
             </div>

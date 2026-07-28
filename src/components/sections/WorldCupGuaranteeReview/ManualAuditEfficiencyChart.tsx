@@ -12,7 +12,7 @@ import {
   LabelList,
 } from "recharts";
 import { SummaryBox, highlightNumbers } from "./utils";
-import { ReportBadge, ReportPanel, ReportPanelHeader } from "../../ReportSections";
+import { ReportPanel, ReportPanelHeader } from "../../ReportSections";
 import {
   chartAxisTick,
   chartColors,
@@ -73,14 +73,7 @@ export const ManualAuditEfficiencyChart: React.FC = () => {
   return (
     <ReportPanel className="space-y-4">
       {/* 头部标题 */}
-      <ReportPanelHeader
-        title="人均效能"
-        rightContent={
-          <ReportBadge tone="slate">
-          换算标准：30天/月（4-5月按 9小时/天，6月按 11小时/天）
-          </ReportBadge>
-        }
-      />
+      <ReportPanelHeader title="人均效能" />
 
       {/* 核心结论与逻辑总结 */}
       <SummaryBox className="mb-0 my-2" hideIcon={false}>

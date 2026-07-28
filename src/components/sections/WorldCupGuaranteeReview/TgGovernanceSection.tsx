@@ -59,7 +59,10 @@ export const TgGovernanceSection: React.FC = () => {
             {statusGroups.map((group) => (
               <div key={group.label} className={group.className}>
                 <div className="manual-flow-status-top">
-                  <span>{group.label}：{group.title}</span>
+                  <span>
+                    <i>{group.label === "第一类" ? "1" : "2"}</i>
+                    {group.label}：{group.title}
+                  </span>
                   <strong>{group.status}</strong>
                 </div>
                 <p>{group.desc}</p>
