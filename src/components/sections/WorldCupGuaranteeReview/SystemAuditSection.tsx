@@ -193,6 +193,9 @@ export const SystemAuditSection: React.FC = () => {
             全链路闭环
           </span>
         </div>
+        <SummaryBox>
+          {highlightNumbers("系统先按规则和模型审核订单，人工复核异常结果，再把审核结论回填到系统，持续修正规则、特征和阈值。")}
+        </SummaryBox>
 
         {/* 流程图主容器 */}
         <div className="flex flex-col xl:flex-row items-center justify-center gap-4 text-slate-900 w-full pb-6 xl:pb-44">

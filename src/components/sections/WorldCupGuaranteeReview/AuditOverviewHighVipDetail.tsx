@@ -56,15 +56,6 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
     },
   ];
 
-  // 类型人数与占比数据
-  const typePeopleData = [
-    { type: "体育打水", count: 371, pct: "45.80%" },
-    { type: "彩金套利", count: 203, pct: "25.06%" },
-    { type: "电竞打水", count: 112, pct: "13.83%" },
-    { type: "租卖号", count: 81, pct: "10.00%" },
-    { type: "软件投注", count: 43, pct: "5.31%" },
-  ];
-
   return (
     <div id="section-audit-high-vip-detail" className="space-y-6 pt-2">
       {/* 模块小标题 - 统一规范 */}
@@ -216,28 +207,6 @@ export const AuditOverviewHighVipDetail: React.FC = () => {
           </div>
         </div>
 
-        {/* 违规类型人数与占比汇总 */}
-        <div className="bg-white border border-slate-200 rounded-xl overflow-hidden p-5 md:p-6">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
-            <h4 className="text-base md:text-lg font-black tracking-tight text-slate-900 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-blue-600 rounded-xs"></span>
-              高V违规类型人数与占比汇总
-            </h4>
-            <span className="text-xs font-bold text-slate-900 bg-slate-100 px-0.5 md:px-1 lg:px-2.5 py-1 rounded border border-slate-200">
-              违规会员共计：<strong className="font-black text-slate-900">810 人</strong>
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-            {typePeopleData.map((item, idx) => (
-              <div key={idx} className="bg-slate-50 border border-slate-200 rounded-lg p-1 md:p-2 lg:p-3 space-y-1.5 text-center">
-                <div className="text-xs font-black text-slate-900">{item.type}</div>
-                <div className="text-lg font-black text-blue-900 font-mono">{item.count} 人</div>
-                <div className="text-xs font-bold text-slate-900">人数占比：<span className="font-mono">{item.pct}</span></div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );

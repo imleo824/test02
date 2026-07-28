@@ -251,7 +251,7 @@ export const FrontRiskControlSection: React.FC = () => {
                             <span>② 同局关联下注</span>
                           </div>
                           <span className="px-2 py-0.5 rounded text-xs font-black shrink-0 bg-amber-50 text-amber-900 border border-amber-200">
-                            需求时间：20251027
+                            提交时间：20251027
                           </span>
                         </div>
                       </div>
@@ -266,7 +266,7 @@ export const FrontRiskControlSection: React.FC = () => {
                         <span>风控事件</span>
                       </div>
                       <span className="px-2 py-1 rounded text-xs font-black shrink-0 bg-amber-50 text-amber-900 border border-amber-200">
-                        需求时间：20260309
+                        提交时间：20260309
                       </span>
                     </div>
 
