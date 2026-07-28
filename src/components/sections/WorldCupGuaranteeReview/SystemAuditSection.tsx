@@ -133,7 +133,7 @@ export const SystemAuditSection: React.FC = () => {
 
       <ReportPanel className="space-y-5">
         <ReportPanelHeader
-          title={<><Scale className="w-5 h-5 text-blue-900 shrink-0" />系统评估指标</>}
+          title="系统评估指标"
           rightContent={<ReportBadge tone="blue">目标：系统审核率80%</ReportBadge>}
         />
 
